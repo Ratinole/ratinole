@@ -1,4 +1,4 @@
-<div align="center">
+.<div align="center">
 
 # Ratinole
 
@@ -29,7 +29,7 @@ Track NVIDIA GPU compute rewards, estimate operating costs, and plan NVDA swaps 
 - [Configuration](#configuration)
 - [Known limits](#known-limits)
 - [FAQ](#faq)
-- [The $RATINOLE token](#the-ratinole-token)
+- [The $RAT token](#the-rat-token)
 - [Disclaimer](#disclaimer)
 
 ---
@@ -146,7 +146,7 @@ Settings live near the top of the script in `index.html`:
 | `LIVE.tokens` | `LIVE` object | NVDA and USDG contract addresses |
 | `U` | Market module | Uniswap v3 factory, quoter and router addresses |
 | `T` | Market module | NVDA, USDG and WETH addresses and decimals |
-| `LIVE.ratinole.addr` | Market module | $RATINOLE contract address (empty until deployed) |
+| `LIVE.ratinole.addr` | Market module | $RAT contract address (empty until deployed) |
 | `GEO_BLOCK` | Swap module | Country codes where swaps are switched off |
 
 Contract addresses should always be compared with Robinhood's documentation and the block explorer before use.
@@ -177,7 +177,7 @@ No. Every figure is an estimate built from inputs you can see and change.
 **Is it open to everyone?**
 No. See the disclaimer below.
 
-## The $RATINOLE token
+## The $RAT token
 
 The contract address has not been published yet. Until it is, the token card on the site reads "Not deployed". Once the address is set in `LIVE.ratinole.addr`, the site reads the name, symbol, supply and owner directly from the chain. Do not trust any address that is not published on [@RatinoleHQ](https://x.com/RatinoleHQ) and on [ratinole.co](https://www.ratinole.co).
 
