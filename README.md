@@ -153,7 +153,7 @@ Contract addresses should always be compared with Robinhood's documentation and 
 
 ## Known limits
 
-- **Node earnings are not read.** Nosana publishes no public endpoint for a host's jobs or earnings, and its dashboard API needs an account key. Host rates in the calculator are examples; use the manual rate for your real figure.
+- **Node records depend on Nosana.** Enter a host address and Ratinole reads its record, rewards and uptime from Nosana's public API and shows the fields as returned. If Nosana needs a key or has no record, the page says so. Host rates in the calculator are the median of Nosana's public market list when it can be read, otherwise examples.
 - **Thin liquidity.** Most NVDA/USDG liquidity on Robinhood Chain sits in Uniswap v4 pools, while Ratinole swaps through v3. Swaps work, but price impact can be high on small pools, which is why the 3% guard exists.
 - **ETH quotes are not price-checked.** The reference-price guard needs a USDG input. Use USDG when you want that check.
 - **Region check is soft.** It uses the visitor's detected country and can be bypassed with a VPN. It is not legal compliance.
