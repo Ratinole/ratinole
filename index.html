@@ -230,9 +230,28 @@ footer nav a{color:var(--mute);text-decoration:none;font-size:14px}
 .flow5 b{display:block;margin:6px 0 4px;font-weight:500}.flow5 span{font-size:13px;color:var(--mute)}
 .modal{position:fixed;inset:0;background:#000a;backdrop-filter:blur(6px);z-index:60;display:none;place-items:end center;padding:16px}
 .modal.on{display:grid}
-.modal .card{width:min(460px,100%);margin-bottom:6vh}
+.modal{place-items:center}
+.modal .card{position:relative;width:min(460px,100%);max-height:88vh;overflow-y:auto;overscroll-behavior:contain;background:var(--bg1,#0f0f0e);padding:24px 20px 22px;margin:0}
+.mh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.mh h3{margin:0;font-size:20px;text-align:center;flex:1}
+.mh .x{position:static;flex:none;width:36px;height:36px;font-size:15px}
+.mr{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:10px 6px;background:none;border:0;border-radius:14px;color:var(--ink);cursor:pointer;text-align:left;font-size:17px}
+.mr:hover,.mr:focus-visible{background:#ffffff0d}
+.mr .ic{position:relative;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;font-weight:700;font-size:20px;color:#fff;overflow:hidden}
+.mr .ic img{width:100%;height:100%;object-fit:cover}
+.mr .nm{flex:1}.mr .nm small{display:block;color:var(--mute);font-size:12px;margin-top:2px}
+.mr::after{content:"›";color:var(--mute);font-size:26px;line-height:1}
+.mr.srch{background:#ffffff12;margin-top:8px;padding:10px 14px}
+.mr.srch .ic{background:#ffffff14;color:var(--mute)}
+.mr .bd{font-size:13px;color:var(--mute);background:#ffffff14;border-radius:8px;padding:4px 8px}
+.modal .card p{overflow-wrap:anywhere}
+.modal .card>p.mute{margin-top:18px}
+.mw{min-height:56px}
+.mwl{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.mwl a{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:0 16px;border:1px solid var(--line2);border-radius:12px;color:var(--ink);text-decoration:none;font-size:16px}
+.mwl a::after{content:"↗";color:var(--a)}
 .mw{display:flex;align-items:center;gap:12px;border:1px solid var(--line2);border-radius:12px;padding:14px;margin:16px 0;cursor:pointer;background:none;width:100%;text-align:left}
-.x{float:right;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:none;cursor:pointer}
+.x{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line2);background:none;color:var(--ink);cursor:pointer;font-size:16px}
 /* docs */
 .doc{max-width:780px}
 .doc h2{font-size:clamp(28px,3.4vw,40px);margin:64px 0 16px;padding-top:48px;border-top:1px solid var(--line)}
@@ -510,10 +529,8 @@ pre{background:#080807;border:1px solid var(--line2);border-radius:14px;padding:
 </div></footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Connect a wallet"><div class="card">
-  <button class="x" id="mx" aria-label="Close">✕</button>
-  <h3>Connect a wallet</h3>
-  <div id="mpick"><button class="mw" id="mwi"><span style="font-size:22px">◧</span><span style="flex:1">Browser wallet</span><span class="pill" id="mwst">…</span></button>
-  <button class="mw" id="mwb"><span style="font-size:22px">▯</span><span style="flex:1">Open in a wallet app</span><span class="pill">Mobile</span></button></div>
+  <div class="mh"><button class="x" id="mq" aria-label="What is a wallet?">?</button><h3>Connect Wallet</h3><button class="x" id="mx" aria-label="Close">✕</button></div>
+  <div id="mpick"><div id="mlist"></div></div>
   <div id="mconn" style="display:none;margin:16px 0"><small class="mono dim" style="letter-spacing:.14em">CONNECTED ADDRESS</small><p class="mono" id="maddr" style="font-size:13px;overflow-wrap:anywhere;margin:8px 0 14px"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" id="mref">↻ Refresh balances</button><button class="btn sm" id="mdis">Disconnect</button></div></div>
   <p class="mute" style="font-size:14px">Connecting shares your public address with this page so it can read balances. It does not start or change any GPU work, and it gives no permission to spend. Ratinole never asks for a seed phrase or a private key, and every transaction needs your approval in the wallet.</p>
   <p id="mmsg" class="acc" style="font-size:14px;margin-top:12px"></p>
@@ -721,7 +738,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 const watch=()=>$$('.rv:not(.in)').forEach(el=>io.observe(el));watch();
 
 /* ===== LIVE layer: Robinhood Chain RPC, NOS price, browser wallet ===== */
-const LIVE={rpc:'https://rpc.mainnet.chain.robinhood.com',chainId:4663,chainHex:'0x1237',explorer:'https://robinhoodchain.blockscout.com',nosana:'https://dashboard.k8s.prd.nos.ci',tokens:{USDG:{addr:'0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168'},NVDA:{addr:'0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC'}}};
+const LIVE={wcId:'',rpc:'https://rpc.mainnet.chain.robinhood.com',chainId:4663,chainHex:'0x1237',explorer:'https://robinhoodchain.blockscout.com',nosana:'https://dashboard.k8s.prd.nos.ci',tokens:{USDG:{addr:'0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168'},NVDA:{addr:'0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC'}}};
 const ST={rpc:null,nos:null,rh:null,tok:null,uni:null};
 const W={addr:null,chain:null,bal:null};
 const ADDR=/^0x[0-9a-fA-F]{40}$/;
@@ -731,12 +748,13 @@ const tokAddr=k=>(LIVE.tokens[k]||{}).addr||'';
 const fmtUnits=(v,d,p=6)=>{if(!d)return v.toString();const s=v.toString().padStart(d+1,'0');const i=s.slice(0,-d),f=s.slice(-d).slice(0,p).replace(/0+$/,'');return Number(i).toLocaleString('en-US')+(f?'.'+f:'')};
 const dstr=h=>{h=(h||'').slice(2);if(h.length>=128){const n=parseInt(h.slice(64,128),16);h=h.slice(128,128+n*2)}else{h=h.replace(/(00)+$/,'')}return new TextDecoder().decode(Uint8Array.from(h.match(/../g)||[],x=>parseInt(x,16)))};
 const EIP=[];
-window.addEventListener('eip6963:announceProvider',e=>{try{EIP.push(e.detail);hookEth();$('#mwst')&&openModalStatus()}catch(_){}});
+window.addEventListener('eip6963:announceProvider',e=>{try{EIP.push(e.detail);hookEth();try{renderList()}catch(_){}}catch(_){}});
 try{window.dispatchEvent(new Event('eip6963:requestProvider'))}catch(_){}
-function ETH(){return window.ethereum||(EIP[0]&&EIP[0].provider)||null}
+let ACTIVE=null;
+function ETH(){return ACTIVE||window.ethereum||(EIP[0]&&EIP[0].provider)||null}
 function openModalStatus(){const p=$('#mwst');if(p){p.textContent=ETH()?'Detected':'Not detected';p.className='pill'+(ETH()?' ok':'')}}
 function walletLinks(msg){const u=location.href,h=location.host+location.pathname;const L=[['MetaMask','https://metamask.app.link/dapp/'+h],['Trust Wallet','https://link.trustwallet.com/open_url?coin_id=60&url='+encodeURIComponent(u)],['Coinbase Wallet','https://go.cb-w.com/dapp?cb_url='+encodeURIComponent(u)]];
-  $('#mmsg').innerHTML=msg+'<br>'+L.map(x=>'<a href="'+x[1]+'" style="color:var(--a);display:inline-block;margin:10px 16px 0 0;font-size:16px">'+x[0]+' ↗</a>').join('')}
+  $('#mmsg').innerHTML=esc(msg)+'<div class="mwl">'+L.map(x=>'<a href="'+x[1]+'">Open in '+x[0]+'</a>').join('')+'</div>'}
 async function rpc(method,params=[]){
   let last;
   for(const u of ['/api/rpc',LIVE.rpc]){
@@ -788,7 +806,7 @@ async function readNode(k,q){
   msg.textContent='Public record read from Nosana. Shown as returned; nothing is computed here.'}
 
 /* wallet */
-const openModal=()=>{$('#mmsg').textContent='';const p=$('#mwst');p.textContent=ETH()?'Detected':'Not detected';p.className='pill'+(ETH()?' ok':'');renderModal();$('#modal').classList.add('on');if(!ETH()&&!W.addr)walletLinks('No wallet in this browser (Brave on Android does not provide one by default). Open Ratinole inside your wallet app:');setTimeout(()=>$('#mx').focus(),0)};
+const openModal=()=>{$('#mmsg').textContent='';renderList();renderModal();$('#modal').classList.add('on');setTimeout(()=>$('#mx').focus(),0)};
 function renderModal(){$('#mconn').style.display=W.addr?'block':'none';$('#mpick').style.display=W.addr?'none':'block';if(W.addr)$('#maddr').textContent=W.addr+(W.chain!==LIVE.chainId?'  (wrong network)':'')}
 async function readBal(){
   if(!W.addr)return;const b={eth:null,tok:{}};
@@ -812,18 +830,44 @@ function renderWallet(){
 const walletName=p=>p.isRabby?'Rabby':p.isCoinbaseWallet?'Coinbase Wallet':p.isMetaMask?'MetaMask':'Browser wallet';
 $('#cw').onclick=openModal;$('#mx').onclick=()=>$('#modal').classList.remove('on');hookEth();
 $('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')};
-$('#mwb').onclick=()=>walletLinks('Opens this page inside the wallet app browser, where Connect works:');
-$('#mwi').onclick=async()=>{const p=ETH(),m=$('#mmsg');
-  if(!p){walletLinks('No wallet was found in this browser. Open Ratinole inside your wallet app instead:');return}
-  try{m.textContent='Approve the connection in your wallet…';const a=await p.request({method:'eth_requestAccounts'});W.addr=a[0];W.chain=parseInt(await p.request({method:'eth_chainId'}),16);
+const WL=[
+ {k:'robinhood',n:'Robinhood Wallet',c:'#0a0a23',l:'R',re:/robinhood/i,wc:1},
+ {k:'uniswap',n:'Uniswap Wallet',c:'#e2339f',l:'U',re:/uniswap/i,wc:1},
+ {k:'trust',n:'Trust Wallet',c:'#0b5cff',l:'T',re:/trust/i,link:()=>'https://link.trustwallet.com/open_url?coin_id=60&url='+encodeURIComponent(location.href)},
+ {k:'metamask',n:'MetaMask',c:'#e8821e',l:'M',re:/metamask/i,link:()=>'https://metamask.app.link/dapp/'+location.host+location.pathname},
+ {k:'coinbase',n:'Coinbase Wallet',c:'#0052ff',l:'C',re:/coinbase/i,link:()=>'https://go.cb-w.com/dapp?cb_url='+encodeURIComponent(location.href)}];
+function injectedFor(w){const e=EIP.find(x=>x.info&&(w.re.test(x.info.name||'')||w.re.test(x.info.rdns||'')));if(e)return{p:e.provider,icon:e.info.icon};
+  const g=window.ethereum;if(g&&((w.k==='metamask'&&g.isMetaMask)||(w.k==='trust'&&(g.isTrust||g.isTrustWallet))||(w.k==='coinbase'&&g.isCoinbaseWallet)||(w.k==='robinhood'&&g.isRobinhood)))return{p:g};return null}
+function renderList(){const L=$('#mlist');if(!L)return;
+  const known=e=>WL.some(w=>w.re.test(e.info&&e.info.name||'')||w.re.test(e.info&&e.info.rdns||''));
+  const extra=EIP.filter(e=>e.info&&!known(e));
+  L.innerHTML=extra.map((e,i)=>`<button class="mr" data-x="${i}"><span class="ic" style="background:#ffffff14">${e.info.icon?`<img alt="" src="${esc(e.info.icon)}">`:'◧'}</span><span class="nm">${esc(e.info.name||'Browser wallet')}<small>Detected in this browser</small></span></button>`).join('')+
+   WL.map(w=>{const inj=injectedFor(w);return `<button class="mr" data-w="${w.k}"><span class="ic" style="background:${w.c}">${w.l}<img alt="" src="${inj&&inj.icon?esc(inj.icon):'/logos/'+w.k+'.png'}" style="position:absolute;inset:0" onerror="this.remove()"></span><span class="nm">${w.n}${inj?'<small>Detected in this browser</small>':''}</span></button>`}).join('')+
+   `<button class="mr srch" data-s="1"><span class="ic">⌕</span><span class="nm">Search Wallet</span><span class="bd">100+</span></button>`;
+  L.querySelectorAll('[data-x]').forEach(b=>b.onclick=()=>{const e=extra[+b.dataset.x];connectWith(e.provider,e.info.name)});
+  L.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{const w=WL.find(x=>x.k===b.dataset.w),inj=injectedFor(w);
+    if(inj)return connectWith(inj.p,w.n);
+    if(w.link){$('#mmsg').textContent='Opening '+w.n+'…';location.href=w.link();return}
+    openWC(w.n)});
+  L.querySelector('[data-s]').onclick=()=>openWC('')}
+async function openWC(name){const m=$('#mmsg');
+  if(!LIVE.wcId){m.textContent=(name?name+' links through WalletConnect, which':'Wallet search uses WalletConnect, which')+' is not set up on this deployment yet. Use Trust Wallet, MetaMask or Coinbase Wallet above, or open Ratinole inside your wallet app.';return}
+  try{m.textContent='Opening WalletConnect…';
+    const {EthereumProvider}=await import('https://esm.sh/@walletconnect/ethereum-provider@2.17.0');
+    const p=await EthereumProvider.init({projectId:LIVE.wcId,optionalChains:[LIVE.chainId,1],showQrModal:true,rpcMap:{[LIVE.chainId]:LIVE.rpc},metadata:{name:'Ratinole',description:'GPU rewards to NVDA, approved from your wallet',url:location.origin,icons:[]}});
+    await p.connect();await connectWith(p,name||'WalletConnect')}
+  catch(e){m.textContent='WalletConnect did not connect: '+String(e&&e.message||e).slice(0,100)}}
+async function connectWith(p,name){const m=$('#mmsg');
+  try{ACTIVE=p;hookEth();m.textContent='Approve the connection in your wallet…';const a=await p.request({method:'eth_requestAccounts'});W.addr=a[0];W.chain=parseInt(await p.request({method:'eth_chainId'}),16);
     if(W.chain!==LIVE.chainId){
       try{await p.request({method:'wallet_switchEthereumChain',params:[{chainId:LIVE.chainHex}]})}
       catch(e){if(e&&(e.code===4902||e.code===-32603||/unrecognized|not added|unknown/i.test(e.message||''))){await p.request({method:'wallet_addEthereumChain',params:[{chainId:LIVE.chainHex,chainName:'Robinhood Chain',nativeCurrency:{name:'Ether',symbol:'ETH',decimals:18},rpcUrls:[LIVE.rpc],blockExplorerUrls:[LIVE.explorer]}]})}else throw e}
       W.chain=parseInt(await p.request({method:'eth_chainId'}),16)}
-    store.set('wname',walletName(p));m.textContent='Connected. Only your public address was shared.';afterWallet();readBal();setTimeout(()=>$('#modal').classList.remove('on'),700)}
-  catch(e){W.addr=null;W.chain=null;m.textContent=e&&e.code===4001?'You declined the request in your wallet. Nothing was shared.':'Could not connect: '+String(e&&e.message||e).slice(0,120);renderWallet()}};
+    store.set('wname',name||walletName(p));m.textContent='Connected. Only your public address was shared.';afterWallet();readBal();setTimeout(()=>$('#modal').classList.remove('on'),700)}
+  catch(e){W.addr=null;W.chain=null;ACTIVE=null;m.textContent=e&&e.code===4001?'You declined the request in your wallet. Nothing was shared.':'Could not connect: '+String(e&&e.message||e).slice(0,120);renderWallet()}}
+$('#mq').onclick=()=>{$('#mmsg').textContent='A wallet is an app that holds your keys. Pick yours from the list. Ratinole only sees your public address and never your keys.'};
 $('#mref').onclick=()=>{$('#mmsg').textContent='Reading balances…';readBal().then(()=>$('#mmsg').textContent='Balances refreshed.')};
-$('#mdis').onclick=()=>{W.addr=null;W.chain=null;W.bal=null;afterWallet();renderModal();$('#mmsg').textContent='Disconnected here. To revoke access completely, disconnect this site inside your wallet.'};
+$('#mdis').onclick=()=>{try{ACTIVE&&ACTIVE.disconnect&&ACTIVE.disconnect()}catch(e){}ACTIVE=null;W.addr=null;W.chain=null;W.bal=null;afterWallet();renderModal();$('#mmsg').textContent='Disconnected here. To revoke access completely, disconnect this site inside your wallet.'};
 function hookEth(){const pp=ETH();if(!pp||!pp.on||pp.__rn)return;pp.__rn=1;
   ETH().on('accountsChanged',a=>{if(!W.addr)return;W.addr=a&&a[0]||null;W.bal=null;afterWallet();if(W.addr)readBal()});
   ETH().on('chainChanged',c=>{if(!W.addr)return;W.chain=parseInt(c,16);afterWallet();readBal()})}
