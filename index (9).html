@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0a09">
+<meta name="description" content="Ratinole tracks NVIDIA GPU compute rewards, estimates operating costs, and plans user-approved swaps into NVDA on Robinhood Chain.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ratinole · GPU to NVDA">
+<meta property="og:description" content="Track GPU compute rewards, estimate costs, and plan NVDA swaps approved from your own wallet.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ratinole · GPU to NVDA">
+<meta name="twitter:description" content="Track GPU compute rewards, estimate costs, and plan NVDA swaps approved from your own wallet.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%22-270%20-270%20540%20540%22%3E%3Crect%20x%3D%22-270%22%20y%3D%22-270%22%20width%3D%22540%22%20height%3D%22540%22%20fill%3D%22%230b0b0b%22/%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22lgG%22%20x1%3D%221%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23b4da2e%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23e2f78f%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgR%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23d2cfc7%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b7b3a9%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgBR%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%238c8880%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%2369665f%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgBL%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23504c48%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%233a3834%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgL%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23aaa7a0%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23b0ada6%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22lgTL%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23e2dfd9%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f6f5ef%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg%3E%3Cpath%20d%3D%22M0.0%2C-200.0L173.2%2C-100.0L0%2C0Z%22%20fill%3D%22url%28%23lgG%29%22/%3E%3Cpath%20d%3D%22M173.2%2C-100.0L173.2%2C100.0L0%2C0Z%22%20fill%3D%22url%28%23lgR%29%22/%3E%3Cpath%20d%3D%22M173.2%2C100.0L0.0%2C200.0L0%2C0Z%22%20fill%3D%22url%28%23lgBR%29%22/%3E%3Cpath%20d%3D%22M0.0%2C200.0L-173.2%2C100.0L0%2C0Z%22%20fill%3D%22url%28%23lgBL%29%22/%3E%3Cpath%20d%3D%22M-173.2%2C100.0L-173.2%2C-100.0L0%2C0Z%22%20fill%3D%22url%28%23lgL%29%22/%3E%3Cpath%20d%3D%22M-173.2%2C-100.0L0.0%2C-200.0L0%2C0Z%22%20fill%3D%22url%28%23lgTL%29%22/%3E%3Cpath%20d%3D%22M0%2C0L0.0%2C-200.0M0%2C0L173.2%2C-100.0M0%2C0L173.2%2C100.0M0%2C0L0.0%2C200.0M0%2C0L-173.2%2C100.0M0%2C0L-173.2%2C-100.0M0.0%2C-200.0L173.2%2C-100.0L173.2%2C100.0L0.0%2C200.0L-173.2%2C100.0L-173.2%2C-100.0Z%22%20fill%3D%22none%22%20stroke%3D%22%230b0b0b%22%20stroke-width%3D%229%22%20stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3C/svg%3E">
+<title>Ratinole · GPU to NVDA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* VOICE: quiet instrument panel — black, precise, every figure labelled with its source.
+   IDEA: the GPU fan as an engine; value flows through line-art diagrams like current.
+   PICTURE: the large spinning turbine in the hero with HUD call-outs, then three line-art scenes.
+   COLOUR and TYPE: pure black, electric blue lead, ice support, warm tones only for costs. Geist + Geist Mono.
+   LAYOUT: same order as the reference: landing, app with pill tabs, docs, privacy, terms. */
+:root{color-scheme:dark;--bg:#0a0a09;--bg1:#0f0f0e;--card:#121211;--line:#1d1d1b;--line2:#2c2c29;--ink:#f2f5fa;--mute:#a19e96;--dim:#64625c;--a:#b6dd34;--a2:#8fb52a;--ad:#26300b;--ice:#e2dfd9;--el:#ff9b5a;--fee:#ffc24a;--oth:#ff6fae;--warn:#ffb020}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Geist,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0;line-height:1.04;letter-spacing:-.035em;font-weight:600;text-wrap:balance}
+h1{font-size:clamp(40px,6.4vw,80px)}h2{font-size:clamp(32px,4.4vw,56px)}h3{font-size:clamp(22px,2.4vw,28px);letter-spacing:-.025em}h4{font-size:18px;letter-spacing:-.01em}
+p{margin:0}a{color:inherit}button{font:inherit;color:inherit}
+.mono{font-family:"Geist Mono",monospace}.mute{color:var(--mute)}.dim{color:var(--dim)}.acc{color:var(--a)}.warn{color:var(--warn)}
+.ey{font:500 12px/1.4 "Geist Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--a);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.ey.l::before{content:"";width:40px;height:1px;background:var(--a)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,18px)}
+.band{padding:clamp(72px,10vw,140px) 0;position:relative}
+.lead{font-size:clamp(16px,1.4vw,18px);color:var(--mute);max-width:36em}
+/* background */
+.bg{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.bg::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 0,#1d2609 0,transparent 70%)}
+.bg::after{content:"";position:absolute;inset:0;background-image:radial-gradient(#22221f 1px,transparent 1px);background-size:28px 28px;mask-image:linear-gradient(#000,transparent 70%);opacity:.6}
+/* nav */
+.nav{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:600 20px Geist;letter-spacing:-.02em}
+.brand svg{width:32px;height:32px}
+.nl{display:flex;gap:2px;margin-left:auto}
+.nl a{text-decoration:none;color:var(--mute);font-size:15px;padding:8px 12px;border-radius:8px}.nl a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:999px;border:1px solid var(--line2);background:var(--bg1);color:var(--ink);font:500 15px Geist;text-decoration:none;cursor:pointer;transition:.2s;white-space:nowrap}
+.btn:hover{border-color:var(--mute)}
+.btn.p{background:var(--a);border-color:var(--a);color:#0b0d04;font-weight:600}.btn.p:hover{background:#cdee6a;border-color:#cdee6a}
+.btn.lg{min-height:52px;padding:0 26px;font-size:16px}
+.btn.sm{min-height:36px;padding:0 14px;font-size:14px}
+.arr::after{content:"→";font-family:Geist}
+.burg{width:44px;height:44px;border-radius:50%;border:1px solid var(--line2);background:none;display:none;place-items:center;cursor:pointer}
+.burg i,.burg i::before{display:block;width:14px;height:1.5px;background:var(--ink);position:relative}.burg i::before{content:"";position:absolute;top:5px}.burg i{top:-2.5px}
+.menu{display:none;position:fixed;inset:68px 0 auto 0;background:var(--bg);border-bottom:1px solid var(--line);z-index:39;padding:8px max(5vw,18px) 20px}
+.menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:17px}
+.menu.on{display:block}
+@media(max-width:900px){.nl{display:none}.burg{display:grid}.nav .wrap>.btn.p{margin-left:auto}}
+:focus-visible{outline:2px solid var(--ice);outline-offset:2px}
+/* pills */
+.pill{display:inline-flex;align-items:center;gap:6px;font:500 11px "Geist Mono";letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--mute);white-space:nowrap}
+.pill.ok{color:var(--a);border-color:#b6dd3466}.pill.ok::before{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor}
+.pill.ex{color:var(--ice);border-color:#e2dfd944}.pill.ex::before{content:"≈"}
+.pill.wl{color:var(--warn);border-color:#ffb02055}.pill.wl::before{content:"";width:7px;height:7px;border-radius:50%;border:1.5px solid currentColor}
+.note{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;font-size:13px;color:var(--mute);margin-top:18px}
+.note a{color:var(--ink)}
+/* hero */
+.hero{text-align:center;padding:clamp(56px,8vw,96px) 0 0}
+.hero h1 span{color:var(--a)}
+.hero .lead{margin:22px auto 30px;text-align:center}
+.hero .cta{display:flex;flex-direction:column;gap:12px;align-items:center}
+.tagline{font:500 12px "Geist Mono";letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-top:28px}
+.stage{position:relative;max-width:860px;margin:30px auto 0;aspect-ratio:1/1}
+.stage svg.main{position:absolute;inset:0;width:100%;height:100%}
+.hud{position:absolute;font:500 12px "Geist Mono";letter-spacing:.1em;text-transform:uppercase;color:var(--mute);line-height:1.5}
+.hud b{display:block;color:var(--a);font-weight:500;letter-spacing:.02em;text-transform:none;font-size:13px}
+.hud::before{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:var(--a);box-shadow:0 0 10px var(--a)}
+.h1p{left:6%;top:15%}.h1p::before{left:-14px;top:5px}
+.h2p{right:6%;top:13%;text-align:right}.h2p::before{right:-14px;top:5px}
+.h3p{right:4%;top:58%;text-align:right}.h3p::before{right:-14px;top:5px}
+.trust{text-align:left;margin:8px 0 48px;font:500 11px "Geist Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--dim);line-height:2}
+.trust .live{color:var(--ink);display:flex;flex-wrap:wrap;gap:8px;align-items:center}.trust .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--a);animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+.spin{animation:spin 26s linear infinite;transform-origin:center;transform-box:fill-box}
+.spin.r{animation-direction:reverse;animation-duration:60s}.spin.f{animation-duration:8s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:640px){.hud{font-size:9px}.hud b{font-size:11px}}
+/* story scenes */
+.scene{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(56px,8vw,110px) 0;border-top:1px solid var(--line)}
+.scene .art{aspect-ratio:1;max-width:520px;width:100%;justify-self:center;position:relative}
+.scene .art svg{width:100%;height:100%;overflow:visible}
+.scene p+p{margin-top:14px}
+.scene .lead{margin-top:20px}
+.draw{stroke-dasharray:1200;stroke-dashoffset:1200;transition:stroke-dashoffset 2.4s ease}
+.in .draw{stroke-dashoffset:0}
+.lab{font:500 11px "Geist Mono";letter-spacing:.12em;text-transform:uppercase;fill:#b9b6ae}
+.lab2{font:500 11px "Geist Mono";fill:#64625c}
+.labv{font:500 13px "Geist Mono";fill:var(--a)}
+@media(max-width:860px){.scene{grid-template-columns:1fr}.scene .art{max-width:420px}}
+.marq{overflow:hidden;border-block:1px solid var(--line);padding:16px 0;white-space:nowrap}
+.marq div{display:inline-block;animation:mq 40s linear infinite;font:500 13px "Geist Mono";letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.marq span{margin:0 18px;color:var(--a)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);filter:blur(6px);transition:opacity .9s,transform .9s,filter .9s}
+.rv.in{opacity:1;transform:none;filter:none}
+/* cards / forms */
+.card{background:linear-gradient(180deg,#141413,#0d0d0c);border:1px solid var(--line);border-radius:18px;padding:clamp(18px,2.4vw,28px)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media(max-width:900px){.grid3,.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+.fld{display:grid;gap:8px;margin-top:18px}
+.fld .t{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:14px;color:var(--ink)}
+.fld .t em{font:500 10px "Geist Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-style:normal}
+.fld .h{font-size:13px;color:var(--mute)}
+.inp{position:relative;display:flex;align-items:center;background:#080807;border:1px solid var(--line2);border-radius:12px;min-height:50px}
+.inp input,.inp select{flex:1;background:none;border:0;color:var(--ink);font:16px "Geist Mono";padding:0 14px;min-height:48px;width:100%;outline:0}
+.inp select{font-family:Geist;appearance:none;cursor:pointer}
+.inp select option{background:#121211}
+.inp .u{font:500 12px "Geist Mono";color:var(--dim);padding-right:14px;white-space:nowrap}
+.inp:focus-within{border-color:var(--a)}
+.inp.sel::after{content:"⌄";position:absolute;right:16px;top:12px;color:var(--mute);pointer-events:none}
+.tog{display:inline-flex;background:#080807;border:1px solid var(--line2);border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.tog button{border:0;background:none;color:var(--mute);border-radius:999px;padding:0 16px;min-height:38px;cursor:pointer;font-size:14px}
+.tog button.on{background:var(--a);color:#0b0d04;font-weight:600}
+.tog.full{display:flex}.tog.full button{flex:1}
+input[type=range]{accent-color:var(--a);width:100%;min-height:30px}
+.rng{display:grid;grid-template-columns:minmax(0,1fr) 96px;gap:12px;align-items:center}
+.ratebox{background:#080807;border:1px solid var(--line2);border-radius:14px;padding:16px;margin-top:10px}
+.ratebox .v{font:500 26px "Geist Mono"}.ratebox .v small{font-size:13px;color:var(--mute);margin-left:6px}
+.ratebox p{font-size:13px;color:var(--mute);margin:6px 0 12px}
+.res .big{font:600 clamp(48px,6vw,72px) Geist;letter-spacing:-.04em;color:var(--a);line-height:1;margin:6px 0 8px;white-space:nowrap}
+.res .big.na{color:var(--mute);font-size:clamp(36px,4.6vw,52px)}.res .big.neg{color:var(--el)}
+.bar{padding:14px 0;border-bottom:1px solid var(--line)}
+.bar .t{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.bar .t span{display:flex;align-items:center;gap:10px}.bar .t span i{width:9px;height:9px;border-radius:2px}
+.bar .t b{font:500 14px "Geist Mono";white-space:nowrap}
+.bar .tr{height:3px;background:var(--line);border-radius:3px;margin-top:10px;overflow:hidden}.bar .tr div{height:100%;border-radius:3px;transition:width .6s}
+.bar p{font-size:12px;color:var(--dim);margin-top:8px}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:10px 0;font-size:14px;color:var(--mute)}
+.kv b{font:500 14px "Geist Mono";color:var(--ink);white-space:nowrap;text-align:right}
+.warnbox{border:1px solid #ffb02055;background:#ffb0200d;border-radius:12px;padding:14px;display:flex;gap:10px;font-size:14px;margin-top:14px}
+.warnbox::before{content:"⚠";color:var(--warn)}
+details.acc{margin-top:16px;font-size:14px;color:var(--mute)}
+details.acc summary{cursor:pointer;list-style:none;display:flex;gap:10px;align-items:center}
+details.acc summary::before{content:"+";width:20px;height:20px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-size:13px}
+details.acc[open] summary::before{content:"−"}
+details.acc ul{padding-left:18px;margin:12px 0 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font:500 10px "Geist Mono";letter-spacing:.12em;text-transform:uppercase;color:var(--dim);padding:10px 8px;border-bottom:1px solid var(--line2);white-space:nowrap}
+td{padding:12px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-family:"Geist Mono";white-space:nowrap}
+td.l a{color:var(--a)}
+.scroll{overflow-x:auto}
+/* planner ring */
+.ringw{position:relative;max-width:420px;margin:0 auto}
+.ringw svg{width:100%;height:auto;display:block}
+.ringw .c{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ringw .c small{font:500 11px "Geist Mono";letter-spacing:.16em;color:var(--mute)}
+.ringw .c b{font:600 clamp(48px,7vw,68px) Geist;color:var(--a);letter-spacing:-.04em;line-height:1.1}
+.ringw .c span{font-size:13px;color:var(--mute)}
+#rg1,#rg2{transition:stroke-dasharray .5s,stroke-dashoffset .5s}
+.leg{display:flex;gap:20px;justify-content:center;font-size:13px;color:var(--mute);margin-top:14px;flex-wrap:wrap}.leg i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px}
+.sum{background:#080807;border:1px solid var(--line2);border-radius:14px;padding:6px 16px;margin-top:20px}
+.sum .kv+.kv{border-top:1px solid var(--line)}
+/* stat blocks */
+.st small{display:block;font:500 10px "Geist Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.st b{display:block;font:500 clamp(24px,3vw,32px) Geist;letter-spacing:-.03em;margin:6px 0 4px}
+.st span{font-size:12px;color:var(--dim)}
+.chart{display:flex;align-items:flex-end;gap:3px;height:140px;border-bottom:1px solid var(--line2);margin-top:12px}
+.chart i{flex:1;background:var(--a);border-radius:2px 2px 0 0;min-height:2px;opacity:.9}
+/* lists */
+.cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:48px}
+@media(max-width:900px){.cols{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.cols{grid-template-columns:1fr}}
+.cols>div{border-top:1px solid var(--line2);padding-top:16px}
+.cols .num{font:500 12px "Geist Mono";color:var(--a)}
+.cols h4{margin:8px 0 14px}
+.dl{list-style:none;padding:0;margin:0;font-size:14px;color:var(--mute);display:grid;gap:10px}
+.dl li{padding-left:16px;position:relative}.dl li::before{content:"–";position:absolute;left:0;color:var(--dim)}
+.integ{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+@media(max-width:700px){.integ{grid-template-columns:1fr}}
+.integ .card p{font-size:13px;color:var(--mute);margin-top:10px}
+.integ .card p+p{color:var(--ink)}
+.checked{font:12px "Geist Mono";color:var(--dim);margin-top:16px}
+/* token */
+.tok{max-width:560px}
+.tok .name{font:600 clamp(40px,5vw,56px) Geist;letter-spacing:-.04em}
+.ca{font:500 14px "Geist Mono";color:var(--a);overflow-wrap:anywhere;margin:8px 0 14px}
+.tok .st b{font:500 17px "Geist Mono";letter-spacing:0}
+/* faq */
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:36px minmax(0,1fr) 24px;gap:8px;align-items:center;padding:22px 0;font-size:clamp(17px,1.8vw,21px);letter-spacing:-.01em}
+.q summary small{font:500 11px "Geist Mono";color:var(--dim)}
+.q summary::after{content:"+";font-size:24px;color:var(--mute);text-align:right}
+.q[open] summary{color:var(--a)}.q[open] summary::after{content:"−";color:var(--a)}
+.q div{padding:0 0 24px 44px;color:var(--mute);display:grid;gap:12px;max-width:52em}
+/* final */
+.final{text-align:center;position:relative;overflow:hidden;padding:clamp(90px,12vw,160px) 0}
+.final svg.bgem{position:absolute;left:50%;top:50%;width:min(900px,140vw);transform:translate(-50%,-50%);opacity:.14}
+.final h2{font-size:clamp(40px,6vw,76px);position:relative}
+.final p{position:relative;max-width:34em;margin:24px auto 0;color:var(--mute);font-size:14px}
+footer{border-top:1px solid var(--line);padding:48px 0 56px;color:var(--dim);font-size:13px}
+footer nav{display:flex;gap:22px;flex-wrap:wrap;margin:22px 0;padding-bottom:22px;border-bottom:1px solid var(--line)}
+footer nav a{color:var(--mute);text-decoration:none;font-size:14px}
+.chip{display:inline-flex;gap:8px;font:500 12px "Geist Mono";border:1px solid var(--line2);border-radius:999px;padding:6px 12px;margin:18px 0 10px;color:var(--ink)}.chip span{color:var(--a)}
+/* views */
+.view{display:none}.view.on{display:block}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.atop .nl{margin-left:auto}.atop .nl+.btn{margin-left:0}
+.atop .burg{margin-left:auto}
+@media(min-width:901px){.atop .burg{display:none}}
+.nav .wrap>.burg{margin-left:8px}
+@media(max-width:900px){.atop .nl{display:none}.atop .nl+.btn{margin-left:auto}}
+.atop .wrap{display:flex;align-items:center;gap:12px;height:68px}
+.atop .btn{margin-left:auto}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding:12px max(5vw,18px);border-bottom:1px solid var(--line);scrollbar-width:none;position:sticky;top:68px;background:var(--bg);z-index:30}
+.tabs a{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);text-decoration:none;color:var(--mute);font-size:14px}
+.tabs a.on{background:var(--a);border-color:var(--a);color:#0b0d04;font-weight:600}
+.apg{padding-top:clamp(28px,5vw,60px);padding-bottom:80px}
+.apg h1{font-size:clamp(34px,5vw,56px);margin-bottom:16px}
+.ovs>.card{display:flex;flex-direction:column;gap:10px}
+.ovs .card .lk{margin-top:auto;font-size:14px;text-decoration:underline;text-underline-offset:3px}
+.flow5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:20px}
+@media(max-width:800px){.flow5{grid-template-columns:1fr}}
+.flow5 div{border:1px solid var(--line2);border-radius:14px;padding:16px}
+.flow5 small{font:500 11px "Geist Mono";color:var(--a)}
+.flow5 b{display:block;margin:6px 0 4px;font-weight:500}.flow5 span{font-size:13px;color:var(--mute)}
+.modal{position:fixed;inset:0;background:#000a;backdrop-filter:blur(6px);z-index:60;display:none;place-items:end center;padding:16px}
+.modal.on{display:grid}
+.modal .card{width:min(460px,100%);margin-bottom:6vh}
+.mw{display:flex;align-items:center;gap:12px;border:1px solid var(--line2);border-radius:12px;padding:14px;margin:16px 0;cursor:pointer;background:none;width:100%;text-align:left}
+.x{float:right;width:36px;height:36px;border-radius:50%;border:1px solid var(--line2);background:none;cursor:pointer}
+/* docs */
+.doc{max-width:780px}
+.doc h2{font-size:clamp(28px,3.4vw,40px);margin:64px 0 16px;padding-top:48px;border-top:1px solid var(--line)}
+.doc h3{font-size:22px;margin:32px 0 10px}
+.doc p,.doc li{color:var(--mute)}.doc p+p{margin-top:12px}.doc li+li{margin-top:8px}
+.doc b,.doc strong{color:var(--ink);font-weight:500}
+.doc code{font:13px "Geist Mono";color:var(--ice);background:#191a14;padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+pre{background:#080807;border:1px solid var(--line2);border-radius:14px;padding:18px;font:13px/1.7 "Geist Mono";color:var(--ice);overflow-x:auto;margin:16px 0}
+.toc{display:flex;gap:6px;overflow-x:auto;padding:12px 0;margin-bottom:8px;border-block:1px solid var(--line)}
+.toc a{flex:none;font-size:13px;color:var(--mute);text-decoration:none;padding:6px 12px;border:1px solid var(--line2);border-radius:999px}
+@media(min-width:1100px){.dgrid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:56px}.toc{position:sticky;top:90px;align-self:start;flex-direction:column;border:0;overflow:visible}.toc a{border:0;border-left:1px solid var(--line2);border-radius:0}}
+.lbls{display:grid;gap:10px;margin:16px 0}.lbls div{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px;align-items:center;font-size:14px;color:var(--mute)}
+@media(max-width:600px){.lbls div{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}.draw{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+  <radialGradient id="Lhousing" r="0.5">
+    <stop offset="0.70" stop-color="#0d0d0c"/>
+    <stop offset="0.86" stop-color="#1b1b19"/>
+    <stop offset="0.93" stop-color="#302f2c"/>
+    <stop offset="1" stop-color="#070706"/>
+  </radialGradient>
+  <radialGradient id="Linner" r="0.5">
+    <stop offset="0" stop-color="#12140a"/>
+    <stop offset="0.6" stop-color="#0c0c0a"/>
+    <stop offset="1" stop-color="#040403"/>
+  </radialGradient>
+  <radialGradient id="LsphereFill" r="0.5" cx="0.4" cy="0.35">
+    <stop offset="0" stop-color="#4a6414"/>
+    <stop offset="1" stop-color="#121705"/>
+  </radialGradient>
+  <linearGradient id="LbladeFill" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#45433f"/>
+    <stop offset="0.5" stop-color="#1e1d1b"/>
+    <stop offset="1" stop-color="#0e0e0c"/>
+  </linearGradient>
+  <radialGradient id="LbgGlow" r="0.5">
+    <stop offset="0" stop-color="#20280a" stop-opacity="0.35"/>
+    <stop offset="0.5" stop-color="#0f1305" stop-opacity="0.15"/>
+    <stop offset="1" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="Lglow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="LglowS" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="1.6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="Lshadow" x="-50%" y="-50%" width="200%" height="200%">
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.9"/>
+  </filter>
+</defs><g id="em"><circle r="212" fill="url(#Lhousing)"/>
+<circle r="212" fill="none" stroke="#43413d" stroke-width="2"/>
+<circle r="190" fill="url(#Linner)"/>
+<circle r="190" fill="none" stroke="#3d4d12" stroke-opacity="0.6" stroke-width="4"/>
+<g filter="url(#Lglow)"><path d="M-164.54,-95.00 A190,190 0 0 1 164.54,-95.00" stroke="#b6dd34" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M187.11,-32.99 A190,190 0 0 1 183.53,49.18" stroke="#b6dd34" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M164.54,95.00 A190,190 0 0 1 -164.54,95.00" stroke="#b6dd34" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round" fill="none"/><path d="M-183.53,49.18 A190,190 0 0 1 -183.53,-49.18" stroke="#b6dd34" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round" fill="none"/></g>
+<circle r="150" fill="none" stroke="#b0ada6" stroke-opacity="0.35" stroke-width="1.6"/>
+<circle r="115" fill="none" stroke="#b0ada6" stroke-opacity="0.3" stroke-width="1.6"/>
+<circle r="80" fill="none" stroke="#b0ada6" stroke-opacity="0.25" stroke-width="1.6"/>
+<path d="M0.00,-44.00 L4.90,-46.84 L8.76,-49.43 L12.55,-51.80 L16.39,-53.97 L20.32,-55.92 L24.36,-57.67 L28.50,-59.20 L32.74,-60.51 L37.07,-61.61 L41.49,-62.48 L45.99,-63.12 L50.56,-63.54 L55.19,-63.73 L59.86,-63.68 L64.58,-63.40 L69.32,-62.89 L74.08,-62.15 L78.85,-61.17 L83.62,-59.97 L88.38,-58.52 L93.12,-56.85 L97.82,-54.95 L102.49,-52.83 L107.10,-50.48 L111.66,-47.91 L116.15,-45.12 L120.56,-42.11 L124.88,-38.89 L129.12,-35.47 L133.25,-31.84 L137.27,-28.00 L141.18,-23.98 L144.96,-19.76 L148.61,-15.36 L152.12,-10.78 L155.48,-6.02 L158.70,-1.10 L161.75,3.99 L164.64,9.24 L167.36,14.64 L167.36,14.64 L164.64,9.24 L161.77,3.13 L158.46,-8.72 L154.39,-19.34 L149.69,-29.12 L144.46,-38.12 L138.76,-46.35 L132.70,-53.82 L126.35,-60.53 L119.79,-66.47 L113.11,-71.67 L106.36,-76.13 L99.63,-79.88 L92.97,-82.96 L86.43,-85.40 L80.06,-87.23 L73.91,-88.49 L68.01,-89.24 L62.38,-89.51 L57.04,-89.35 L52.00,-88.79 L47.28,-87.89 L42.86,-86.68 L38.76,-85.20 L34.95,-83.48 L31.44,-81.55 L28.19,-79.45 L25.21,-77.19 L22.46,-74.80 L19.93,-72.30 L17.60,-69.71 L15.43,-67.05 L13.42,-64.31 L11.54,-61.53 L9.75,-58.70 L8.04,-55.82 L6.36,-52.92 L4.66,-49.98 L2.82,-47.02 L0.00,-44.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M0.00,-44.00 L2.82,-47.02 L4.66,-49.98 L6.36,-52.92 L8.04,-55.82 L9.75,-58.70 L11.54,-61.53 L13.42,-64.31 L15.43,-67.05 L17.60,-69.71 L19.93,-72.30 L22.46,-74.80 L25.21,-77.19 L28.19,-79.45 L31.44,-81.55 L34.95,-83.48 L38.76,-85.20 L42.86,-86.68 L47.28,-87.89 L52.00,-88.79 L57.04,-89.35 L62.38,-89.51 L68.01,-89.24 L73.91,-88.49 L80.06,-87.23 L86.43,-85.40 L92.97,-82.96 L99.63,-79.88 L106.36,-76.13 L113.11,-71.67 L119.79,-66.47 L126.35,-60.53 L132.70,-53.82 L138.76,-46.35 L144.46,-38.12 L149.69,-29.12 L154.39,-19.34 L158.46,-8.72 L161.77,3.13 L164.64,9.24 L167.36,14.64" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M0.00,-44.00 L4.90,-46.84 L8.76,-49.43 L12.55,-51.80 L16.39,-53.97 L20.32,-55.92 L24.36,-57.67 L28.50,-59.20 L32.74,-60.51 L37.07,-61.61 L41.49,-62.48 L45.99,-63.12 L50.56,-63.54 L55.19,-63.73 L59.86,-63.68 L64.58,-63.40 L69.32,-62.89 L74.08,-62.15 L78.85,-61.17 L83.62,-59.97 L88.38,-58.52 L93.12,-56.85 L97.82,-54.95 L102.49,-52.83 L107.10,-50.48 L111.66,-47.91 L116.15,-45.12 L120.56,-42.11 L124.88,-38.89 L129.12,-35.47 L133.25,-31.84 L137.27,-28.00 L141.18,-23.98 L144.96,-19.76 L148.61,-15.36 L152.12,-10.78 L155.48,-6.02 L158.70,-1.10 L161.75,3.99 L164.64,9.24 L167.36,14.64" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M38.11,-22.00 L43.02,-19.18 L47.19,-17.13 L51.14,-15.04 L54.93,-12.79 L58.59,-10.36 L62.12,-7.74 L65.52,-4.92 L68.77,-1.91 L71.89,1.30 L74.85,4.69 L77.66,8.27 L80.31,12.02 L82.78,15.93 L85.08,20.00 L87.20,24.22 L89.13,28.59 L90.87,33.08 L92.40,37.70 L93.74,42.44 L94.87,47.28 L95.79,52.21 L96.50,57.24 L96.99,62.34 L97.27,67.51 L97.32,72.74 L97.14,78.03 L96.75,83.35 L96.12,88.71 L95.27,94.09 L94.20,99.48 L92.89,104.88 L91.36,110.27 L89.59,115.66 L87.61,121.02 L85.39,126.35 L82.96,131.64 L80.30,136.89 L77.42,142.08 L74.32,147.20 L71.00,152.26 L71.00,152.26 L74.32,147.20 L78.17,141.66 L86.78,132.87 L93.94,124.04 L100.06,115.08 L105.24,106.04 L109.53,96.99 L112.96,88.01 L115.59,79.16 L117.46,70.51 L118.62,62.12 L119.11,54.05 L119.00,46.34 L118.33,39.03 L117.17,32.15 L115.57,25.72 L113.59,19.76 L111.29,14.28 L108.71,9.27 L105.89,4.72 L102.90,0.64 L99.75,-3.00 L96.50,-6.22 L93.16,-9.03 L89.77,-11.47 L86.34,-13.55 L82.90,-15.31 L79.45,-16.76 L76.01,-17.95 L72.58,-18.89 L69.17,-19.62 L65.78,-20.16 L62.41,-20.53 L59.05,-20.77 L55.71,-20.90 L52.36,-20.95 L49.01,-20.95 L45.62,-20.96 L42.13,-21.06 L38.11,-22.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M38.11,-22.00 L42.13,-21.06 L45.62,-20.96 L49.01,-20.95 L52.36,-20.95 L55.71,-20.90 L59.05,-20.77 L62.41,-20.53 L65.78,-20.16 L69.17,-19.62 L72.58,-18.89 L76.01,-17.95 L79.45,-16.76 L82.90,-15.31 L86.34,-13.55 L89.77,-11.47 L93.16,-9.03 L96.50,-6.22 L99.75,-3.00 L102.90,0.64 L105.89,4.72 L108.71,9.27 L111.29,14.28 L113.59,19.76 L115.57,25.72 L117.17,32.15 L118.33,39.03 L119.00,46.34 L119.11,54.05 L118.62,62.12 L117.46,70.51 L115.59,79.16 L112.96,88.01 L109.53,96.99 L105.24,106.04 L100.06,115.08 L93.94,124.04 L86.78,132.87 L78.17,141.66 L74.32,147.20 L71.00,152.26" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M38.11,-22.00 L43.02,-19.18 L47.19,-17.13 L51.14,-15.04 L54.93,-12.79 L58.59,-10.36 L62.12,-7.74 L65.52,-4.92 L68.77,-1.91 L71.89,1.30 L74.85,4.69 L77.66,8.27 L80.31,12.02 L82.78,15.93 L85.08,20.00 L87.20,24.22 L89.13,28.59 L90.87,33.08 L92.40,37.70 L93.74,42.44 L94.87,47.28 L95.79,52.21 L96.50,57.24 L96.99,62.34 L97.27,67.51 L97.32,72.74 L97.14,78.03 L96.75,83.35 L96.12,88.71 L95.27,94.09 L94.20,99.48 L92.89,104.88 L91.36,110.27 L89.59,115.66 L87.61,121.02 L85.39,126.35 L82.96,131.64 L80.30,136.89 L77.42,142.08 L74.32,147.20 L71.00,152.26" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M38.11,22.00 L38.12,27.67 L38.43,32.30 L38.59,36.77 L38.54,41.18 L38.27,45.56 L37.76,49.93 L37.02,54.28 L36.04,58.61 L34.82,62.91 L33.36,67.17 L31.67,71.39 L29.75,75.55 L27.60,79.66 L25.22,83.68 L22.62,87.63 L19.81,91.48 L16.78,95.23 L13.55,98.88 L10.12,102.40 L6.49,105.80 L2.68,109.07 L-1.32,112.19 L-5.49,115.17 L-9.83,117.99 L-14.34,120.65 L-19.00,123.14 L-23.81,125.46 L-28.76,127.60 L-33.84,129.55 L-39.05,131.32 L-44.38,132.88 L-49.82,134.25 L-55.36,135.42 L-61.00,136.38 L-66.72,137.13 L-72.53,137.66 L-78.40,137.98 L-84.33,138.08 L-90.32,137.96 L-96.36,137.62 L-96.36,137.62 L-90.32,137.96 L-83.60,138.53 L-71.68,141.59 L-60.45,143.38 L-49.63,144.20 L-39.22,144.16 L-29.24,143.35 L-19.74,141.83 L-10.76,139.69 L-2.33,136.98 L5.51,133.79 L12.75,130.18 L19.37,126.22 L25.36,121.99 L30.74,117.55 L35.51,112.95 L39.68,108.26 L43.28,103.52 L46.33,98.78 L48.86,94.07 L50.90,89.43 L52.48,84.89 L53.64,80.46 L54.40,76.17 L54.82,72.01 L54.91,68.00 L54.70,64.14 L54.24,60.43 L53.55,56.85 L52.65,53.41 L51.58,50.10 L50.35,46.89 L48.99,43.78 L47.52,40.76 L45.96,37.79 L44.33,34.87 L42.65,31.97 L40.96,29.03 L39.31,25.95 L38.11,22.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M38.11,22.00 L39.31,25.95 L40.96,29.03 L42.65,31.97 L44.33,34.87 L45.96,37.79 L47.52,40.76 L48.99,43.78 L50.35,46.89 L51.58,50.10 L52.65,53.41 L53.55,56.85 L54.24,60.43 L54.70,64.14 L54.91,68.00 L54.82,72.01 L54.40,76.17 L53.64,80.46 L52.48,84.89 L50.90,89.43 L48.86,94.07 L46.33,98.78 L43.28,103.52 L39.68,108.26 L35.51,112.95 L30.74,117.55 L25.36,121.99 L19.37,126.22 L12.75,130.18 L5.51,133.79 L-2.33,136.98 L-10.76,139.69 L-19.74,141.83 L-29.24,143.35 L-39.22,144.16 L-49.63,144.20 L-60.45,143.38 L-71.68,141.59 L-83.60,138.53 L-90.32,137.96 L-96.36,137.62" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M38.11,22.00 L38.12,27.67 L38.43,32.30 L38.59,36.77 L38.54,41.18 L38.27,45.56 L37.76,49.93 L37.02,54.28 L36.04,58.61 L34.82,62.91 L33.36,67.17 L31.67,71.39 L29.75,75.55 L27.60,79.66 L25.22,83.68 L22.62,87.63 L19.81,91.48 L16.78,95.23 L13.55,98.88 L10.12,102.40 L6.49,105.80 L2.68,109.07 L-1.32,112.19 L-5.49,115.17 L-9.83,117.99 L-14.34,120.65 L-19.00,123.14 L-23.81,125.46 L-28.76,127.60 L-33.84,129.55 L-39.05,131.32 L-44.38,132.88 L-49.82,134.25 L-55.36,135.42 L-61.00,136.38 L-66.72,137.13 L-72.53,137.66 L-78.40,137.98 L-84.33,138.08 L-90.32,137.96 L-96.36,137.62" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M0.00,44.00 L-4.90,46.84 L-8.76,49.43 L-12.55,51.80 L-16.39,53.97 L-20.32,55.92 L-24.36,57.67 L-28.50,59.20 L-32.74,60.51 L-37.07,61.61 L-41.49,62.48 L-45.99,63.12 L-50.56,63.54 L-55.19,63.73 L-59.86,63.68 L-64.58,63.40 L-69.32,62.89 L-74.08,62.15 L-78.85,61.17 L-83.62,59.97 L-88.38,58.52 L-93.12,56.85 L-97.82,54.95 L-102.49,52.83 L-107.10,50.48 L-111.66,47.91 L-116.15,45.12 L-120.56,42.11 L-124.88,38.89 L-129.12,35.47 L-133.25,31.84 L-137.27,28.00 L-141.18,23.98 L-144.96,19.76 L-148.61,15.36 L-152.12,10.78 L-155.48,6.02 L-158.70,1.10 L-161.75,-3.99 L-164.64,-9.24 L-167.36,-14.64 L-167.36,-14.64 L-164.64,-9.24 L-161.77,-3.13 L-158.46,8.72 L-154.39,19.34 L-149.69,29.12 L-144.46,38.12 L-138.76,46.35 L-132.70,53.82 L-126.35,60.53 L-119.79,66.47 L-113.11,71.67 L-106.36,76.13 L-99.63,79.88 L-92.97,82.96 L-86.43,85.40 L-80.06,87.23 L-73.91,88.49 L-68.01,89.24 L-62.38,89.51 L-57.04,89.35 L-52.00,88.79 L-47.28,87.89 L-42.86,86.68 L-38.76,85.20 L-34.95,83.48 L-31.44,81.55 L-28.19,79.45 L-25.21,77.19 L-22.46,74.80 L-19.93,72.30 L-17.60,69.71 L-15.43,67.05 L-13.42,64.31 L-11.54,61.53 L-9.75,58.70 L-8.04,55.82 L-6.36,52.92 L-4.66,49.98 L-2.82,47.02 L0.00,44.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M0.00,44.00 L-2.82,47.02 L-4.66,49.98 L-6.36,52.92 L-8.04,55.82 L-9.75,58.70 L-11.54,61.53 L-13.42,64.31 L-15.43,67.05 L-17.60,69.71 L-19.93,72.30 L-22.46,74.80 L-25.21,77.19 L-28.19,79.45 L-31.44,81.55 L-34.95,83.48 L-38.76,85.20 L-42.86,86.68 L-47.28,87.89 L-52.00,88.79 L-57.04,89.35 L-62.38,89.51 L-68.01,89.24 L-73.91,88.49 L-80.06,87.23 L-86.43,85.40 L-92.97,82.96 L-99.63,79.88 L-106.36,76.13 L-113.11,71.67 L-119.79,66.47 L-126.35,60.53 L-132.70,53.82 L-138.76,46.35 L-144.46,38.12 L-149.69,29.12 L-154.39,19.34 L-158.46,8.72 L-161.77,-3.13 L-164.64,-9.24 L-167.36,-14.64" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M0.00,44.00 L-4.90,46.84 L-8.76,49.43 L-12.55,51.80 L-16.39,53.97 L-20.32,55.92 L-24.36,57.67 L-28.50,59.20 L-32.74,60.51 L-37.07,61.61 L-41.49,62.48 L-45.99,63.12 L-50.56,63.54 L-55.19,63.73 L-59.86,63.68 L-64.58,63.40 L-69.32,62.89 L-74.08,62.15 L-78.85,61.17 L-83.62,59.97 L-88.38,58.52 L-93.12,56.85 L-97.82,54.95 L-102.49,52.83 L-107.10,50.48 L-111.66,47.91 L-116.15,45.12 L-120.56,42.11 L-124.88,38.89 L-129.12,35.47 L-133.25,31.84 L-137.27,28.00 L-141.18,23.98 L-144.96,19.76 L-148.61,15.36 L-152.12,10.78 L-155.48,6.02 L-158.70,1.10 L-161.75,-3.99 L-164.64,-9.24 L-167.36,-14.64" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M-38.11,22.00 L-43.02,19.18 L-47.19,17.13 L-51.14,15.04 L-54.93,12.79 L-58.59,10.36 L-62.12,7.74 L-65.52,4.92 L-68.77,1.91 L-71.89,-1.30 L-74.85,-4.69 L-77.66,-8.27 L-80.31,-12.02 L-82.78,-15.93 L-85.08,-20.00 L-87.20,-24.22 L-89.13,-28.59 L-90.87,-33.08 L-92.40,-37.70 L-93.74,-42.44 L-94.87,-47.28 L-95.79,-52.21 L-96.50,-57.24 L-96.99,-62.34 L-97.27,-67.51 L-97.32,-72.74 L-97.14,-78.03 L-96.75,-83.35 L-96.12,-88.71 L-95.27,-94.09 L-94.20,-99.48 L-92.89,-104.88 L-91.36,-110.27 L-89.59,-115.66 L-87.61,-121.02 L-85.39,-126.35 L-82.96,-131.64 L-80.30,-136.89 L-77.42,-142.08 L-74.32,-147.20 L-71.00,-152.26 L-71.00,-152.26 L-74.32,-147.20 L-78.17,-141.66 L-86.78,-132.87 L-93.94,-124.04 L-100.06,-115.08 L-105.24,-106.04 L-109.53,-96.99 L-112.96,-88.01 L-115.59,-79.16 L-117.46,-70.51 L-118.62,-62.12 L-119.11,-54.05 L-119.00,-46.34 L-118.33,-39.03 L-117.17,-32.15 L-115.57,-25.72 L-113.59,-19.76 L-111.29,-14.28 L-108.71,-9.27 L-105.89,-4.72 L-102.90,-0.64 L-99.75,3.00 L-96.50,6.22 L-93.16,9.03 L-89.77,11.47 L-86.34,13.55 L-82.90,15.31 L-79.45,16.76 L-76.01,17.95 L-72.58,18.89 L-69.17,19.62 L-65.78,20.16 L-62.41,20.53 L-59.05,20.77 L-55.71,20.90 L-52.36,20.95 L-49.01,20.95 L-45.62,20.96 L-42.13,21.06 L-38.11,22.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M-38.11,22.00 L-42.13,21.06 L-45.62,20.96 L-49.01,20.95 L-52.36,20.95 L-55.71,20.90 L-59.05,20.77 L-62.41,20.53 L-65.78,20.16 L-69.17,19.62 L-72.58,18.89 L-76.01,17.95 L-79.45,16.76 L-82.90,15.31 L-86.34,13.55 L-89.77,11.47 L-93.16,9.03 L-96.50,6.22 L-99.75,3.00 L-102.90,-0.64 L-105.89,-4.72 L-108.71,-9.27 L-111.29,-14.28 L-113.59,-19.76 L-115.57,-25.72 L-117.17,-32.15 L-118.33,-39.03 L-119.00,-46.34 L-119.11,-54.05 L-118.62,-62.12 L-117.46,-70.51 L-115.59,-79.16 L-112.96,-88.01 L-109.53,-96.99 L-105.24,-106.04 L-100.06,-115.08 L-93.94,-124.04 L-86.78,-132.87 L-78.17,-141.66 L-74.32,-147.20 L-71.00,-152.26" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M-38.11,22.00 L-43.02,19.18 L-47.19,17.13 L-51.14,15.04 L-54.93,12.79 L-58.59,10.36 L-62.12,7.74 L-65.52,4.92 L-68.77,1.91 L-71.89,-1.30 L-74.85,-4.69 L-77.66,-8.27 L-80.31,-12.02 L-82.78,-15.93 L-85.08,-20.00 L-87.20,-24.22 L-89.13,-28.59 L-90.87,-33.08 L-92.40,-37.70 L-93.74,-42.44 L-94.87,-47.28 L-95.79,-52.21 L-96.50,-57.24 L-96.99,-62.34 L-97.27,-67.51 L-97.32,-72.74 L-97.14,-78.03 L-96.75,-83.35 L-96.12,-88.71 L-95.27,-94.09 L-94.20,-99.48 L-92.89,-104.88 L-91.36,-110.27 L-89.59,-115.66 L-87.61,-121.02 L-85.39,-126.35 L-82.96,-131.64 L-80.30,-136.89 L-77.42,-142.08 L-74.32,-147.20 L-71.00,-152.26" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M-38.11,-22.00 L-38.12,-27.67 L-38.43,-32.30 L-38.59,-36.77 L-38.54,-41.18 L-38.27,-45.56 L-37.76,-49.93 L-37.02,-54.28 L-36.04,-58.61 L-34.82,-62.91 L-33.36,-67.17 L-31.67,-71.39 L-29.75,-75.55 L-27.60,-79.66 L-25.22,-83.68 L-22.62,-87.63 L-19.81,-91.48 L-16.78,-95.23 L-13.55,-98.88 L-10.12,-102.40 L-6.49,-105.80 L-2.68,-109.07 L1.32,-112.19 L5.49,-115.17 L9.83,-117.99 L14.34,-120.65 L19.00,-123.14 L23.81,-125.46 L28.76,-127.60 L33.84,-129.55 L39.05,-131.32 L44.38,-132.88 L49.82,-134.25 L55.36,-135.42 L61.00,-136.38 L66.72,-137.13 L72.53,-137.66 L78.40,-137.98 L84.33,-138.08 L90.32,-137.96 L96.36,-137.62 L96.36,-137.62 L90.32,-137.96 L83.60,-138.53 L71.68,-141.59 L60.45,-143.38 L49.63,-144.20 L39.22,-144.16 L29.24,-143.35 L19.74,-141.83 L10.76,-139.69 L2.33,-136.98 L-5.51,-133.79 L-12.75,-130.18 L-19.37,-126.22 L-25.36,-121.99 L-30.74,-117.55 L-35.51,-112.95 L-39.68,-108.26 L-43.28,-103.52 L-46.33,-98.78 L-48.86,-94.07 L-50.90,-89.43 L-52.48,-84.89 L-53.64,-80.46 L-54.40,-76.17 L-54.82,-72.01 L-54.91,-68.00 L-54.70,-64.14 L-54.24,-60.43 L-53.55,-56.85 L-52.65,-53.41 L-51.58,-50.10 L-50.35,-46.89 L-48.99,-43.78 L-47.52,-40.76 L-45.96,-37.79 L-44.33,-34.87 L-42.65,-31.97 L-40.96,-29.03 L-39.31,-25.95 L-38.11,-22.00Z" fill="url(#LbladeFill)" filter="url(#Lshadow)"/><path d="M-38.11,-22.00 L-39.31,-25.95 L-40.96,-29.03 L-42.65,-31.97 L-44.33,-34.87 L-45.96,-37.79 L-47.52,-40.76 L-48.99,-43.78 L-50.35,-46.89 L-51.58,-50.10 L-52.65,-53.41 L-53.55,-56.85 L-54.24,-60.43 L-54.70,-64.14 L-54.91,-68.00 L-54.82,-72.01 L-54.40,-76.17 L-53.64,-80.46 L-52.48,-84.89 L-50.90,-89.43 L-48.86,-94.07 L-46.33,-98.78 L-43.28,-103.52 L-39.68,-108.26 L-35.51,-112.95 L-30.74,-117.55 L-25.36,-121.99 L-19.37,-126.22 L-12.75,-130.18 L-5.51,-133.79 L2.33,-136.98 L10.76,-139.69 L19.74,-141.83 L29.24,-143.35 L39.22,-144.16 L49.63,-144.20 L60.45,-143.38 L71.68,-141.59 L83.60,-138.53 L90.32,-137.96 L96.36,-137.62" stroke="#d9d6cf" stroke-opacity="0.55" stroke-width="1.6" fill="none"/><path d="M-38.11,-22.00 L-38.12,-27.67 L-38.43,-32.30 L-38.59,-36.77 L-38.54,-41.18 L-38.27,-45.56 L-37.76,-49.93 L-37.02,-54.28 L-36.04,-58.61 L-34.82,-62.91 L-33.36,-67.17 L-31.67,-71.39 L-29.75,-75.55 L-27.60,-79.66 L-25.22,-83.68 L-22.62,-87.63 L-19.81,-91.48 L-16.78,-95.23 L-13.55,-98.88 L-10.12,-102.40 L-6.49,-105.80 L-2.68,-109.07 L1.32,-112.19 L5.49,-115.17 L9.83,-117.99 L14.34,-120.65 L19.00,-123.14 L23.81,-125.46 L28.76,-127.60 L33.84,-129.55 L39.05,-131.32 L44.38,-132.88 L49.82,-134.25 L55.36,-135.42 L61.00,-136.38 L66.72,-137.13 L72.53,-137.66 L78.40,-137.98 L84.33,-138.08 L90.32,-137.96 L96.36,-137.62" stroke="#b6dd34" stroke-opacity="0.8" stroke-width="2" stroke-linecap="round" fill="none"/>
+<circle r="44" fill="#070706" stroke="#2e2d2a" stroke-width="3"/>
+<g>
+  <circle r="36.72" fill="url(#LsphereFill)"/>
+  <path d="M-9.69,28.77L-14.65,13.09L6.00,21.19Z" fill="#8fb52a" fill-opacity="0.06"/><path d="M-15.24,-6.49L2.75,0.46L-14.65,13.09Z" fill="#8fb52a" fill-opacity="0.18"/><path d="M19.91,7.28L6.00,21.19L2.75,0.46Z" fill="#8fb52a" fill-opacity="0.07"/><path d="M-14.65,13.09L2.75,0.46L6.00,21.19Z" fill="#8fb52a" fill-opacity="0.11"/><path d="M-9.69,28.77L6.00,21.19L6.97,33.82Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M19.91,7.28L24.37,21.19L6.00,21.19Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M21.55,28.77L6.97,33.82L24.37,21.19Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M6.00,21.19L24.37,21.19L6.97,33.82Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M-9.69,28.77L6.97,33.82L-13.09,33.53Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M-9.69,28.77L-13.09,33.53L-26.45,20.72Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M-35.31,6.49L-26.45,20.72L-28.15,20.44Z" fill="#8fb52a" fill-opacity="0.10"/><path d="M-13.09,33.53L-28.15,20.44L-26.45,20.72Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M-9.69,28.77L-26.45,20.72L-14.65,13.09Z" fill="#8fb52a" fill-opacity="0.09"/><path d="M-35.31,6.49L-29.71,0.00L-26.45,20.72Z" fill="#8fb52a" fill-opacity="0.17"/><path d="M-15.24,-6.49L-14.65,13.09L-29.71,0.00Z" fill="#8fb52a" fill-opacity="0.21"/><path d="M-26.45,20.72L-29.71,0.00L-14.65,13.09Z" fill="#8fb52a" fill-opacity="0.16"/><path d="M21.55,28.77L24.37,21.19L33.42,13.09Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M19.91,7.28L32.46,0.46L24.37,21.19Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M35.31,-6.49L33.42,13.09L32.46,0.46Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M24.37,21.19L32.46,0.46L33.42,13.09Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M19.91,7.28L2.75,0.46L19.09,-12.34Z" fill="#8fb52a" fill-opacity="0.10"/><path d="M-15.24,-6.49L-1.56,-20.44L2.75,0.46Z" fill="#8fb52a" fill-opacity="0.22"/><path d="M12.58,-28.28L19.09,-12.34L-1.56,-20.44Z" fill="#8fb52a" fill-opacity="0.19"/><path d="M2.75,0.46L-1.56,-20.44L19.09,-12.34Z" fill="#8fb52a" fill-opacity="0.18"/><path d="M-15.24,-6.49L-29.71,0.00L-21.62,-20.72Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M-35.31,6.49L-33.42,-13.09L-29.71,0.00Z" fill="#8fb52a" fill-opacity="0.23"/><path d="M-21.55,-28.77L-21.62,-20.72L-33.42,-13.09Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M-29.71,0.00L-33.42,-13.09L-21.62,-20.72Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M12.58,-28.28L13.09,-33.53L28.15,-20.44Z" fill="#8fb52a" fill-opacity="0.14"/><path d="M12.58,-28.28L-5.27,-33.53L13.09,-33.53Z" fill="#8fb52a" fill-opacity="0.21"/><path d="M-21.55,-28.77L-6.97,-33.82L-5.27,-33.53Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M13.09,-33.53L-5.27,-33.53L-6.97,-33.82Z" fill="#8fb52a" fill-opacity="0.22"/><path d="M12.58,-28.28L28.15,-20.44L19.09,-12.34Z" fill="#8fb52a" fill-opacity="0.13"/><path d="M35.31,-6.49L32.46,0.46L28.15,-20.44Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M19.91,7.28L19.09,-12.34L32.46,0.46Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M28.15,-20.44L32.46,0.46L19.09,-12.34Z" fill="#8fb52a" fill-opacity="0.05"/><path d="M-21.55,-28.77L-5.27,-33.53L-21.62,-20.72Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M12.58,-28.28L-1.56,-20.44L-5.27,-33.53Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M-15.24,-6.49L-21.62,-20.72L-1.56,-20.44Z" fill="#8fb52a" fill-opacity="0.25"/><path d="M-5.27,-33.53L-1.56,-20.44L-21.62,-20.72Z" fill="#8fb52a" fill-opacity="0.25"/>
+  <path d="M-12.58,28.28L5.27,33.53M14.65,-13.09L29.71,0.00M5.27,33.53L21.62,20.72M9.69,-28.77L14.65,-13.09M15.24,6.49L-2.75,-0.46M-12.58,28.28L-28.15,20.44M-13.09,33.53L-28.15,20.44M-12.58,28.28L-19.09,12.34M21.55,28.77L5.27,33.53M-35.31,6.49L-32.46,-0.46M15.24,6.49L29.71,0.00M21.62,20.72L29.71,0.00M-6.00,-21.19L-2.75,-0.46M6.97,33.82L5.27,33.53M-21.55,-28.77L-6.97,-33.82M-19.09,12.34L-2.75,-0.46M21.55,28.77L21.62,20.72M-19.91,-7.28L-32.46,-0.46M-19.91,-7.28L-6.00,-21.19M-28.15,20.44L-32.46,-0.46M21.55,28.77L33.42,13.09M26.45,-20.72L29.71,0.00M1.56,20.44L-2.75,-0.46M-35.31,6.49L-28.15,20.44M-6.97,-33.82L-6.00,-21.19M21.62,20.72L1.56,20.44M15.24,6.49L1.56,20.44M15.24,6.49L14.65,-13.09M26.45,-20.72L13.09,-33.53M5.27,33.53L-13.09,33.53M35.31,-6.49L33.42,13.09M35.31,-6.49L26.45,-20.72M35.31,-6.49L29.71,0.00M-33.42,-13.09L-32.46,-0.46M-6.00,-21.19L14.65,-13.09M-32.46,-0.46L-24.37,-21.19M33.42,13.09L21.62,20.72M13.09,-33.53L-6.97,-33.82M-19.09,12.34L-32.46,-0.46M-21.55,-28.77L-24.37,-21.19M-12.58,28.28L-13.09,33.53M-19.91,-7.28L-19.09,12.34M-19.91,-7.28L-24.37,-21.19M9.69,-28.77L26.45,-20.72M5.27,33.53L1.56,20.44M-28.15,20.44L-19.09,12.34M-19.09,12.34L1.56,20.44M26.45,-20.72L14.65,-13.09M-19.91,-7.28L-2.75,-0.46M-6.97,-33.82L-24.37,-21.19M9.69,-28.77L13.09,-33.53M15.24,6.49L21.62,20.72M26.45,-20.72L28.15,-20.44M-12.58,28.28L1.56,20.44M9.69,-28.77L-6.97,-33.82M-24.37,-21.19L-6.00,-21.19M-33.42,-13.09L-24.37,-21.19M-2.75,-0.46L14.65,-13.09M33.42,13.09L29.71,0.00M9.69,-28.77L-6.00,-21.19" stroke="#8fb52a" stroke-opacity="0.25" stroke-width="1.08" fill="none"/>
+  <path d="M-9.69,28.77L6.00,21.19M21.55,28.77L24.37,21.19M24.37,21.19L33.42,13.09M-1.56,-20.44L-5.27,-33.53M6.00,21.19L24.37,21.19M-9.69,28.77L6.97,33.82M-35.31,6.49L-26.45,20.72M24.37,21.19L6.97,33.82M-14.65,13.09L-26.45,20.72M19.91,7.28L6.00,21.19M12.58,-28.28L19.09,-12.34M12.58,-28.28L13.09,-33.53M-21.55,-28.77L-21.62,-20.72M-14.65,13.09L2.75,0.46M32.46,0.46L33.42,13.09M19.91,7.28L19.09,-12.34M2.75,0.46L6.00,21.19M32.46,0.46L19.09,-12.34M-29.71,0.00L-21.62,-20.72M-28.15,20.44L-26.45,20.72M-35.31,6.49L-33.42,-13.09M-1.56,-20.44L19.09,-12.34M19.09,-12.34L28.15,-20.44M-26.45,20.72L-29.71,0.00M21.55,28.77L6.97,33.82M-9.69,28.77L-13.09,33.53M-21.62,-20.72L-5.27,-33.53M-15.24,-6.49L-21.62,-20.72M-33.42,-13.09L-21.62,-20.72M6.00,21.19L6.97,33.82M19.91,7.28L2.75,0.46M12.58,-28.28L-1.56,-20.44M12.58,-28.28L28.15,-20.44M-35.31,6.49L-29.71,0.00M-9.69,28.77L-26.45,20.72M-21.55,-28.77L-33.42,-13.09M-21.55,-28.77L-5.27,-33.53M-14.65,13.09L-29.71,0.00M12.58,-28.28L-5.27,-33.53M-15.24,-6.49L2.75,0.46M2.75,0.46L19.09,-12.34M24.37,21.19L32.46,0.46M-14.65,13.09L6.00,21.19M-29.71,0.00L-33.42,-13.09M-15.24,-6.49L-1.56,-20.44M-1.56,-20.44L-21.62,-20.72M-13.09,33.53L-26.45,20.72M-5.27,-33.53L-6.97,-33.82M19.91,7.28L32.46,0.46M19.91,7.28L24.37,21.19M35.31,-6.49L32.46,0.46M6.97,33.82L-13.09,33.53M28.15,-20.44L13.09,-33.53M13.09,-33.53L-5.27,-33.53M32.46,0.46L28.15,-20.44M-9.69,28.77L-14.65,13.09M-15.24,-6.49L-14.65,13.09M-15.24,-6.49L-29.71,0.00M35.31,-6.49L28.15,-20.44M2.75,0.46L-1.56,-20.44" stroke="#b6dd34" stroke-width="1.62" fill="none" stroke-linecap="round" filter="url(#LglowS)"/>
+  <circle cx="-9.69" cy="28.77" r="1.26" fill="#eef8c8"/><circle cx="12.58" cy="-28.28" r="1.26" fill="#eef8c8"/><circle cx="19.91" cy="7.28" r="1.26" fill="#eef8c8"/><circle cx="-15.24" cy="-6.49" r="1.26" fill="#eef8c8"/><circle cx="-14.65" cy="13.09" r="1.26" fill="#eef8c8"/><circle cx="2.75" cy="0.46" r="1.26" fill="#eef8c8"/><circle cx="6.00" cy="21.19" r="1.26" fill="#eef8c8"/><circle cx="24.37" cy="21.19" r="1.26" fill="#eef8c8"/><circle cx="6.97" cy="33.82" r="1.26" fill="#eef8c8"/><circle cx="-26.45" cy="20.72" r="1.26" fill="#eef8c8"/><circle cx="-29.71" cy="0.00" r="1.26" fill="#eef8c8"/><circle cx="32.46" cy="0.46" r="1.26" fill="#eef8c8"/><circle cx="-1.56" cy="-20.44" r="1.26" fill="#eef8c8"/><circle cx="19.09" cy="-12.34" r="1.26" fill="#eef8c8"/><circle cx="-21.62" cy="-20.72" r="1.26" fill="#eef8c8"/><circle cx="28.15" cy="-20.44" r="1.26" fill="#eef8c8"/><circle cx="-5.27" cy="-33.53" r="1.26" fill="#eef8c8"/>
+  <circle r="36" fill="none" stroke="#b6dd34" stroke-width="1.80"/>
+</g></g><defs><linearGradient id="lgG" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b4da2e"/><stop offset="1" stop-color="#e2f78f"/></linearGradient><linearGradient id="lgR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d2cfc7"/><stop offset="1" stop-color="#b7b3a9"/></linearGradient><linearGradient id="lgBR" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8c8880"/><stop offset="1" stop-color="#69665f"/></linearGradient><linearGradient id="lgBL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#504c48"/><stop offset="1" stop-color="#3a3834"/></linearGradient><linearGradient id="lgL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#aaa7a0"/><stop offset="1" stop-color="#b0ada6"/></linearGradient><linearGradient id="lgTL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e2dfd9"/><stop offset="1" stop-color="#f6f5ef"/></linearGradient></defs><g id="lg"><path d="M0.0,-200.0L173.2,-100.0L0,0Z" fill="url(#lgG)"/><path d="M173.2,-100.0L173.2,100.0L0,0Z" fill="url(#lgR)"/><path d="M173.2,100.0L0.0,200.0L0,0Z" fill="url(#lgBR)"/><path d="M0.0,200.0L-173.2,100.0L0,0Z" fill="url(#lgBL)"/><path d="M-173.2,100.0L-173.2,-100.0L0,0Z" fill="url(#lgL)"/><path d="M-173.2,-100.0L0.0,-200.0L0,0Z" fill="url(#lgTL)"/><path d="M0,0L0.0,-200.0M0,0L173.2,-100.0M0,0L173.2,100.0M0,0L0.0,200.0M0,0L-173.2,100.0M0,0L-173.2,-100.0M0.0,-200.0L173.2,-100.0L173.2,100.0L0.0,200.0L-173.2,100.0L-173.2,-100.0Z" fill="none" stroke="#0b0b0b" stroke-width="4.5" stroke-linejoin="round"/></g></svg>
+<div class="bg"></div>
+<div class="menu" id="menu"><a href="#top">Home</a><a href="#how">How It Works</a><a href="#earnings">Earnings</a><a href="#nvdax">NVDA</a><a href="#token">$RATINOLE</a><a href="#docs">Docs</a><a href="#app">Launch App</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="https://x.com/RatinoleHQ" rel="noopener">𝕏 @RatinoleHQ on X</a></div>
+
+<!-- ================= LANDING ================= -->
+<div class="view on" id="v-home">
+<header class="nav"><div class="wrap">
+  <a class="brand" href="#top"><svg viewBox="-215 -215 430 430"><use href="#lg"/></svg>Ratinole</a>
+  <nav class="nl"><a href="#how">How It Works</a><a href="#earnings">Earnings</a><a href="#nvdax">NVDA</a><a href="#token">$RATINOLE</a><a href="#docs">Docs</a><a href="https://x.com/RatinoleHQ" target="_blank" rel="noopener">X</a></nav>
+  <a class="btn p arr" href="#app">Launch App</a>
+  <button class="burg" aria-label="Menu" aria-expanded="false"><i></i></button>
+</div></header>
+
+<section class="hero" id="top"><div class="wrap">
+  <p class="ey" style="justify-content:center">Powered by your GPU. Directed by you.</p>
+  <h1>Your NVIDIA GPU.<br>Your next <span>NVDA.</span></h1>
+  <p class="lead">Track your compute rewards, estimate operating costs, and turn available earnings into NVDA on Robinhood Chain — with every swap approved from your own wallet.</p>
+  <div class="cta"><a class="btn p lg arr" href="#earnings">Estimate My GPU Earnings</a><a class="btn lg" href="#nvdax">Explore NVDA</a></div>
+  <p class="tagline">From compute rewards to NVIDIA-linked exposure.</p>
+  <div class="stage">
+    <svg class="main" viewBox="-300 -300 600 600" aria-label="Spinning GPU turbine with reward callouts">
+      <g class="spin r"><circle r="290" fill="none" stroke="#1d1d1b" stroke-dasharray="2 6"/></g>
+      <circle r="262" fill="none" stroke="#1d1d1b"/>
+      <g class="spin r"><path d="M0-262A262 262 0 0 1 226 132" fill="none" stroke="#b6dd34" stroke-width="2" opacity=".7"/></g>
+      <g class="spin"><circle r="240" fill="none" stroke="#b6dd34" stroke-opacity=".25" stroke-dasharray="1 9" stroke-width="6"/></g>
+      <line x1="-262" y1="0" x2="-226" y2="0" stroke="#b6dd34"/><line x1="226" y1="0" x2="262" y2="0" stroke="#b6dd34"/>
+      <g class="spin"><use href="#em" transform="scale(1.02)"/></g>
+    </svg>
+    <div class="hud h1p">NOS price<b id="hjobs">—</b></div>
+    <div class="hud h2p">Rewards<b>Example $0.3636/h · RTX 4090</b></div>
+    <div class="hud h3p">NVDA token<b id="hnv">—</b></div>
+  </div>
+  <div class="trust">/ Self-custody<br>/ Transparent assumptions<br>/ User-approved transactions<div class="live">Clock · <span id="clock">--:--:--</span> UTC</div></div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="scene rv">
+    <div class="art"><svg viewBox="0 0 400 400">
+      <g fill="none" stroke="#b6dd34" stroke-width="1.4">
+        <rect class="draw" x="110" y="40" width="160" height="70" rx="8"/>
+        <circle class="draw" cx="155" cy="75" r="24"/><circle class="draw" cx="225" cy="75" r="24"/>
+        <path class="draw" d="M180 110v90M190 110v70M200 110v110M210 110v80"/>
+      </g>
+      <g transform="translate(155 75)"><g class="spin f"><use href="#em" transform="scale(.1)"/></g></g>
+      <g transform="translate(225 75)"><g class="spin f"><use href="#em" transform="scale(.1)"/></g></g>
+      <circle cx="200" cy="300" r="96" fill="none" stroke="#1d1d1b"/>
+      <g transform="translate(200 300)"><g class="spin"><use href="#em" transform="scale(.42)"/></g></g>
+      <circle cx="285" cy="75" r="3" fill="#b6dd34"/><text class="lab" x="292" y="62">Your NVIDIA GPU</text><text class="lab2" x="292" y="78">your hardware,</text><text class="lab2" x="292" y="92">your power</text>
+      <circle cx="210" cy="170" r="3" fill="#b6dd34"/><text class="lab" x="222" y="160">Job packets</text><text class="lab2" x="222" y="176">sent by the network</text>
+    </svg></div>
+    <div>
+      <p class="ey">01 / 03 · NVIDIA compute</p>
+      <h2>The work happens on your hardware, on a network outside Ratinole.</h2>
+      <p class="lead">You run a supported NVIDIA GPU through an external compute network, with that network's own software. Its customers send jobs; your card does the work.</p>
+      <p class="lead">Ratinole runs no jobs and pays no rewards. Connecting a wallet here never starts, stops, or changes anything on your node.</p>
+      <div class="note"><span class="pill">Note</span><span>Job traffic is the compute network's, not Ratinole's. This page does not show a live job count.</span></div>
+    </div>
+  </div>
+  <div class="scene rv">
+    <div class="art"><svg viewBox="0 0 400 400">
+      <circle cx="200" cy="200" r="170" fill="none" stroke="#1d1d1b"/>
+      <g fill="none" stroke="#b6dd34" stroke-width="1.4">
+        <circle class="draw" cx="125" cy="125" r="62"/><circle class="draw" cx="125" cy="125" r="48" stroke-opacity=".4"/>
+        <circle class="draw" cx="125" cy="275" r="44"/><circle class="draw" cx="125" cy="275" r="30" stroke-opacity=".4"/>
+        <path class="draw" d="M125 30v33M275 30v60M125 330v30M275 330v-25"/>
+      </g>
+      <g transform="translate(275 125)"><g class="spin"><use href="#em" transform="scale(.3)"/></g></g>
+      <g transform="translate(275 275)"><circle r="40" fill="#080807" stroke="#b6dd34"/><g class="spin r"><use href="#em" transform="scale(.17)"/></g></g>
+      <text class="lab" x="70" y="14">Reported rewards</text><text class="labv" id="s2r" x="100" y="28">$5.24</text>
+      <text class="lab" x="230" y="14">Est. electricity</text><text class="labv" id="s2e" x="250" y="28" style="fill:var(--el)">−$1.01</text>
+      <text class="lab" x="70" y="380">Network fees</text><text class="lab2" x="80" y="394">already excluded</text>
+      <text class="lab" x="230" y="380">Est. operating result</text><text class="labv" id="s2n" x="262" y="396">$4.23</text>
+    </svg></div>
+    <div>
+      <p class="ey">02 / 03 · Rewards and costs</p>
+      <h2>Rewards come in. Costs come out. Every assumption stays visible.</h2>
+      <p class="lead">The network reports token rewards for finished jobs. Ratinole sets them against your estimated electricity cost and the reserve you plan to keep for operating the machine.</p>
+      <div class="note"><span class="pill ex">Estimate</span><span>Starting inputs: 1 × GeForce RTX 4090, 24 h a day, 60% utilization, $0.15/kWh, example host rate $0.3636/h. <a href="#earnings">Change them</a> and these follow. An estimate, not a promise.</span></div>
+    </div>
+  </div>
+  <div class="scene rv">
+    <div class="art"><svg viewBox="0 0 400 400">
+      <g transform="translate(200 130)"><g class="spin"><use href="#em" transform="scale(.48)"/></g></g>
+      <g fill="none" stroke="#b6dd34" stroke-width="1.4"><path class="draw" d="M200 235v60M200 295c-40 0-60-20-80-40M200 295c40 0 70-30 90-70"/><circle class="draw" cx="200" cy="335" r="38" stroke-opacity=".6"/></g>
+      <circle cx="120" cy="255" r="3" fill="#b6dd34"/><text class="lab" x="40" y="280">Approved in</text><text class="lab" x="40" y="294">your wallet</text>
+      <circle cx="290" cy="225" r="3" fill="#b6dd34"/><text class="lab" x="396" y="262" text-anchor="end">Operating reserve</text><text class="lab2" x="396" y="276" text-anchor="end">kept in your wallet</text>
+    </svg></div>
+    <div>
+      <p class="ey">03 / 03 · NVDA accumulation</p>
+      <h2>What remains can go toward NVDA, one approved swap at a time.</h2>
+      <p class="lead">NVDA is Robinhood's stock token for NVIDIA, an ERC-20 on Robinhood Chain issued under Robinhood's terms. It is not a registered NVIDIA share, and GPU jobs do not pay in it.</p>
+      <p class="lead">You choose the amount. Ratinole fetches a quote, builds and simulates the transaction, and your wallet asks for your approval. Nothing is swapped on its own, and your reserve never leaves your wallet.</p>
+      <div class="note"><span class="pill">Live price</span><span><b id="nprice">—</b> per NVDA token on Uniswap. Your plan: <b id="nsplit">60% toward NVDA, 40% kept as reserve</b>. <a href="#nvdax">Change the split</a> and the ring follows.</span></div>
+    </div>
+  </div>
+</div>
+<div class="marq"><div id="mq"></div></div>
+</section>
+
+<section class="band" id="earnings"><div class="wrap">
+  <p class="ey l">NVIDIA GPU earnings</p>
+  <h2 class="rv">Know what your GPU keeps.</h2>
+  <p class="lead rv" style="margin-top:18px">Compare revenue with estimated electricity costs and network fees. See the assumptions behind every projection.</p>
+  <div id="calcL" style="margin-top:40px"></div>
+  <div style="margin-top:20px"><a class="btn arr" href="#app-earnings">Open the full calculator</a></div>
+</div></section>
+
+<section class="band" id="nvdax" style="border-top:1px solid var(--line)"><div class="wrap">
+  <p class="ey l">NVDA × Planner</p>
+  <h2 class="rv">Put compute rewards toward NVDA.</h2>
+  <p class="lead rv" style="margin-top:18px">Set your operating reserve, check the live route, and approve each swap from your own wallet.</p>
+  <div id="planL" style="margin-top:40px"></div>
+  <div class="grid2" style="margin-top:72px;align-items:start">
+    <div class="card rv">
+      <p class="ey" style="margin-bottom:10px">How a swap runs</p>
+      <h3>Priced and checked before you sign.</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px"><span class="pill ok">Uniswap v3 · Robinhood Chain</span><span class="pill">No Ratinole fee</span></div>
+      <ol class="dl" style="list-style:none;padding:0;gap:14px">
+        <li>You enter an amount of ETH or USDG. The quoter contract prices every direct and two-step route into NVDA.</li>
+        <li>The contracts are checked on chain: the NVDA token, USDG, the pool and the router. Swaps stay off if any check fails.</li>
+        <li>For USDG, your wallet first approves exactly the amount you chose, nothing more.</li>
+        <li>The swap is simulated against the chain. Only then does your wallet ask you to sign.</li>
+        <li>It counts as done once the chain confirms it. You get a transaction link.</li>
+      </ol>
+    </div>
+    <div>
+      <h3 class="rv" style="font-size:clamp(30px,3.6vw,44px)">The share and the token, side by side.</h3>
+      <p class="lead rv" style="margin-top:16px">NVDA is Robinhood's stock token with NVIDIA-linked exposure. Ratinole shows what it trades at on Robinhood Chain next to the NVIDIA share reference, each with its source and its time.</p>
+      <div class="rv" style="margin-top:22px"><div id="mktL"></div></div>
+    </div>
+  </div>
+  <div class="grid3" style="margin-top:56px">
+    <div class="rv"><h4>What it is</h4><p class="mute" style="margin-top:10px;font-size:15px">A stock token issued by Robinhood Assets (Jersey) Limited as an ERC-20 on Robinhood Chain. Its price follows NVIDIA, and dividends and splits are handled by a multiplier on the token.</p></div>
+    <div class="rv"><h4>What it is not</h4><p class="mute" style="margin-top:10px;font-size:15px">Not a directly registered NVIDIA share. It carries no shareholder voting rights, and holding it is governed by Robinhood's terms, not by NVIDIA.</p></div>
+    <div class="rv"><h4>Who can hold it</h4><p class="mute" style="margin-top:10px;font-size:15px">Robinhood says it may not be offered to U.S. persons, and sales are also restricted in places such as Canada, the United Kingdom and Switzerland. Ratinole cannot check who you are; you confirm it before each swap.</p></div>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;margin-top:22px;font-size:14px"><a href="#docs">How Ratinole verifies the contract</a><a href="https://docs.robinhood.com/chain/stock-tokens/">Robinhood Stock Token docs</a><a href="https://docs.robinhood.com/rhj">Eligibility and restrictions</a></div>
+</div></section>
+
+<section class="band" id="node" style="border-top:1px solid var(--line)"><div class="wrap">
+  <p class="ey l">Node rewards</p>
+  <h2 class="rv">From completed jobs to recorded earnings.</h2>
+  <p class="lead rv" style="margin-top:18px">Inspect supported node activity and reported rewards with source links and clear update times.</p>
+  <div id="nodeL" style="margin-top:40px"></div>
+</div></section>
+
+<section class="band" id="trust" style="border-top:1px solid var(--line)"><div class="wrap">
+  <p class="ey l">Workflow and transparency</p>
+  <h2 class="rv">What is read, what is estimated, and what needs you.</h2>
+  <p class="lead rv" style="margin-top:18px">Ratinole is an analytics and allocation interface. It is not a GPU network, a broker, a stock issuer, or a yield product.</p>
+  <div class="cols">
+    <div class="rv"><span class="num">01</span><h4>What Ratinole reads</h4><ul class="dl"><li>Public job records, reported rewards and uptime for a node address you enter</li><li>The NOS price, and a node's public record when the API answers</li><li>Your wallet's ETH, USDG and NVDA balances, after you connect</li><li>The NVDA contract, the issuer's record of it, and current prices</li></ul></div>
+    <div class="rv"><span class="num">02</span><h4>What it estimates</h4><ul class="dl"><li>Electricity cost, from the watts, hours and price you enter</li><li>A net operating result, with the assumptions listed beside it</li><li>How much NVDA an amount would buy, from a quote that expires in seconds</li><li>Progress toward a goal, on inputs you can edit</li></ul></div>
+    <div class="rv"><span class="num">03</span><h4>What needs your approval</h4><ul class="dl"><li>Connecting a wallet, which shares your public address only</li><li>Every swap, one transaction at a time, in your own wallet</li><li>Never a seed phrase, a private key, or standing permission to spend</li></ul></div>
+    <div class="rv"><span class="num">04</span><h4>What others provide</h4><ul class="dl"><li>Compute jobs and rewards: the external compute network (Nosana)</li><li>Quotes and swaps: Uniswap v3 contracts on Robinhood Chain</li><li>NVDA itself, and its terms: its issuer, Robinhood Assets (Jersey) Limited</li><li>Robinhood Chain (chain ID 4663), through an RPC endpoint</li></ul></div>
+  </div>
+  <h3 class="rv" style="margin-top:72px">Integration status, checked now</h3>
+  <a href="#docs" style="font-size:14px;color:var(--mute)">Data sources and their limits</a>
+  <div class="integ" id="integL"></div>
+  <p class="checked">Static deployment · checking from your browser. Sources without a connection read "Not configured".</p>
+</div></section>
+
+<section class="band" id="token" style="border-top:1px solid var(--line)"><div class="wrap grid2" style="align-items:start;gap:clamp(24px,5vw,72px)">
+  <div><p class="ey l">Token</p><h2 class="rv">$RATINOLE, on Robinhood Chain.</h2><p class="lead rv" style="margin-top:18px">The contract address below will be the one the project publishes. Check it character by character before you do anything with it.</p></div>
+  <div class="card tok rv">
+    <div class="name">$RATINOLE</div><small class="mono dim" style="letter-spacing:.14em">ROBINHOOD CHAIN · RATINOLEGPU</small>
+    <div style="margin-top:22px"><small class="mono dim" style="letter-spacing:.14em;font-size:10px">CONTRACT ADDRESS</small><div class="ca" id="ca">Not yet published</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" id="cpy" disabled aria-disabled="true">Copy address</button><a class="btn sm" href="https://robinhoodchain.blockscout.com">Blockscout ↗</a></div></div>
+    <div class="grid2" id="rstats" style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line);gap:18px"></div><p class="dim" style="font-size:12px;margin-top:18px">Until a contract address is published, the figures above are plans, not facts about a deployed token; once it is, they are read from the chain. Ratinole does not use this token: the calculator, the node tracker, the planner and swaps into NVDA need none, no fee is paid in it, and holding it changes nothing in the app. It is not NVDA and has nothing to do with NVIDIA. Not an offer and not investment advice.</p>
+    <a class="btn sm" href="https://x.com/RatinoleHQ" rel="noopener" style="margin-top:16px">𝕏 @RatinoleHQ</a>
+  </div>
+</div></section>
+
+<section class="band" id="faq" style="border-top:1px solid var(--line)"><div class="wrap" style="max-width:900px">
+  <p class="ey">Questions</p><h2 class="rv" style="margin-bottom:28px">Plain answers.</h2>
+  <div id="faqs"></div>
+</div></section>
+
+<section class="final" style="border-top:1px solid var(--line)"><svg class="bgem" viewBox="-215 -215 430 430"><use href="#lg"/></svg><div class="wrap">
+  <h2 class="rv">From NVIDIA compute<br>to NVDA accumulation.</h2>
+  <a class="btn p lg arr" href="#app" style="margin-top:32px;position:relative">Open Ratinole</a>
+</div></section>
+</div>
+
+<!-- ================= APP ================= -->
+<div class="view" id="v-app">
+  <header class="nav atop"><div class="wrap"><a class="brand" href="#top"><svg viewBox="-215 -215 430 430"><use href="#lg"/></svg>Ratinole</a><nav class="nl"><a href="#how">How It Works</a><a href="#nvdax">NVDA</a><a href="#docs">Docs</a><a href="https://x.com/RatinoleHQ" target="_blank" rel="noopener">X</a></nav><button class="btn" id="cw">Connect wallet</button><button class="burg" aria-label="Menu" aria-expanded="false"><i></i></button></div></header>
+  <nav class="tabs" id="tabs"></nav>
+  <div class="wrap apg" id="apg"></div>
+</div>
+
+<!-- ================= DOCS / LEGAL ================= -->
+<div class="view" id="v-doc">
+  <header class="nav"><div class="wrap"><a class="brand" href="#top"><svg viewBox="-215 -215 430 430"><use href="#lg"/></svg>Ratinole</a><nav class="nl"><a href="#how">How It Works</a><a href="#earnings">Earnings</a><a href="#nvdax">NVDA</a><a href="#token">$RATINOLE</a><a href="#docs">Docs</a><a href="https://x.com/RatinoleHQ" target="_blank" rel="noopener">X</a></nav><a class="btn p arr" href="#app">Launch App</a><button class="burg" aria-label="Menu" aria-expanded="false"><i></i></button></div></header>
+  <div class="wrap apg" id="dpg"></div>
+</div>
+
+<footer><div class="wrap">
+  <a class="brand" href="#top"><svg viewBox="-215 -215 430 430"><use href="#lg"/></svg>Ratinole</a>
+  <nav><a href="#docs">Docs</a><a href="#docs">Data Sources</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a><a href="https://x.com/RatinoleHQ" rel="noopener">X</a></nav>
+  <span class="chip">$RATINOLE <span>address TBA</span></span>
+  <p>Robinhood Chain mainnet · every swap approved in your own wallet</p>
+</div></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Connect a wallet"><div class="card">
+  <button class="x" id="mx" aria-label="Close">✕</button>
+  <h3>Connect a wallet</h3>
+  <div id="mpick"><button class="mw" id="mwi"><span style="font-size:22px">◧</span><span style="flex:1">Browser wallet</span><span class="pill" id="mwst">…</span></button>
+  <button class="mw" id="mwb"><span style="font-size:22px">▯</span><span style="flex:1">Open in a wallet app</span><span class="pill">Mobile</span></button></div>
+  <div id="mconn" style="display:none;margin:16px 0"><small class="mono dim" style="letter-spacing:.14em">CONNECTED ADDRESS</small><p class="mono" id="maddr" style="font-size:13px;overflow-wrap:anywhere;margin:8px 0 14px"></p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" id="mref">↻ Refresh balances</button><button class="btn sm" id="mdis">Disconnect</button></div></div>
+  <p class="mute" style="font-size:14px">Connecting shares your public address with this page so it can read balances. It does not start or change any GPU work, and it gives no permission to spend. Ratinole never asks for a seed phrase or a private key, and every transaction needs your approval in the wallet.</p>
+  <p id="mmsg" class="acc" style="font-size:14px;margin-top:12px"></p>
+</div></div>
+
+<script>
+{
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const usd=(v,d=2)=>(v<0?'−':'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const store={get(k,d){try{const v=localStorage.getItem('rn_'+k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem('rn_'+k,JSON.stringify(v))}catch(e){}}};
+
+/* clock + marquee */
+const tick=()=>{const c=$('#clock');if(c)c.textContent=new Date().toISOString().slice(11,19)};tick();setInterval(tick,1000);
+const mq=['External GPU work','Network rewards','Available wallet balance','Your approval','NVDA'];
+$('#mq').innerHTML=(mq.map(s=>s+'<span>→</span>').join('')).repeat(6);
+
+/* menu */
+const closeMenu=()=>{$('#menu').classList.remove('on');$$('.burg').forEach(b=>b.setAttribute('aria-expanded','false'))};
+$$('.burg').forEach(b=>b.onclick=()=>{const on=$('#menu').classList.toggle('on');$$('.burg').forEach(x=>x.setAttribute('aria-expanded',on))});
+$$('#menu a').forEach(a=>a.addEventListener('click',closeMenu));
+addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();$('#modal').classList.remove('on')}});
+
+/* ===== GPU markets (example host rates) ===== */
+const GPUS=[['GeForce RTX 5090',575,0.52],['GeForce RTX 4090',450,0.3636],['GeForce RTX 4080',320,0.2290],['GeForce RTX 4070',200,0.1280],['GeForce RTX 3090',350,0.1960],['GeForce RTX 3080',320,0.1450],['GeForce RTX 3070',220,0.0727],['GeForce RTX 3060',170,0.0436],['RTX A6000',300,0.3636],['RTX 6000 Ada',300,0.6364],['A40',300,0.3636],['RTX 5000 Ada / RTX A5000',250,0.1818],['RTX 4000 Ada / RTX A4000',140,0.1164],['A100 80GB',300,0.8181],['A100 40GB',250,0.5545],['H100',350,1.36]];
+const RATES={live:false,t:null,m:{}};
+function gpuRate(i,t){const e=RATES.m[i],g=GPUS[i]||GPUS[1],v=e&&(t==='c'?e.c:e.p);return v>0?v:g[2]*(t==='c'?.82:1)}
+function gpuLive(i,t){const e=RATES.m[i];return !!(e&&(t==='c'?e.c:e.p)>0)}
+const DEF={gpu:1,cnt:1,mode:'prov',tier:'p',rate:0,net:'net',fee:10,pw:450,kwh:0.15,ut:60,hrs:24,idle:25,ovh:0,per:'day'};
+let C=Object.assign({},DEF,store.get('calc',{}));
+let scen=store.get('scen',[]);
+
+function calcHTML(full){return `<div class="grid2" style="align-items:start">
+<div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3>Your setup</h3><button class="btn sm" data-c="reset" style="border:0;background:none;color:var(--mute)">Reset</button></div>
+ <div class="fld"><div class="t">NVIDIA GPU model</div><div class="inp sel"><select data-c="gpu">${GPUS.map((g,i)=>`<option value="${i}">${g[0]}</option>`).join('')}</select></div></div>
+ <div class="fld"><div class="t">GPU count</div><div class="inp"><input data-c="cnt" type="number" min="1" inputmode="numeric"><span class="u">GPUs</span></div></div>
+ <div class="fld"><div class="t">Hourly reward rate</div><div class="tog" data-t="mode"><button data-v="prov">Provider rate</button><button data-v="man">Manual rate</button></div>
+  <div data-show="prov" class="ratebox"><div class="v"><span data-o="prate"></span><small>per active GPU-hour</small></div><p><span data-o="ratesrc">Example host rate of the</span> <span data-o="pname" style="color:var(--a)"></span> market. Net of the network fee.</p><div class="tog" data-t="tier"><button data-v="p">Premium</button><button data-v="c">Community</button></div></div>
+  <div data-show="man"><div class="fld"><div class="t">Rate <em>Manual</em></div><div class="inp"><input data-c="rate" type="number" step="0.01" min="0" placeholder="0.00"><span class="u">USD / h</span></div><div class="h">USD per GPU, per hour of paid work.</div></div>
+   <div class="fld"><div class="t">This rate is</div><div class="tog full" data-t="net"><button data-v="net">Net to me</button><button data-v="gross">Gross</button></div><div class="h" data-o="nethint"></div></div>
+   <div class="fld" data-show2="gross"><div class="t">Network fee <em>Manual</em></div><div class="inp"><input data-c="fee" type="number" min="0" max="100"><span class="u">%</span></div></div></div></div>
+ <div class="fld"><div class="t">Active power draw <em>Rated preset</em></div><div class="inp"><input data-c="pw" type="number" min="0"><span class="u">W</span></div><div class="h" data-o="pwhint"></div></div>
+ <div class="fld"><div class="t">Electricity price <em>Manual</em></div><div class="inp"><input data-c="kwh" type="number" step="0.01" min="0"><span class="u">USD / kWh</span></div></div>
+ <div class="fld"><div class="t">Expected utilization <em>Assumption</em></div><div class="rng"><input data-c="ut" type="range" min="0" max="100"><div class="inp"><input data-c="ut" type="number" min="0" max="100"><span class="u">%</span></div></div><div class="h">Share of scheduled hours spent on paid jobs. Work is not guaranteed.</div></div>
+ <div class="fld"><div class="t">Scheduled hours <em>Manual</em></div><div class="inp"><input data-c="hrs" type="number" min="0" max="24"><span class="u">h / day</span></div><div class="h">Per day.</div></div>
+ <div class="fld"><div class="t">Idle power draw <em>Assumption</em></div><div class="inp"><input data-c="idle" type="number" min="0"><span class="u">W</span></div><div class="h">While scheduled but not working.</div></div>
+ <div class="fld"><div class="t">Daily overhead <em>Optional</em></div><div class="inp"><input data-c="ovh" type="number" min="0" step="0.1"><span class="u">USD</span></div><div class="h">Cooling, hosting, upkeep.</div></div>
+</div>
+<div class="card res" style="position:sticky;top:84px">
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="pill ex">Estimate</span><span class="pill" data-o="ratepill"></span></div>
+ <div class="tog" data-t="per" style="margin-top:16px"><button data-v="day">Per day</button><button data-v="mon">Per 30 days</button></div>
+ <p class="ey" style="margin:22px 0 0;color:var(--mute)">Estimated net operating result</p>
+ <div class="big" data-o="big"></div><p class="mute" style="font-size:14px" data-o="sub"></p>
+ <div data-o="naw"></div>
+ <div data-o="bars" style="margin-top:14px"></div>
+ <div data-o="extra"></div>
+ <details class="acc"><summary>Assumptions behind these figures</summary><ul><li>Utilization is your assumption. Paid work depends on job availability and is not guaranteed.</li><li>The monthly figure is the daily one × 30 — a projection, not a calendar-month forecast.</li><li>Power presets are the board power NVIDIA publishes for the reference card. Your measured draw will differ; the idle figure is an assumption.</li><li>Hardware cost, taxes, cooling and depreciation are excluded unless you add them as daily overhead.</li><li>A market that spans several GPUs pays per job across all of them, so its rate is not a per-GPU rate.</li></ul></details>
+ ${full?`<div class="fld"><div class="inp"><input data-c="sname" placeholder="Name this scenario" style="font-family:Geist"></div></div>
+ <button class="btn p" data-c="save" style="width:100%;margin-top:10px">Save scenario</button>
+ <button class="btn" data-c="csv" style="width:100%;margin-top:10px">⤓ Copy as CSV</button><p class="h dim" data-o="csvmsg" style="font-size:12px;margin-top:6px"></p>`:''}
+ <div class="note"><span class="pill ex">Rates</span><span>Host rates are the median of Nosana's public market list for each GPU when it can be read, and sample values otherwise. Use Manual rate for your own figure.</span></div>
+</div></div>
+${full?`<div class="grid2" style="margin-top:16px;align-items:start"><div class="card"><h3>Saved scenarios</h3><p class="mute" style="font-size:14px;margin-top:6px">Compare up to three. Kept in this browser only.</p><div data-o="scen" style="margin-top:12px"></div></div>
+<div class="card"><h3>GPU markets</h3><p class="mute" style="font-size:14px;margin-top:6px">Rated power and the net per scheduled hour each card would make under your current assumptions.</p><div class="scroll" style="margin-top:10px"><table><thead><tr><th>Market</th><th class="n">Power</th><th class="n">Rate</th></tr></thead><tbody data-o="mkt"></tbody></table></div>
+<p class="dim" style="font-size:12px;margin-top:12px">The last column applies your current assumptions (utilization, hours, electricity price) and each model's rated power to its example premium rate. An estimate, not a ranking of what you will earn.</p></div></div>`:''}`}
+
+function updScene(r){const a=$('#s2r'),b=$('#s2e'),c=$('#s2n');if(!a)return;if(r.na){a.textContent='—';b.textContent='—';c.textContent='—';return}a.textContent=usd(r.gross);b.textContent='−'+usd(r.el);c.textContent=usd(r.net)}
+function compute(c){
+  const g=GPUS[c.gpu]||GPUS[1],n=Math.max(1,+c.cnt||1),u=Math.min(100,Math.max(0,+c.ut||0))/100,h=Math.min(24,Math.max(0,+c.hrs||0));
+  const act=h*u,idl=h-act,kwhD=n*((+c.pw||0)*act+(+c.idle||0)*idl)/1000,el=kwhD*(+c.kwh||0),ov=+c.ovh||0;
+  let rate=null;if(c.mode==='prov')rate=gpuRate(c.gpu,c.tier);else if(+c.rate>0)rate=+c.rate;
+  if(rate===null)return {na:1,act,el,kwhD,ov,n,g};
+  const gross=n*act*rate,fee=(c.mode==='man'&&c.net==='gross')?gross*(+c.fee||0)/100:0,net=gross-fee-el-ov;
+  const be=kwhD>0?(gross-fee-ov)/kwhD:null;
+  return {act,el,kwhD,ov,n,g,rate,gross,fee,net,be};
+}
+function bindCalc(root,full){
+  root.innerHTML=calcHTML(full);
+  const q=s=>root.querySelector(s),qa=s=>[...root.querySelectorAll(s)];
+  const sync=()=>{qa('[data-c]').forEach(e=>{const k=e.dataset.c;if(k in C&&e.tagName!=='BUTTON')e.value=C[k]});
+    qa('[data-t]').forEach(t=>[...t.children].forEach(b=>b.classList.toggle('on',C[t.dataset.t]===b.dataset.v)))};
+  const draw=()=>{
+    const r=compute(C),m=C.per==='mon'?30:1;
+    qa('[data-show]').forEach(e=>e.style.display=e.dataset.show===C.mode?'':'none');
+    qa('[data-show2]').forEach(e=>e.style.display=C.net==='gross'?'':'none');
+    q('[data-o=prate]').textContent='$'+gpuRate(C.gpu,C.tier).toFixed(4);const rs=q('[data-o=ratesrc]');if(rs)rs.textContent=gpuLive(C.gpu,C.tier)?'Live median Nosana rate of the':'Example host rate of the';q('[data-o=pname]').textContent=r.g[0];
+    q('[data-o=nethint]').textContent=C.net==='net'?'No fee is deducted.':'A network fee is deducted from it.';
+    q('[data-o=pwhint]').textContent=`Preset: ${r.g[1]} W rated board power. Measured draw differs.`;
+    q('[data-o=ratepill]').textContent=C.mode==='prov'?'Rate: provider':'Rate: manual';
+    const big=q('[data-o=big]');
+    if(r.na){big.textContent='Not available';big.className='big na';q('[data-o=sub]').textContent='';
+      q('[data-o=naw]').innerHTML='<div class="warnbox"><div><b>There is no hourly rate to calculate with.</b><br><span class="mute">Enter a rate in USD per hour. A missing rate is never treated as zero.</span></div></div>';
+      q('[data-o=bars]').innerHTML='';q('[data-o=extra]').innerHTML='';}
+    else{q('[data-o=naw]').innerHTML='';big.textContent=usd(r.net*m);big.className='big'+(r.net<0?' neg':'');
+      q('[data-o=sub]').textContent=`per ${m===1?'day':'30 days'} · ${r.n} × ${r.g[0]} · ${r.act.toFixed(1)} active hours a day`;
+      const mx=Math.max(r.gross,.0001),B=(c,l,v,w,p)=>`<div class="bar"><div class="t"><span><i style="background:${c}"></i>${l}</span><b>${v}</b></div>${w!=null?`<div class="tr"><div style="width:${Math.min(100,w)}%;background:${c}"></div></div>`:''}${p?`<p>${p}</p>`:''}</div>`;
+      q('[data-o=bars]').innerHTML=B('var(--a)','Estimated gross rewards',usd(r.gross*m),100)+B('var(--el)','Estimated electricity costs','−'+usd(r.el*m).replace('$','$'),r.el/mx*100)
+        +B('var(--fee)','Network fees',r.fee?'−'+usd(r.fee*m):'Already excluded',r.fee?r.fee/mx*100:null,r.fee?'':'The rate is what a host keeps. The fee is not deducted a second time.')
+        +B('var(--oth)','Other configured costs',r.ov?'−'+usd(r.ov*m):'None',r.ov?r.ov/mx*100:null)+B('var(--ice)','Estimated net operating result',usd(r.net*m),Math.max(0,r.net/mx*100));
+      q('[data-o=extra]').innerHTML=`<div class="kv" style="margin-top:12px"><span>Energy used</span><b>${(r.kwhD*m).toFixed(2)} kWh / ${m===1?'day':'30 days'}</b></div><div class="kv"><span>Electricity price at which the result is zero</span><b>${r.be!=null?'$'+r.be.toFixed(4)+' / kWh':'—'}</b></div>`;}
+    if(full){
+      q('[data-o=scen]').innerHTML=scen.length?`<div class="scroll"><table><thead><tr><th>Name</th><th>Setup</th><th class="n">Net / day</th><th></th></tr></thead><tbody>${scen.map((s,i)=>`<tr><td>${esc(s.name)}</td><td class="mute">${s.n} × ${esc(s.gpu)}</td><td class="n">${s.net==null?'n/a':usd(s.net)}</td><td class="n"><button class="btn sm" data-del="${i}">Remove</button></td></tr>`).join('')}</tbody></table></div>`:'<p class="dim" style="font-size:14px">No saved scenarios yet.</p>';
+      qa('[data-del]').forEach(b=>b.onclick=()=>{scen.splice(+b.dataset.del,1);store.set('scen',scen);draw()});
+      q('[data-o=mkt]').innerHTML=GPUS.map(g=>{const rr=compute(Object.assign({},C,{gpu:GPUS.indexOf(g),mode:'prov',tier:'p',pw:g[1],cnt:1}));return `<tr><td>${g[0]}</td><td class="n">${g[1]} W</td><td class="n l"><a href="#app-earnings">${rr.na?'n/a':usd(rr.net/Math.max(+C.hrs||0,1),4)+'/h'}</a></td></tr>`}).join('');
+    }
+    updScene(r);store.set('calc',C);
+  };
+  qa('[data-c]').forEach(e=>{
+    if(e.tagName==='BUTTON'){e.onclick=()=>{const k=e.dataset.c;
+      if(k==='reset'){C=Object.assign({},DEF);sync();draw();refreshAll()}
+      if(k==='save'){const r=compute(C);if(scen.length>=3)scen.shift();scen.push({name:q('[data-c=sname]').value.trim()||'Scenario '+(scen.length+1),gpu:r.g[0],n:r.n,net:r.na?null:+r.net.toFixed(4)});store.set('scen',scen);q('[data-c=sname]').value='';draw()}
+      if(k==='csv'){const rows=[['name','gpu','count','net_per_day_usd']].concat(scen.map(s=>[s.name,s.gpu,s.n,s.net??'n/a']));const t=rows.map(r=>r.map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+        navigator.clipboard.writeText(t).then(()=>q('[data-o=csvmsg]').textContent='CSV copied — paste it into a spreadsheet.',()=>q('[data-o=csvmsg]').textContent='Copy was blocked by the browser.')}
+    };return}
+    if(e.dataset.c==='sname')return;
+    e.addEventListener('input',()=>{const k=e.dataset.c;C[k]=k==='gpu'?+e.value:e.value;if(k==='gpu'){C.pw=GPUS[+e.value][1]}if(k==='ut')qa('[data-c=ut]').forEach(x=>{if(x!==e)x.value=e.value});if(k==='gpu')sync();draw()})});
+  qa('[data-t]').forEach(t=>[...t.children].forEach(b=>b.onclick=()=>{C[t.dataset.t]=b.dataset.v;sync();draw()}));
+  window.__rnDraw=draw;sync();draw();return draw;
+}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ===== planner ===== */
+let P=Object.assign({amt:250,res:40,tgt:''},store.get('plan',{}));
+const NVDA=null;
+function planHTML(){return `<div class="grid2" style="align-items:center;gap:clamp(20px,4vw,56px)">
+<div><div class="ringw"><svg viewBox="-110 -110 220 220"><circle r="92" fill="none" stroke="#1c1c1a" stroke-width="12"/><circle class="rg1" r="92" fill="none" stroke="#b6dd34" stroke-width="12" transform="rotate(-90)"/><circle class="rg2" r="92" fill="none" stroke="#6e6b64" stroke-width="12" transform="rotate(-90)"/><circle r="78" fill="none" stroke="#1c1c1a" stroke-dasharray="1 5"/></svg>
+<div class="c"><small>TOWARD NVDA</small><b data-p="pct">60%</b><span data-p="kept">40% kept as reserve</span></div></div>
+<div class="leg"><span><i style="background:var(--a)"></i>Planned for NVDA</span><span><i style="background:#6e6b64"></i>Operating reserve</span></div></div>
+<div class="card">
+ <div class="fld" style="margin-top:0"><div class="t">Planning amount <em>Manual</em></div><div class="inp"><input data-p="amt" type="number" min="0"><span class="u">USD</span></div><div class="h">Available rewards, in USD.</div></div>
+ <div class="fld"><div class="t">Operating reserve <em>You set</em></div><div class="inp"><input data-p="res" type="number" min="0" max="100"><span class="u">%</span></div><div class="h">Kept for power and upkeep.</div></div>
+ <div class="fld"><div class="t">Toward NVDA <em>You set</em></div><div class="rng"><input data-p="tow" type="range" min="0" max="100"><div class="inp"><input data-p="tow" type="number" min="0" max="100"><span class="u">%</span></div></div><div class="h">Intended for a swap.</div></div>
+ <div class="sum"><div class="kv"><span>Planned reserve · stays in your wallet</span><b data-p="pr"></b></div><div class="kv"><span>Planned swap input</span><b data-p="ps"></b></div><div class="kv"><span>Estimated NVDA</span><b class="acc" data-p="pn"></b></div></div>
+ <div class="note" style="margin-top:12px"><span class="pill" data-p="ppill">Price</span><span data-p="pnote"></span></div>
+ <div class="fld"><div class="t">Accumulation target <em>Optional</em></div><div class="inp"><input data-p="tgt" type="number" min="0" step="0.1" placeholder="e.g. 5"><span class="u">NVDA</span></div><div class="h" data-p="tgth">In NVDA, as your wallet shows it.</div></div>
+ <a class="btn p lg arr" href="#app-allocate" style="margin-top:20px">Plan My NVDA Stack</a>
+ <p class="h dim" style="font-size:13px;margin-top:10px">Saved in this browser. A plan is not permission to spend.</p>
+</div></div>`}
+function bindPlan(root){
+  root.innerHTML=planHTML();const q=s=>root.querySelector(s),qa=s=>[...root.querySelectorAll(s)];const CR=2*Math.PI*92;
+  const draw=()=>{const res=Math.min(100,Math.max(0,+P.res||0)),tow=100-res,a=Math.max(0,+P.amt||0),sw=a*tow/100;
+    qa('[data-p]').forEach(e=>{if(e.tagName==='INPUT'){const k=e.dataset.p;if(document.activeElement!==e)e.value=k==='tow'?tow:P[k]}});
+    q('[data-p=pct]').textContent=tow+'%';q('[data-p=kept]').textContent=res+'% kept as reserve';
+    q('[data-p=pr]').textContent=usd(a-sw);q('[data-p=ps]').textContent=usd(sw);const pr=MK.priceRaw,nv=pr?sw/pr*(MK.mult?Number(MK.mult)/1e18:1):null;q('[data-p=pn]').textContent=nv==null?'—':'≈ '+nv.toFixed(6)+' NVDA';q('[data-p=ppill]').textContent=pr?'Live price':'No price';q('[data-p=pnote]').textContent=pr?'Uses '+usd(pr)+' per raw token from Uniswap, before fees and slippage, shown as your wallet shows it. A real quote expires in seconds and is not an order.':'The Uniswap price could not be read in this browser, so no estimate is shown.';
+    q('[data-p=tgth]').textContent=+P.tgt>0?`At this plan, about ${Math.ceil(+P.tgt/Math.max(nv||0,1e-9))} rounds of the same size to reach ${P.tgt} NVDA.`:'In NVDA, as your wallet shows it.';
+    q('.rg1').setAttribute('stroke-dasharray',`${CR*tow/100} ${CR}`);q('.rg2').setAttribute('stroke-dasharray',`${CR*res/100} ${CR}`);q('.rg2').setAttribute('stroke-dashoffset',-CR*tow/100);
+    const ns=$('#nsplit');if(ns)ns.textContent=`${tow}% toward NVDA, ${res}% kept as reserve`;store.set('plan',P)};
+  qa('input[data-p]').forEach(e=>e.addEventListener('input',()=>{const k=e.dataset.p;if(k==='tow')P.res=100-Math.min(100,Math.max(0,+e.value||0));else P[k]=e.value;draw()}));
+  draw();PLANS.push(draw);return draw;
+}
+
+/* ===== node ===== */
+function nodeHTML(app){return `<div class="grid2" style="align-items:start">
+<div class="card"><form data-n="f"><div class="fld" style="margin-top:0"><div class="t">Node address <em>Host address</em></div><div class="inp"><input data-n="k" placeholder="Host address, e.g. 7Xk2…9fQm" autocomplete="off" spellcheck="false"></div></div>
+<button class="btn p lg arr" type="submit" style="width:100%;margin-top:14px">Read node</button></form>
+<p class="h dim" style="font-size:13px;margin-top:12px">Read-only. Looking up a node needs no wallet and no signature, and it does not start or stop any GPU work. Running a node needs your own hardware and the network's software.</p>
+<p data-n="msg" style="font-size:14px;margin-top:12px" class="acc"></p><div data-n="live"></div>
+${app?`<div style="margin-top:20px;padding-top:20px;border-top:1px solid var(--line)"><small class="mono dim" style="letter-spacing:.14em">NO NODE SELECTED</small><h3 style="margin:8px 0 10px">Enter a node address to read its public record.</h3><p class="mute" style="font-size:14px">You will see the node's activity at the time of reading, its recent jobs, the rewards the network reports for them, and how far back the data goes. Nothing is shown here until the provider answers: there are no placeholder figures.</p></div>`:''}
+</div>
+<div class="card">
+ <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" data-n="r">↻ Refresh</button><a class="btn sm" href="https://explore.nosana.com" target="_blank" rel="noopener">Network explorer ↗</a><a class="btn sm" href="https://host.nosana.com" target="_blank" rel="noopener">Host dashboard ↗</a></div>
+ <div data-n="net" style="margin-top:18px"></div>
+ <p class="mute" style="font-size:13px;margin-top:16px">Enter a host address on the left to read its public record from Nosana. Ratinole shows exactly the fields Nosana returns and computes nothing from them. If Nosana needs a key for a record or has none, the page says so.</p>
+ ${app?'':`<a class="btn arr" href="#app-nodes" style="margin-top:18px">Track your own node in the app</a>`}
+</div></div>`}
+let NOS=null;
+function netPanel(q){const e=q('[data-n=net]');if(!e)return;
+  if(!NOS){e.innerHTML='<small class="mono dim" style="letter-spacing:.14em">NOSANA NETWORK</small><p class="mute" style="font-size:14px;margin-top:8px">The NOS price could not be read just now.</p>';return}
+  const f=v=>v==null?'—':Number(v).toLocaleString('en-US');
+  e.innerHTML=`<small class="mono dim" style="letter-spacing:.14em">NOSANA NETWORK · READ ${NOS.t} UTC</small><div class="grid2" style="margin-top:12px;gap:16px"><div class="st"><small>NOS price</small><b>$${NOS.p.toFixed(4)}</b><span>${NOS.src||''}</span></div>`+
+   (NOS.change!=null?`<div class="st"><small>24 h change</small><b>${NOS.change>0?'+':''}${NOS.change.toFixed(2)}%</b><span>Price move</span></div>`:'')+
+   (NOS.stakers!=null?`<div class="st"><small>Stakers</small><b>${f(NOS.stakers)}</b><span>Network-wide</span></div>`:'')+
+   (NOS.mcap!=null?`<div class="st"><small>Market cap</small><b>$${f(Math.round(NOS.mcap))}</b><span>As reported</span></div>`:'')+'</div>'}
+function bindNode(root,app){root.innerHTML=nodeHTML(app);const q=s=>root.querySelector(s);netPanel(q);(window.__nets=window.__nets||[]).push(()=>netPanel(q));
+  q('[data-n=f]').onsubmit=e=>{e.preventDefault();const k=q('[data-n=k]').value.trim();
+    let saved=store.get('nodes',[]);
+    q('[data-n=msg]').textContent=!k?'Enter a node address first.':!/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(k)?'That does not look like a Nosana host address (a Solana address).':(saved.includes(k)||saved.push(k),store.set('nodes',saved),(readNode(k,q),'Address saved in this browser.'))};
+  q('[data-n=r]').onclick=()=>{q('[data-n=msg]').textContent='Reading the network…';checkNosana().then(()=>{netPanel(q);q('[data-n=msg]').textContent=ST.nos&&ST.nos.s==='live'?'Network figures refreshed.':'Network figures could not be read.'})}}
+
+/* ===== integrations ===== */
+const INTEG=[['Robinhood Chain RPC','Balances, contracts, simulation, sending signed transactions, confirmations.','rpc'],['NOS price','NOS market price, read through the Ratinole proxy or CoinGecko.','nos'],['Robinhood Stock Token API','The issuer\'s record of the NVDA contract, the shares-per-token multiplier, and a reference price.','rh'],['NVDA and USDG contracts','Checked on chain every time: symbol, decimals, and a live Uniswap pool between them.','tok'],['Uniswap v3 contracts','The quoter and router that price and build swaps, checked on chain.','uni'],['Host reward rates','Per-GPU host rates from the compute network. The calculator uses example rates until this is connected.','rates'],['$RATINOLE token record','The project\'s own token. The app does not use it.','ca']];
+$('#integL').innerHTML='';
+
+/* ===== FAQ ===== */
+const FAQ=[['Does connecting my wallet start GPU work?',['No. Connecting a wallet shares your public address with this page so it can read balances, and nothing else.','Running a node needs your own hardware and the compute network\'s software, set up outside Ratinole. Ratinole cannot start, stop, or configure a node.']],
+['Where do GPU rewards come from?',['From the external compute network that sends jobs to your card. It pays in its own token (NOS on Nosana), never in NVDA. Turning part of that into NVDA is a separate step that you choose to make.']],
+['Are projected earnings guaranteed?',['No. Every figure from the calculator is an estimate built on inputs you can see and change: your utilization, your electricity price, the rate in force today. The host rates in the calculator are example values until a live source is connected.','Real results depend on how much work the network sends you, what your machine actually draws, and the token\'s price. Any of them can make the result lower, or negative.']],
+['Does Ratinole hold my funds?',['No. Ratinole has no accounts and no custody. Your tokens stay in your wallet, and every transaction is signed there, by you.']],
+['Can I choose my allocation?',['Yes. You set how much stays as an operating reserve and how much is intended for NVDA; you choose the amount and the asset to pay with, and you approve each swap yourself.','A saved plan lives in your browser and gives nobody permission to spend. There is no automatic or recurring execution.']],
+['What is NVDA, and who can hold it?',['NVDA is a stock token issued by Robinhood Assets (Jersey) Limited on Robinhood Chain. It follows the NVIDIA share price, with a multiplier for dividends and splits. It is not a registered NVIDIA share and carries no voting rights.','Robinhood says it may not be offered to U.S. persons, and sales are also restricted in places such as Canada, the United Kingdom and Switzerland. Ratinole cannot check who you are, so you confirm your eligibility before each swap. If you are not allowed to hold it, do not use the swap.']],
+['Which assets can I pay with?',['ETH or USDG (Global Dollar, the stablecoin of Robinhood Chain), through Uniswap v3 on Robinhood Chain. Each swap is priced by Uniswap\'s quoter contract, simulated, and then signed in your wallet.']],
+['Is there a Ratinole token?',['Ratinole\'s token is $RATINOLE on Robinhood Chain. Using Ratinole does not require it: no fee is paid in it and holding it changes nothing in the app. It is not NVDA, it gives no claim on NVIDIA shares or on anybody\'s compute rewards, and nothing on this site is an offer to sell it.']],
+['What happens when a data source is unavailable?',['The affected figure is labelled Unavailable, with the time of the last attempt. Missing data is never replaced with demonstration numbers, and a swap cannot be prepared while a check it depends on is failing.']]];
+$('#faqs').innerHTML=FAQ.map((f,i)=>`<details class="q"><summary><small>0${i+1}</small><span>${f[0]}</span></summary><div>${f[1].map(p=>`<p>${p}</p>`).join('')}</div></details>`).join('');
+
+/* copy CA */
+$('#cpy').onclick=()=>{const t=$('#ca').textContent;if(!/^0x[0-9a-fA-F]{40}$/.test(t))return;navigator.clipboard.writeText(t).then(()=>$('#cpy').textContent='Copied',()=>$('#cpy').textContent='Copy blocked');setTimeout(()=>$('#cpy').textContent='Copy address',1600)};
+
+/* landing mounts */
+const draws=[];
+bindNode($('#nodeL'),false);
+function refreshAll(){$$('[data-calc-root]').forEach(()=>{})}
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+const watch=()=>$$('.rv:not(.in)').forEach(el=>io.observe(el));watch();
+
+/* ===== LIVE layer: Robinhood Chain RPC, NOS price, browser wallet ===== */
+const LIVE={rpc:'https://rpc.mainnet.chain.robinhood.com',chainId:4663,chainHex:'0x1237',explorer:'https://robinhoodchain.blockscout.com',nosana:'https://dashboard.k8s.prd.nos.ci',tokens:{USDG:{addr:'0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168'},NVDA:{addr:'0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC'}}};
+const ST={rpc:null,nos:null,rh:null,tok:null,uni:null};
+const W={addr:null,chain:null,bal:null};
+const ADDR=/^0x[0-9a-fA-F]{40}$/;
+const hhmm=()=>new Date().toISOString().slice(11,19);
+const short=a=>a.slice(0,6)+'…'+a.slice(-4);
+const tokAddr=k=>(LIVE.tokens[k]||{}).addr||'';
+const fmtUnits=(v,d,p=6)=>{if(!d)return v.toString();const s=v.toString().padStart(d+1,'0');const i=s.slice(0,-d),f=s.slice(-d).slice(0,p).replace(/0+$/,'');return Number(i).toLocaleString('en-US')+(f?'.'+f:'')};
+const dstr=h=>{h=(h||'').slice(2);if(h.length>=128){const n=parseInt(h.slice(64,128),16);h=h.slice(128,128+n*2)}else{h=h.replace(/(00)+$/,'')}return new TextDecoder().decode(Uint8Array.from(h.match(/../g)||[],x=>parseInt(x,16)))};
+const EIP=[];
+window.addEventListener('eip6963:announceProvider',e=>{try{EIP.push(e.detail);hookEth();$('#mwst')&&openModalStatus()}catch(_){}});
+try{window.dispatchEvent(new Event('eip6963:requestProvider'))}catch(_){}
+function ETH(){return window.ethereum||(EIP[0]&&EIP[0].provider)||null}
+function openModalStatus(){const p=$('#mwst');if(p){p.textContent=ETH()?'Detected':'Not detected';p.className='pill'+(ETH()?' ok':'')}}
+function walletLinks(msg){const u=location.href,h=location.host+location.pathname;const L=[['MetaMask','https://metamask.app.link/dapp/'+h],['Trust Wallet','https://link.trustwallet.com/open_url?coin_id=60&url='+encodeURIComponent(u)],['Coinbase Wallet','https://go.cb-w.com/dapp?cb_url='+encodeURIComponent(u)]];
+  $('#mmsg').innerHTML=msg+'<br>'+L.map(x=>'<a href="'+x[1]+'" style="color:var(--a);display:inline-block;margin:10px 16px 0 0;font-size:16px">'+x[0]+' ↗</a>').join('')}
+async function rpc(method,params=[]){
+  try{const r=await fetch(LIVE.rpc,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(8000)});
+    if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j.error)throw new Error(j.error.message||'RPC error');return j.result}
+  catch(e){const p=ETH();if(p&&W.addr&&W.chain===LIVE.chainId)return await p.request({method,params});throw e}
+}
+const stPill=s=>!s?'<span class="pill">Checking…</span>':s.s==='live'?`<span class="pill ok">Live · ${s.t} UTC</span>`:`<span class="pill wl">Unavailable · ${s.t} UTC</span>`;
+const integHTML=()=>INTEG.map((i,n)=>{const s=ST[i[2]];const pill=s===undefined?'<span class="pill wl">Not configured</span>':stPill(s);const foot=s===undefined?'Not set up on this deployment yet.':s?esc(s.note):'Reading from your browser…';return `<div class="card"><h4>${i[0]}</h4><div style="margin-top:8px">${pill}</div><p>${i[1]}</p><p class="dim" style="color:var(--dim)!important">${foot}</p></div>`}).join('');
+function refreshInteg(){$$('.integ').forEach(e=>e.innerHTML=integHTML());const c=$('.checked');if(c)c.textContent='Static deployment · checked from your browser at '+hhmm()+' UTC. Sources without a connection read "Not configured".'}
+async function checkChain(){
+  try{const id=await rpc('eth_chainId');if(parseInt(id,16)!==LIVE.chainId)throw new Error('Unexpected chain id '+id);const b=await rpc('eth_blockNumber');ST.rpc={s:'live',t:hhmm(),note:'Chain 4663 · block '+parseInt(b,16).toLocaleString('en-US')}}
+  catch(e){ST.rpc={s:'unavailable',t:hhmm(),note:'No answer from the RPC: '+String(e.message||e).slice(0,80)}}
+  refreshInteg()}
+async function loadRates(){
+  let list=null;
+  for(const u of ['/api/markets','https://dashboard.k8s.prd.nos.ci/api/markets']){try{const r=await fetch(u,{signal:AbortSignal.timeout(10000)});if(!r.ok)throw new Error('x');const j=await r.json();if(Array.isArray(j)&&j.length){list=j;break}}catch(e){}}
+  if(!list){ST.rates={s:'unavailable',t:hhmm(),note:'Nosana market list not readable. Example rates are used.'};refreshInteg();return}
+  const pats=[/5090/,/4090/,/4080/,/4070/,/3090/,/3080/,/3070/,/3060/,/A6000/i,/6000\s*Ada/i,/\bA40\b/i,/A5000|5000\s*Ada/i,/A4000|4000\s*Ada/i,/A100/i,/A100/i,/H100/i];
+  const med=a=>{a=a.slice().sort((x,y)=>x-y);const n=a.length;return n?(n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2):null};
+  const big=/80\s*GB?/i,m={};let hit=0;
+  pats.forEach((re,i)=>{
+    let rows=list.filter(x=>x&&re.test(String(x.name||''))&&+x.usd_reward_per_hour>0);
+    if(i===13||i===14){const is80=x=>big.test(String(x.name))||big.test(JSON.stringify(x.metadata||[]));rows=rows.filter(x=>i===13?is80(x):!is80(x))}
+    const by=t=>med(rows.filter(x=>String(x.type).toUpperCase()===t).map(x=>+x.usd_reward_per_hour));
+    const pr=by('PREMIUM'),co=by('COMMUNITY');if(pr||co){m[i]={p:pr,c:co};hit++}});
+  RATES.m=m;RATES.live=hit>0;RATES.t=hhmm();
+  ST.rates=hit>0?{s:'live',t:hhmm(),note:hit+' of '+GPUS.length+' GPU models matched in '+list.length+' Nosana markets'}:{s:'unavailable',t:hhmm(),note:'No GPU model matched. Example rates are used.'};
+  refreshInteg();try{window.__rnDraw&&window.__rnDraw()}catch(e){}}
+async function checkNosana(){
+  let p=null,src='',ex=null;
+  for(const u of ['/api/price','https://api.coingecko.com/api/v3/simple/price?ids=nosana&vs_currencies=usd']){
+    try{const r=await fetch(u,{signal:AbortSignal.timeout(8000)});if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();const v=+(j.usd!=null?j.usd:(j.nosana&&j.nosana.usd));if(v>0){p=v;src=j.src||(u[0]==='/'?'Ratinole proxy':'CoinGecko');ex=j;break}}catch(e){}}
+  if(p){NOS={p,t:hhmm(),src,change:ex&&ex.change!=null?+ex.change:null,stakers:ex&&ex.stakers!=null?+ex.stakers:null,mcap:ex&&ex.mcap!=null?+ex.mcap:null};ST.nos={s:'live',t:hhmm(),note:'NOS price $'+p.toFixed(4)+' · '+src};(window.__nets||[]).forEach(f=>{try{f()}catch(e){}})}
+  else{ST.nos={s:'unavailable',t:hhmm(),note:'No NOS price could be read from the proxy or from CoinGecko'}}
+  refreshInteg()}
+function scalars(o,max){if(!o||typeof o!=='object')return '';const src=Array.isArray(o)?(o[0]&&typeof o[0]==='object'?o[0]:{}):o;
+  return Object.keys(src).filter(x=>['string','number','boolean'].includes(typeof src[x])).slice(0,max).map(x=>`<div class="kv"><span>${esc(x)}</span><b>${esc(String(src[x]).slice(0,44))}</b></div>`).join('')}
+async function readNode(k,q){
+  const box=q('[data-n=live]'),msg=q('[data-n=msg]');box.innerHTML='';msg.textContent='Reading the public record from Nosana…';
+  let j=null;
+  try{const r=await fetch('/api/node?address='+encodeURIComponent(k),{signal:AbortSignal.timeout(15000)});if(!r.ok)throw new Error('HTTP '+r.status);j=await r.json()}catch(e){}
+  if(!j){msg.textContent='Could not reach the Nosana lookup from this browser. Nothing is filled in its place. Try again, or check the host dashboard.';return}
+  const parts=[['Node record',j.info],['Rewards',j.rewards],['Uptime',j.uptime]].filter(x=>x[1]!=null);
+  if(!parts.length){msg.textContent='Nosana returned no public record for this address. It may not be a registered host, or the record needs a key.';return}
+  const sec=x=>{const arr=Array.isArray(x[1])?`<div class="kv"><span>Records returned</span><b>${x[1].length}</b></div>`:'';return `<div style="margin-top:14px"><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><b>${x[0]}</b><span class="pill ok">Live · ${hhmm()} UTC</span></div>${arr}${scalars(x[1],10)||'<p class="mute" style="font-size:13px;margin-top:8px">The answer had no simple fields to show.</p>'}</div>`};
+  box.innerHTML=`<div class="card" style="margin-top:16px;padding:16px">${parts.map(sec).join('')}${NOS?`<div class="kv" style="margin-top:12px"><span>NOS price now</span><b>$${NOS.p.toFixed(4)}</b></div>`:''}</div>`;
+  msg.textContent='Public record read from Nosana. Shown as returned; nothing is computed here.'}
+
+/* wallet */
+const openModal=()=>{$('#mmsg').textContent='';const p=$('#mwst');p.textContent=ETH()?'Detected':'Not detected';p.className='pill'+(ETH()?' ok':'');renderModal();$('#modal').classList.add('on');if(!ETH()&&!W.addr)walletLinks('No wallet in this browser (Brave on Android does not provide one by default). Open Ratinole inside your wallet app:');setTimeout(()=>$('#mx').focus(),0)};
+function renderModal(){$('#mconn').style.display=W.addr?'block':'none';$('#mpick').style.display=W.addr?'none':'block';if(W.addr)$('#maddr').textContent=W.addr+(W.chain!==LIVE.chainId?'  (wrong network)':'')}
+async function readBal(){
+  if(!W.addr)return;const b={eth:null,tok:{}};
+  try{b.eth=BigInt(await rpc('eth_getBalance',[W.addr,'latest']))}catch(e){}
+  const pad=W.addr.slice(2).toLowerCase().padStart(64,'0');
+  for(const k of['USDG','NVDA']){const a=tokAddr(k);if(!ADDR.test(a)){b.tok[k]={state:'unset'};continue}
+    try{const [r,d]=await Promise.all([rpc('eth_call',[{to:a,data:'0x70a08231'+pad},'latest']),rpc('eth_call',[{to:a,data:'0x313ce567'},'latest'])]);b.tok[k]={state:'ok',raw:BigInt(r),dec:Number(BigInt(d))}}catch(e){b.tok[k]={state:'err'}}}
+  b.t=hhmm();W.bal=b;afterWallet()}
+function afterWallet(){renderWallet();if(location.hash==='#app')mountApp('app')}
+const nvText=()=>{const sfx=' <span style="font-size:18px;color:var(--mute)">NVDA</span>';if(!W.addr)return '—'+sfx;const t=W.bal&&W.bal.tok.NVDA;if(!t)return '…';return t.state==='ok'?fmtUnits(t.raw*(MK.mult||10n**18n)/10n**18n,t.dec)+sfx:t.state==='unset'?'<span style="font-size:20px;color:var(--mute)">Contract not set</span>':'<span style="font-size:20px;color:var(--mute)">Unavailable</span>'};
+function renderWallet(){
+  const cw=$('#cw');if(cw)cw.textContent=W.addr?short(W.addr):'Connect wallet';
+  const b2=$('#cw2');if(b2){b2.textContent=W.addr?'Wallet connected':'Connect wallet to continue';b2.disabled=!!W.addr;b2.onclick=openModal}updSwapBtn();swBal();
+  const h=$('#holdings');if(!h)return;
+  if(!W.addr){h.innerHTML='<small class="mono dim" style="letter-spacing:.14em">NO WALLET CONNECTED</small><p class="mute" style="font-size:14px;margin-top:8px">Connect a wallet to read its balances. This shares your public address with the page and nothing else; no signature is asked for.</p><button class="btn p" id="cw3" style="margin-top:14px">Connect wallet</button>'}
+  else{const b=W.bal;const row=(l,v)=>`<div class="kv"><span>${l}</span><b>${v}</b></div>`;
+    const tv=k=>{const t=b&&b.tok[k];return !t?'…':t.state==='ok'?(k==='NVDA'&&MK.mult?fmtUnits(t.raw*MK.mult/10n**18n,t.dec)+' NVDA <span class="dim" style="font-size:12px">('+fmtUnits(t.raw,t.dec)+' raw)</span>':fmtUnits(t.raw,t.dec)+' '+k):t.state==='unset'?'Not set':'Unavailable'};
+    h.innerHTML=`<small class="mono dim" style="letter-spacing:.14em">${short(W.addr)} · ${W.chain===LIVE.chainId?'ROBINHOOD CHAIN':'WRONG NETWORK'}</small>`+(W.chain!==LIVE.chainId?'<div class="warnbox"><div>Switch your wallet to Robinhood Chain (chain ID 4663). Balances are read from that chain.</div></div>':'')+
+      `<div style="margin-top:8px">${row('ETH',b?(b.eth==null?'Unavailable':fmtUnits(b.eth,18)+' ETH'):'…')}${row('USDG',tv('USDG'))}${row('NVDA',tv('NVDA'))}</div><p class="dim" style="font-size:12px;margin-top:8px">${b?'On-chain, read '+b.t+' UTC. NVDA is shown as your wallet shows it: raw balance × the token multiplier.':'Reading balances…'}</p><button class="btn sm" id="cw3" style="margin-top:12px">Wallet</button>`}
+  const b3=$('#cw3');if(b3)b3.onclick=openModal}
+const walletName=p=>p.isRabby?'Rabby':p.isCoinbaseWallet?'Coinbase Wallet':p.isMetaMask?'MetaMask':'Browser wallet';
+$('#cw').onclick=openModal;$('#mx').onclick=()=>$('#modal').classList.remove('on');hookEth();
+$('#modal').onclick=e=>{if(e.target.id==='modal')$('#modal').classList.remove('on')};
+$('#mwb').onclick=()=>walletLinks('Opens this page inside the wallet app browser, where Connect works:');
+$('#mwi').onclick=async()=>{const p=ETH(),m=$('#mmsg');
+  if(!p){walletLinks('No wallet was found in this browser. Open Ratinole inside your wallet app instead:');return}
+  try{m.textContent='Approve the connection in your wallet…';const a=await p.request({method:'eth_requestAccounts'});W.addr=a[0];W.chain=parseInt(await p.request({method:'eth_chainId'}),16);
+    if(W.chain!==LIVE.chainId){
+      try{await p.request({method:'wallet_switchEthereumChain',params:[{chainId:LIVE.chainHex}]})}
+      catch(e){if(e&&(e.code===4902||e.code===-32603||/unrecognized|not added|unknown/i.test(e.message||''))){await p.request({method:'wallet_addEthereumChain',params:[{chainId:LIVE.chainHex,chainName:'Robinhood Chain',nativeCurrency:{name:'Ether',symbol:'ETH',decimals:18},rpcUrls:[LIVE.rpc],blockExplorerUrls:[LIVE.explorer]}]})}else throw e}
+      W.chain=parseInt(await p.request({method:'eth_chainId'}),16)}
+    store.set('wname',walletName(p));m.textContent='Connected. Only your public address was shared.';afterWallet();readBal();setTimeout(()=>$('#modal').classList.remove('on'),700)}
+  catch(e){W.addr=null;W.chain=null;m.textContent=e&&e.code===4001?'You declined the request in your wallet. Nothing was shared.':'Could not connect: '+String(e&&e.message||e).slice(0,120);renderWallet()}};
+$('#mref').onclick=()=>{$('#mmsg').textContent='Reading balances…';readBal().then(()=>$('#mmsg').textContent='Balances refreshed.')};
+$('#mdis').onclick=()=>{W.addr=null;W.chain=null;W.bal=null;afterWallet();renderModal();$('#mmsg').textContent='Disconnected here. To revoke access completely, disconnect this site inside your wallet.'};
+function hookEth(){const pp=ETH();if(!pp||!pp.on||pp.__rn)return;pp.__rn=1;
+  ETH().on('accountsChanged',a=>{if(!W.addr)return;W.addr=a&&a[0]||null;W.bal=null;afterWallet();if(W.addr)readBal()});
+  ETH().on('chainChanged',c=>{if(!W.addr)return;W.chain=parseInt(c,16);afterWallet();readBal()})}
+
+/* ===== market data, contract checks, swap ===== */
+const PLANS=[];
+const U={factory:'0x1f7d7550b1b028f7571e69a784071f0205fd2efa',quoter:'0x33e885ed0ec9bf04ecfb19341582aadcb4c8a9e7',router:'0xcaf681a66d020601342297493863e78c959e5cb2'};
+const T={NVDA:{addr:'0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC',dec:18},USDG:{addr:'0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168',dec:6},WETH:{addr:'0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73',dec:18}};
+const POOL_FEE=500;
+const MK={mult:null,priceRaw:null,ref:null,tokEq:null,halt:null,t:null,rhOk:null,ck:{}};
+const a32=a=>a.toLowerCase().replace('0x','').padStart(64,'0');
+const h32=v=>BigInt(v).toString(16).padStart(64,'0');
+const parseUnits=(s,d)=>{s=String(s).trim();if(!/^\d*\.?\d*$/.test(s)||s===''||s==='.')throw new Error('Enter a number');const [i,f='']=s.split('.');return BigInt(i||'0')*10n**BigInt(d)+BigInt((f+'0'.repeat(d)).slice(0,d)||'0')};
+const ethCall=(to,data,from,value)=>rpc('eth_call',[Object.assign({to,data},from?{from}:{},value?{value:'0x'+value.toString(16)}:{}),'latest']);
+const word=(res,n=0)=>BigInt('0x'+res.slice(2+64*n,66+64*n));
+const q1=async(tin,tout,fee,amt)=>word(await ethCall(U.quoter,'0xc6a5026a'+a32(tin)+a32(tout)+h32(amt)+h32(fee)+h32(0)));
+const pathHex=(addrs,fees)=>addrs.map((a,i)=>a.toLowerCase().slice(2)+(i<fees.length?fees[i].toString(16).padStart(6,'0'):'')).join('');
+const encBytes=hx=>h32(hx.length/2)+hx+'0'.repeat((64-hx.length%64)%64);
+const qPath=async(addrs,fees,amt)=>word(await ethCall(U.quoter,'0xcdca1753'+h32(64)+h32(amt)+encBytes(pathHex(addrs,fees))));
+async function bestQuote(tin,amt){
+  const out=T.NVDA.addr,usdg=T.USDG.addr,c=[];
+  for(const f of[500,3000,10000,100])c.push({addrs:[tin,out],fees:[f],run:()=>q1(tin,out,f,amt)});
+  if(tin.toLowerCase()!==usdg.toLowerCase())for(const f1 of[500,3000,10000])for(const f2 of[500,3000]){const fs=[f1,f2];c.push({addrs:[tin,usdg,out],fees:fs,run:()=>qPath([tin,usdg,out],fs,amt)})}
+  const rs=(await Promise.all(c.map(x=>x.run().then(v=>Object.assign({},x,{out:v}),()=>null)))).filter(x=>x&&x.out>0n);
+  if(!rs.length)return null;return rs.reduce((a,b)=>b.out>a.out?b:a)}
+const routeText=r=>r.addrs.map(a=>a.toLowerCase()===T.WETH.addr.toLowerCase()?'ETH':a.toLowerCase()===T.USDG.addr.toLowerCase()?'USDG':'NVDA').join(' → ')+' · fee '+r.fees.map(f=>(f/10000)+'%').join(' + ');
+
+async function verifyAll(){
+  const ck={};const sd=async a=>{const [s,d]=await Promise.all([ethCall(a,'0x95d89b41'),ethCall(a,'0x313ce567')]);return{sym:dstr(s),dec:Number(word(d))}};
+  const run=async(k,fn)=>{try{ck[k]=await fn()}catch(e){ck[k]={ok:null,t:'Could not be read ('+String(e.message||e).slice(0,50)+')'}}};
+  await Promise.all([
+    run('nvda',async()=>{const r=await sd(T.NVDA.addr);return r.sym==='NVDA'&&r.dec===18?{ok:true,t:'On-chain symbol NVDA, 18 decimals'}:{ok:false,t:'Unexpected symbol "'+r.sym+'" or decimals '+r.dec}}),
+    run('usdg',async()=>{const r=await sd(T.USDG.addr);return r.sym==='USDG'&&r.dec===6?{ok:true,t:'On-chain symbol USDG, 6 decimals'}:{ok:false,t:'Unexpected symbol "'+r.sym+'" or decimals '+r.dec}}),
+    run('pool',async()=>{const r=await ethCall(U.factory,'0x1698ee82'+a32(T.NVDA.addr)+a32(T.USDG.addr)+h32(POOL_FEE));const p='0x'+r.slice(-40);return /^0x0+$/.test(p)?{ok:false,t:'No NVDA / USDG pool at the 0.05% tier'}:{ok:true,t:'Uniswap v3 pool NVDA / USDG 0.05% exists: '+short(p)}}),
+    run('code',async()=>{const c=await Promise.all([U.router,U.quoter,U.factory].map(a=>rpc('eth_getCode',[a,'latest'])));return c.every(x=>x&&x!=='0x')?{ok:true,t:'Router, quoter and factory have code on Robinhood Chain'}:{ok:false,t:'A Uniswap contract has no code at its address'}}),
+    run('mult',async()=>{const m=word(await ethCall(T.NVDA.addr,'0xa60bf13d'));if(m<=0n)throw new Error('zero');MK.mult=m;return{ok:true,t:'uiMultiplier() = '+fmtUnits(m,18,9)+' shares per token'}})
+  ]);
+  try{const j=await rhGet('assets');const list=Array.isArray(j)?j:(j.assets||j.results||j.data||[]);
+    const a=list.find(x=>x&&x.tokenSymbol==='NVDA');if(!a)throw new Error('NVDA not in answer');
+    const hit=(a.deployments||[]).some(d=>String(d.chainId)==='4663'&&String(d.contractAddress).toLowerCase()===T.NVDA.addr.toLowerCase());
+    ck.issuer=hit?{ok:true,t:'Robinhood lists this address for chain 4663'}:{ok:false,t:'Robinhood does not list this address for chain 4663'};
+    if(a.status&&a.status!=='ASSET_STATUS_ACTIVE')ck.issuer={ok:false,t:'Robinhood marks NVDA as '+a.status};
+    if(a.currentMultiplier&&!MK.mult)MK.mult=BigInt(a.currentMultiplier);MK.rhOk=true}
+  catch(e){ck.issuer={ok:null,t:'Robinhood record not reachable from this browser ('+String(e.message||e).slice(0,40)+')'};MK.rhOk=false}
+  MK.ck=ck;
+  const core=['nvda','usdg','pool','code'].map(k=>ck[k]&&ck[k].ok);
+  const fail=core.some(x=>x===false)||ck.issuer.ok===false;
+  ST.tok=core.every(x=>x===true)&&!fail?{s:'live',t:hhmm(),note:'NVDA, USDG and the pool checked on chain'+(ck.issuer.ok?' and against Robinhood':'; Robinhood record unreachable')}:{s:'unavailable',t:hhmm(),note:fail?'A contract check failed. Swaps stay off.':'Some checks could not be read'};
+  ST.uni=ck.code&&ck.code.ok===true?{s:'live',t:hhmm(),note:'Quoter and router present on chain'}:{s:'unavailable',t:hhmm(),note:ck.code?ck.code.t:'Not checked'};
+  refreshInteg();renderChecks()}
+async function rhGet(kind){
+  const direct=kind==='assets'?'https://api.robinhood.com/rhj/assets':'https://api.robinhood.com/rhj/prices/NVDA';let last;
+  for(const u of ['/api/rh?p='+kind,direct]){try{const r=await fetch(u,{signal:AbortSignal.timeout(8000)});if(!r.ok)throw new Error('HTTP '+r.status);return await r.json()}catch(e){last=e}}
+  throw last}
+async function loadMarket(){
+  try{const j=await rhGet('price');const qq=Array.isArray(j&&j.quotes)?(j.quotes.find(x=>x&&x.tokenSymbol==='NVDA')||j.quotes[0]):j;const bid=+qq.bid,ask=+qq.ask;if(!(bid>0&&ask>0))throw new Error('no quote');MK.ref=(bid+ask)/2;MK.tokDirect=(+qq.tokenBid>0&&+qq.tokenAsk>0)?(+qq.tokenBid+ +qq.tokenAsk)/2:null;MK.halt=!!qq.isTradingHalt;ST.rh={s:'live',t:hhmm(),note:'NVIDIA share bid/ask read'}}
+  catch(e){MK.ref=null;MK.halt=null;ST.rh={s:'unavailable',t:hhmm(),note:'No answer from the Robinhood API ('+String(e.message||e).slice(0,40)+')'}}
+  try{if(!MK.mult){MK.mult=word(await ethCall(T.NVDA.addr,'0xa60bf13d'))}}catch(e){}
+  try{const one=100n*10n**6n;const r=await bestQuote(T.USDG.addr,one);if(r){MK.priceRaw=100/Number(fmtUnits(r.out,18,18).replace(/,/g,''))}else MK.priceRaw=null}catch(e){MK.priceRaw=null}
+  MK.tokEq=MK.tokDirect!=null?MK.tokDirect:(MK.ref!=null&&MK.mult?MK.ref*Number(MK.mult)/1e18:null);MK.t=hhmm();renderMarket();refreshInteg()}
+function renderMarket(){
+  const m=MK,set=(k,v)=>$$('[data-mk='+k+']').forEach(e=>e.innerHTML=v);
+  set('ref',m.tokEq!=null?usd(m.tokEq):'—');
+  set('refsub',m.ref!=null?'Share mid '+usd(m.ref)+(m.mult?' × multiplier '+fmtUnits(m.mult,18,6):'')+' · Robinhood price API':'The Robinhood price API did not answer in this browser.');
+  set('sess',m.halt==null?'<span class="pill wl">Unavailable</span>':m.halt?'<span class="pill wl">Trading halt</span>':'<span class="pill ok">No halt reported</span>');
+  set('tok',m.priceRaw!=null?usd(m.priceRaw):'—');
+  set('tokpill',m.priceRaw!=null?'<span class="pill ok">Live · '+m.t+' UTC</span>':'<span class="pill wl">Unavailable</span>');
+  set('toksub',m.priceRaw!=null?'Uniswap v3 quote for 100 USDG, per raw token, before fees.':'No pool quote could be read from this browser.');
+  const d=m.priceRaw!=null&&m.tokEq!=null?(m.priceRaw/m.tokEq-1)*100:null;
+  set('diff',d==null?'—':(d<0?'−':'+')+Math.abs(d).toFixed(2)+'%');
+  set('diffsub',d==null?'Needs both prices':(d<0?'−':'+')+usd(Math.abs(m.priceRaw-m.tokEq))+' · token vs reference');
+  const hn=$('#hnv');if(hn)hn.textContent=m.priceRaw!=null?usd(m.priceRaw):'—';
+  const np=$('#nprice');if(np)np.textContent=m.priceRaw!=null?usd(m.priceRaw):'—';
+  const hj=$('#hjobs');if(hj)hj.textContent=NOS?'NOS '+usd(NOS.p,4):'—';
+  PLANS.forEach(f=>f())}
+const mktCards=()=>`<div class="card" style="padding:0;overflow:hidden">
+<div style="padding:22px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><small class="mono dim" style="letter-spacing:.14em">NVIDIA SHARE · PER TOKEN</small><span data-mk="sess"></span></div><b data-mk="ref" style="display:block;font:600 40px Geist;letter-spacing:-.03em;margin:8px 0">—</b><p class="mute" style="font-size:13px" data-mk="refsub"></p></div>
+<div style="padding:18px;text-align:center;border-block:1px solid var(--line);background:#080807"><small class="mono dim" style="letter-spacing:.14em">DIFFERENCE</small><b data-mk="diff" style="display:block;font:500 24px 'Geist Mono';margin-top:6px">—</b><span class="mono dim" style="font-size:12px" data-mk="diffsub"></span></div>
+<div style="padding:22px"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><small class="mono dim" style="letter-spacing:.14em">NVDA TOKEN · ROBINHOOD CHAIN</small><span data-mk="tokpill"></span></div><b data-mk="tok" style="display:block;font:600 40px Geist;letter-spacing:-.03em;margin:8px 0;color:var(--a)">—</b><p class="mute" style="font-size:13px" data-mk="toksub"></p></div></div>
+<div class="note"><span>ⓘ</span><span>A difference between the two prices is not an arbitrage opportunity: fees, slippage, eligibility and settlement all stand between them.</span></div>`;
+function renderChecks(){
+  const ck=MK.ck,rows=[['nvda','NVDA contract is the expected ERC-20'],['usdg','USDG contract is the expected ERC-20'],['pool','A live NVDA / USDG pool exists'],['code','Uniswap router, quoter and factory are deployed'],['mult','Multiplier readable from the token'],['issuer','Robinhood lists this NVDA address for Robinhood Chain']];
+  const mark=o=>!o?'<span class="pill">Checking…</span>':o.ok===true?'<span class="pill ok">Passed</span>':o.ok===false?'<span class="pill wl">Failed</span>':'<span class="pill">Not read</span>';
+  const html=rows.map(r=>`<div class="kv"><span>${r[1]}<br><small class="dim" style="font-size:12px">${ck[r[0]]?esc(ck[r[0]].t):''}</small></span>${mark(ck[r[0]])}</div>`).join('');
+  $$('[data-checks]').forEach(e=>e.innerHTML=html);
+  const ov=$('#sw-ovw');if(ov)ov.style.display=ck.issuer&&ck.issuer.ok===null?'flex':'none';
+  updSwapBtn()}
+
+/* swap */
+const SW={q:null,as:'ETH',busy:false};
+const GEO={cc:null,blocked:false};
+const GEO_BLOCK=['US','CA','GB','CH','CU','BY','IR','KP','RU','SY','UA','SS','SD','MM','VE'];
+async function checkGeo(){try{const r=await fetch('/api/geo',{signal:AbortSignal.timeout(6000)});if(!r.ok)throw new Error('x');const j=await r.json();if(j&&j.country){GEO.cc=String(j.country).toUpperCase();GEO.blocked=GEO_BLOCK.includes(GEO.cc)}}catch(e){}updSwapBtn()}
+const slipBps=()=>Math.round((+store.get('slip','0.5'))*100);
+const canSwap=()=>{const ck=MK.ck;if(GEO.blocked)return 'Swaps are off for your detected region ('+GEO.cc+'). Robinhood restricts these tokens there.';const core=['nvda','usdg','pool','code'].every(k=>ck[k]&&ck[k].ok===true);if(!core)return 'A contract check has not passed.';if(ck.issuer&&ck.issuer.ok===false)return 'Robinhood\'s record does not match the contract.';if(ck.issuer&&ck.issuer.ok===null&&!($('#sw-ov')&&$('#sw-ov').checked))return 'Confirm the contract yourself (box above) because Robinhood\'s record could not be reached.';if(MK.halt)return 'Robinhood reports a trading halt.';if(SW.q&&SW.q.dev!=null&&SW.q.dev>3&&!($('#sw-dv')&&$('#sw-dv').checked))return 'This quote is '+SW.q.dev.toFixed(1)+'% worse than the reference price. Tick the box below to accept it.';if(!($('#sw-elig')&&$('#sw-elig').checked))return 'Confirm that you are eligible to hold the token.';if(!W.addr)return 'Connect a wallet.';if(W.chain!==LIVE.chainId)return 'Switch the wallet to Robinhood Chain.';return ''};
+function updSwapBtn(){const b=$('#sw-go');if(!b)return;const why=canSwap();b.disabled=!!why||!SW.q||SW.busy;const w=$('#sw-why');if(w)w.textContent=SW.busy?'':why||(SW.q?'':'Get a quote first.')}
+const swMsg=(t,cls)=>{const m=$('#sw-msg');if(m){m.textContent=t;m.className=cls||'mute'}};
+const tinAddr=()=>SW.as==='ETH'?T.WETH.addr:T.USDG.addr;
+const asDec=()=>SW.as==='ETH'?18:6;
+function swapKv(q){const set=(k,v)=>{const e=$('#sw-'+k);if(e)e.textContent=v};
+  if(!q){['out','min','route','shares'].forEach(k=>set(k,'—'));return}
+  set('out',fmtUnits(q.out,18,6)+' NVDA (raw)');set('shares',MK.mult?'≈ '+fmtUnits(q.out*MK.mult/10n**18n,18,6)+' as your wallet shows it':'Multiplier not read');
+  set('min',fmtUnits(q.min,18,6)+' NVDA (raw)');set('route',routeText(q))}
+async function getQuote(){
+  try{const amt=parseUnits($('#sw-amt').value,asDec());if(amt<=0n)throw new Error('Enter an amount above zero');swMsg('Reading prices from Uniswap on Robinhood Chain…');SW.q=null;swapKv(null);updSwapBtn();
+    const r=await bestQuote(tinAddr(),amt);if(!r){swMsg('No route into NVDA was found for this amount. Nothing was prepared.','warn');return}
+    r.amt=amt;r.dev=null;
+    if(SW.as==='USDG'&&MK.tokEq){const o=Number(fmtUnits(r.out,18,18).replace(/,/g,''));if(o>0)r.dev=((Number(amt)/1e6)/o/MK.tokEq-1)*100}
+    const dvw=$('#sw-dvw');if(dvw){dvw.style.display=r.dev!=null&&r.dev>3?'flex':'none';const c=$('#sw-dv');if(c)c.checked=false}
+    r.min=r.out*BigInt(10000-slipBps())/10000n;r.t=Date.now();SW.q=r;swapKv(r);swMsg('Quote ready. It expires after 45 seconds and is not an order.'+(r.dev==null?(SW.as==='ETH'?' Price versus the reference cannot be checked for ETH.':' Reference price not available.'):' '+(r.dev>0?r.dev.toFixed(1)+'% above':Math.abs(r.dev).toFixed(1)+'% below')+' the reference price.'),'acc');updSwapBtn()}
+  catch(e){swMsg(String(e.message||e).slice(0,140),'warn')}}
+async function waitReceipt(h){for(let i=0;i<90;i++){let r=null;try{r=await rpc('eth_getTransactionReceipt',[h])}catch(e){}if(r)return r;await new Promise(x=>setTimeout(x,2000))}return null}
+const hexv=v=>'0x'+v.toString(16);
+async function doSwap(){
+  const why=canSwap();if(why){swMsg(why,'warn');return}const q=SW.q;if(!q){swMsg('Get a quote first.','warn');return}
+  if(Date.now()-q.t>45000){SW.q=null;swapKv(null);updSwapBtn();swMsg('The quote is older than 45 seconds. Nothing was sent. Get a new quote.','warn');return}
+  const p=ETH();if(!p){swMsg('No browser wallet found.','warn');return}
+  SW.busy=true;updSwapBtn();
+  try{
+    const user=W.addr,isEth=SW.as==='ETH',tin=tinAddr();
+    if(isEth){const bal=BigInt(await rpc('eth_getBalance',[user,'latest']));if(bal<q.amt+10n**15n)throw new Error('Not enough ETH. A small amount must stay for gas.')}
+    else{const bal=word(await ethCall(T.USDG.addr,'0x70a08231'+a32(user)));if(bal<q.amt)throw new Error('Not enough USDG in the wallet.');
+      const al=word(await ethCall(T.USDG.addr,'0xdd62ed3e'+a32(user)+a32(U.router)));
+      if(al<q.amt){swMsg('Step 1 of 2: approve exactly this amount of USDG in your wallet…');const ah=await p.request({method:'eth_sendTransaction',params:[{from:user,to:T.USDG.addr,data:'0x095ea7b3'+a32(U.router)+h32(q.amt)}]});swMsg('Waiting for the approval to confirm…');const ar=await waitReceipt(ah);if(!ar||ar.status!=='0x1')throw new Error('The approval did not confirm. Nothing was swapped.')}}
+    let data;
+    if(q.addrs.length===2)data='0x04e45aaf'+a32(q.addrs[0])+a32(q.addrs[1])+h32(q.fees[0])+a32(user)+h32(q.amt)+h32(q.min)+h32(0);
+    else data='0xb858183f'+h32(32)+h32(128)+a32(user)+h32(q.amt)+h32(q.min)+encBytes(pathHex(q.addrs,q.fees));
+    const tx={from:user,to:U.router,data};if(isEth)tx.value=hexv(q.amt);
+    swMsg('Checking the swap against the chain first…');
+    await ethCall(U.router,data,user,isEth?q.amt:0n).catch(e=>{throw new Error('The simulation failed, so nothing was sent: '+String(e.message||e).slice(0,80))});
+    swMsg(isEth?'Approve the swap in your wallet…':'Step 2 of 2: approve the swap in your wallet…');
+    const h=await p.request({method:'eth_sendTransaction',params:[tx]});
+    swMsg('Sent. Waiting for the chain to confirm…');
+    const rc=await waitReceipt(h);
+    if(!rc){swMsg('Status unknown. Check '+LIVE.explorer+'/tx/'+h+' before trying again. It was not retried.','warn')}
+    else if(rc.status!=='0x1'){swMsg('The transaction failed on chain. Nothing was swapped.','warn')}
+    else{let got=null;for(const l of rc.logs||[]){if(l.address.toLowerCase()===T.NVDA.addr.toLowerCase()&&l.topics&&l.topics[0]==='0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'&&l.topics[2]&&l.topics[2].toLowerCase().endsWith(user.slice(2).toLowerCase()))got=BigInt(l.data)}
+      const list=store.get('swaps',[]);list.unshift({h,t:Date.now(),as:SW.as,amt:q.amt.toString(),out:got!=null?got.toString():null});store.set('swaps',list.slice(0,30));
+      SW.q=null;swapKv(null);swMsg('Confirmed on chain'+(got!=null?': received '+fmtUnits(got,18,6)+' NVDA (raw).':'.'),'acc');renderSwaps();readBal()}
+  }catch(e){swMsg(e&&e.code===4001?'You declined in your wallet. Nothing was sent.':String(e&&e.message||e).slice(0,160),'warn')}
+  SW.busy=false;updSwapBtn()}
+function renderSwaps(){const l=store.get('swaps',[]);const html=l.length?`<div class="scroll"><table><thead><tr><th>When</th><th>Paid</th><th class="n">Received</th><th></th></tr></thead><tbody>${l.map(s=>`<tr><td class="mute">${new Date(s.t).toISOString().slice(0,16).replace('T',' ')} UTC</td><td>${fmtUnits(BigInt(s.amt),s.as==='ETH'?18:6,6)} ${s.as}</td><td class="n">${s.out?fmtUnits(BigInt(s.out),18,6)+' NVDA':'—'}</td><td class="n l"><a href="${LIVE.explorer}/tx/${esc(s.h)}">tx ↗</a></td></tr>`).join('')}</tbody></table></div>`:'<small class="mono dim" style="letter-spacing:.14em">NOTHING RECORDED</small><p class="mute" style="font-size:14px;margin-top:8px">When a swap you approve through Ratinole is confirmed on the network, it is listed here with its transaction. The list lives in this browser only.</p>';
+  $$('[data-swaps]').forEach(e=>e.innerHTML=html)}
+function bindSwap(){
+  const amt=$('#sw-amt');if(!amt)return;SW.q=null;SW.as='ETH';
+  $$('#sw-as button').forEach(b=>b.onclick=()=>{SW.as=b.dataset.v;$$('#sw-as button').forEach(x=>x.classList.toggle('on',x===b));$('#sw-u').textContent=SW.as;SW.q=null;swapKv(null);swMsg('');updSwapBtn();swBal()});
+  $('#sw-max').onclick=async()=>{if(!W.addr){swMsg('Connect a wallet first.','warn');return}try{if(SW.as==='ETH'){const b=BigInt(await rpc('eth_getBalance',[W.addr,'latest']))-10n**15n;amt.value=b>0n?fmtUnits(b,18,18).replace(/,/g,''):'0'}else{amt.value=fmtUnits(word(await ethCall(T.USDG.addr,'0x70a08231'+a32(W.addr))),6,6).replace(/,/g,'')}}catch(e){swMsg('Could not read your balance.','warn')}};
+  $('#sw-q').onclick=getQuote;$('#sw-go').onclick=doSwap;
+  ['#sw-elig','#sw-ov','#sw-dv'].forEach(s=>{const e=$(s);if(e)e.onchange=updSwapBtn});
+  amt.addEventListener('input',()=>{SW.q=null;swapKv(null);updSwapBtn()});
+  swapKv(null);renderChecks();renderSwaps();updSwapBtn();swBal()}
+async function swBal(){const e=$('#sw-bal');if(!e)return;if(!W.addr){e.textContent='no wallet';return}try{e.textContent=SW.as==='ETH'?fmtUnits(BigInt(await rpc('eth_getBalance',[W.addr,'latest'])),18,5)+' ETH':fmtUnits(word(await ethCall(T.USDG.addr,'0x70a08231'+a32(W.addr))),6,2)+' USDG'}catch(e2){e.textContent='unavailable'}}
+
+/* $RATINOLE token record */
+LIVE.ratinole={addr:''};
+async function renderToken(){
+  const box=$('#rstats');if(!box)return;const a=LIVE.ratinole.addr,ca=$('#ca'),cp=$('#cpy');
+  if(!ADDR.test(a)){box.innerHTML='<div class="st"><small>Status</small><b>Not deployed</b></div><div class="st"><small>Planned supply</small><b>1,000,000,000</b></div><div class="st"><small>Planned standard</small><b>ERC-20</b></div><div class="st"><small>Planned controls</small><b>No mint, ownership renounced</b></div>';return}
+  ca.textContent=a;if(cp){cp.disabled=false;cp.removeAttribute('aria-disabled')}const chip=$('.chip span');if(chip)chip.textContent=short(a);
+  try{const [n,s,d,ts,ow]=await Promise.all([ethCall(a,'0x06fdde03'),ethCall(a,'0x95d89b41'),ethCall(a,'0x313ce567'),ethCall(a,'0x18160ddd'),ethCall(a,'0x8da5cb5b').catch(()=>null)]);
+    const dec=Number(word(d));const own=ow?('0x'+ow.slice(-40)):null;
+    box.innerHTML=`<div class="st"><small>Name</small><b>${esc(dstr(n))}</b></div><div class="st"><small>Symbol</small><b>${esc(dstr(s))}</b></div><div class="st"><small>Supply, on chain</small><b>${fmtUnits(word(ts),dec,0)}</b></div><div class="st"><small>Decimals</small><b>${dec}</b></div><div class="st"><small>Owner</small><b>${own==null?'No owner() function':/^0x0+$/.test(own)?'Renounced':short(own)}</b></div><div class="st"><small>Mint function</small><b><a href="${LIVE.explorer}/address/${a}?tab=contract">Check source ↗</a></b></div>`;
+    ST.ca={s:'live',t:hhmm(),note:'Token record read from chain'}}
+  catch(e){box.innerHTML='<div class="st"><small>Status</small><b>Unavailable</b></div>';ST.ca={s:'unavailable',t:hhmm(),note:'Could not read the token from the chain'}}
+  refreshInteg()}
+
+$('#integL').innerHTML=integHTML();
+
+/* ===== APP pages ===== */
+const TABS=[['app','◔','Overview'],['app-earnings','▤','GPU Earnings'],['app-nodes','⌬','My Nodes'],['app-allocate','◈','Stack NVDA'],['app-portfolio','◎','NVDA Tracker'],['app-settings','☰','Settings']];
+const OV=()=>{const r=compute(C);return `<p class="ey">Overview</p><h1>Your compute, your next NVDA.</h1><p class="lead">GPU work happens on an external network. Ratinole reads what it reports, estimates what you keep, and prepares swaps that only you can approve.</p>
+<div class="grid2 ovs" style="margin-top:32px">
+<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><small class="mono dim" style="letter-spacing:.14em">GPU ESTIMATE</small><span class="pill ex">Estimate</span></div><b style="font:600 40px Geist;letter-spacing:-.03em;color:${r.na?'var(--mute)':'var(--a)'}">${r.na?'Not available':usd(r.net)}</b><p class="mute" style="font-size:14px">${r.na?'No estimate until a rate and your costs are set.':`Estimated net operating result per day for ${r.n} × ${r.g[0]} at ${C.ut}% utilization, using example host rates. Not a guarantee.`}</p><a class="lk" href="#app-earnings">Open GPU Earnings →</a></div>
+<div class="card"><small class="mono dim" style="letter-spacing:.14em">MY NODE</small><b style="font:600 40px Geist;letter-spacing:-.03em">${store.get('nodes',[]).length?store.get('nodes',[]).length+' saved':'None yet'}</b><p class="mute" style="font-size:14px">Enter a node address to read its public job record and reported rewards. Connecting a wallet does not start a node.</p><a class="lk" href="#app-nodes">Open My Nodes →</a></div>
+<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><small class="mono dim" style="letter-spacing:.14em">NVDA ON ROBINHOOD CHAIN</small><span data-mk="tokpill"></span></div><b data-mk="tok" style="font:600 40px Geist;letter-spacing:-.03em">—</b><p class="mute" style="font-size:14px" data-mk="refsub"></p><a class="lk" href="#app-portfolio">Open NVDA Tracker →</a></div>
+<div class="card"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><small class="mono dim" style="letter-spacing:.14em">NVDA IN YOUR WALLET</small>${W.addr?'<span class="pill ok">Connected</span>':'<span class="pill">No wallet</span>'}</div><b style="font:600 40px Geist;letter-spacing:-.03em">${nvText()}</b><p class="mute" style="font-size:14px;margin-top:10px">${W.addr?'Read from your wallet on Robinhood Chain.':'Connect a wallet to read your NVDA balance. It shares your public address only.'}</p><a class="lk" href="#app-allocate">Open Stack NVDA →</a></div>
+</div>
+<h3 style="margin-top:48px">How value moves</h3><p class="mute" style="font-size:14px;margin-top:6px">Nothing in this chain happens automatically.</p>
+<div class="flow5">${[['External GPU work','Your hardware, on the compute network'],['Network rewards','Paid by the network in its token'],['Wallet balance','Yours, wherever it came from'],['Your approval','One reviewed transaction at a time'],['NVDA','Only the amount you chose']].map((s,i)=>`<div><small>0${i+1}</small><b>${s[0]}</b><span>${s[1]}</span></div>`).join('')}</div>
+<h3 style="margin-top:48px">Integration status</h3><p class="mute" style="font-size:14px;margin-top:6px">Checked from your browser, with the time of the last answer.</p><div class="integ">${integHTML()}</div>`};
+const ALLOC=()=>`<p class="ey">Stack NVDA</p><h1>Turn rewards into NVDA, on your terms.</h1><p class="lead">Plan the split, then swap from your own wallet. One transaction per swap, each one priced, checked and simulated before you sign.</p>
+<h3 style="margin-top:40px">1 · Plan</h3><div id="planA" style="margin-top:20px"></div>
+<h3 style="margin-top:56px">2 · Swap from your wallet</h3><p class="mute" style="font-size:14px;margin-top:6px">ETH or USDG into NVDA through Uniswap v3 on Robinhood Chain.</p>
+<div class="grid2" style="margin-top:20px;align-items:start"><div class="card">
+<div class="fld" style="margin-top:0"><div class="t">Pay with</div><div class="tog full" id="sw-as"><button data-v="ETH" class="on">ETH</button><button data-v="USDG">USDG</button></div></div>
+<div class="fld"><div class="t">Amount <em id="sw-bal">no wallet</em></div><div class="inp"><input id="sw-amt" type="text" inputmode="decimal" placeholder="0" autocomplete="off"><span class="u" id="sw-u">ETH</span><button class="btn sm" id="sw-max" style="margin-right:6px">Max</button></div><div class="h">A small ETH balance always stays behind to pay gas.</div></div>
+<label style="display:flex;gap:10px;margin-top:18px;font-size:14px;color:var(--mute);align-items:flex-start"><input type="checkbox" id="sw-elig" style="margin-top:4px"><span>I am not a U.S. person and I am not in a place where Robinhood does not allow me to hold this token.</span></label>
+<label id="sw-ovw" style="display:none;gap:10px;margin-top:12px;font-size:14px;color:var(--mute);align-items:flex-start"><input type="checkbox" id="sw-ov" style="margin-top:4px"><span>Robinhood's record could not be reached. I checked the NVDA contract myself on Blockscout.</span></label>
+<label id="sw-dvw" style="display:none;gap:10px;margin-top:12px;font-size:14px;color:var(--mute);align-items:flex-start"><input type="checkbox" id="sw-dv" style="margin-top:4px"><span>I accept that this quote is more than 3% worse than the Robinhood reference price. The pool may be thin.</span></label>
+<h4 style="margin-top:26px">Checks</h4><div data-checks style="margin-top:8px"></div></div>
+<div class="card"><div class="kv"><span>You receive, estimated</span><b id="sw-out">—</b></div><div class="kv"><span>As your wallet shows it</span><b id="sw-shares">—</b></div><div class="kv"><span>Minimum received</span><b id="sw-min">—</b></div><div class="kv"><span>Route</span><b id="sw-route">—</b></div><div class="kv"><span>Slippage tolerance</span><b>${store.get('slip','0.5')}%</b></div><div class="kv"><span>Ratinole fee</span><b>None</b></div>
+<p class="mute" style="font-size:13px;margin-top:12px">Quotes come from Uniswap's quoter contract and expire after 45 seconds. A swap never delivers less than its minimum received. If it fails, nothing moves and only the network fee is spent.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px"><button class="btn" id="sw-q" style="flex:1">Get quote</button><button class="btn p" id="sw-go" style="flex:1" disabled>Swap</button></div>
+<p id="sw-why" class="dim" style="font-size:13px;margin-top:10px"></p><p id="sw-msg" class="mute" style="font-size:14px;margin-top:6px"></p>
+<button class="btn sm" id="cw2" style="margin-top:12px;width:100%">Connect wallet to continue</button></div></div>
+<h3 style="margin-top:56px">The token you are swapping into</h3><p class="mute" style="font-size:14px;margin-top:6px">Checked against the chain and the issuer every time, not once.</p>
+<div class="grid2" style="margin-top:20px;align-items:start"><div class="card"><small class="mono dim" style="letter-spacing:.14em">NVDA CONTRACT</small><p class="ca">${T.NVDA.addr}</p><a class="btn sm" href="${LIVE.explorer}/token/${T.NVDA.addr}">Blockscout ↗</a><div data-checks style="margin-top:18px"></div></div>
+<div class="card"><p class="mute" style="font-size:14px">NVDA is a stock token issued by Robinhood Assets (Jersey) Limited. It is not a directly registered NVIDIA share and carries no voting rights. Who may hold it is restricted:</p><ul class="dl" style="margin-top:12px"><li>Not offered to U.S. persons.</li><li>Sales are also restricted in places such as Canada, the United Kingdom and Switzerland.</li><li>The full list is in <a href="https://docs.robinhood.com/rhj">Robinhood's documentation</a>.</li></ul></div></div>
+<h3 style="margin-top:56px">Confirmed through Ratinole</h3><p class="mute" style="font-size:14px;margin-top:6px">Swaps this browser sent and saw confirmed.</p>
+<div class="card" style="margin-top:16px" data-swaps></div>`;
+const PORT=()=>`<p class="ey">NVDA Tracker</p><h1>Price, holdings and progress.</h1><p class="lead">The token next to its NVIDIA share reference, your wallet's balances, and the swaps you confirmed here.</p>
+<div class="grid2" style="margin-top:32px;align-items:start"><div>${mktCards()}</div>
+<div><div class="card"><h3>Accumulation goal</h3><p class="mute" style="font-size:14px;margin-top:8px">Set a target in the planner to see how many rounds of the same size it takes.</p><a class="btn" href="#app-allocate" style="margin-top:14px">Set a target</a></div>
+<div class="card" style="margin-top:16px"><h3>Wallet holdings</h3><p class="mute" style="font-size:14px;margin-top:6px">ETH, USDG and NVDA in the connected wallet.</p><div id="holdings" style="margin-top:16px"></div></div>
+<div class="card" style="margin-top:16px"><h3>Confirmed through Ratinole</h3><p class="mute" style="font-size:14px;margin-top:6px">Each with its transaction on the explorer.</p><div style="margin-top:14px" data-swaps></div></div></div></div>`;
+const SET=()=>{const slip=store.get('slip','0.5');return `<p class="ey">Settings</p><h1>Preferences and what is stored.</h1><p class="lead">Everything Ratinole remembers about you lives in this browser. There is no account, and nothing here can spend on your behalf.</p>
+<div class="grid2" style="margin-top:32px;align-items:start"><div>
+<div class="card"><h3>Swap preferences</h3><p class="mute" style="font-size:14px;margin-top:6px">Used the next time a swap is quoted.</p><div class="fld"><div class="t">Slippage tolerance</div><div class="tog" id="slip">${['0.1','0.5','1','3'].map(s=>`<button data-v="${s}" class="${s===slip?'on':''}">${s}%</button>`).join('')}</div><div class="h">The most a swap's price may move against you before it fails instead of settling. A swap never delivers less than its "minimum received".</div></div></div>
+<div class="card" style="margin-top:16px"><h3>Calculator preferences</h3><p class="mute" style="font-size:14px;margin-top:6px">The same values the calculator uses.</p>
+<div class="fld"><div class="t">Electricity price <em>Manual</em></div><div class="inp"><input id="sk" type="number" step="0.01" value="${C.kwh}"><span class="u">USD / kWh</span></div></div>
+<div class="fld"><div class="t">Expected utilization <em>Assumption</em></div><div class="inp"><input id="su" type="number" value="${C.ut}"><span class="u">%</span></div><div class="h">Share of scheduled hours spent on paid work.</div></div></div></div>
+<div><div class="card"><h3>What this browser stores</h3><p class="mute" style="font-size:14px;margin-top:6px">There is no account or server copy. Clearing your browser data removes all of it.</p>
+<div style="margin-top:12px"><div class="kv"><span>Calculator inputs</span><b>${compute(C).n} × ${esc(compute(C).g[0])}</b></div><div class="kv"><span>Saved scenarios</span><b>${scen.length}</b></div><div class="kv"><span>NVDA plan and goal</span><b>${P.res}% reserve / ${100-P.res}% NVDA</b></div><div class="kv"><span>Saved node addresses</span><b>${store.get('nodes',[]).length}</b></div><div class="kv"><span>Swaps confirmed through Ratinole</span><b>${store.get('swaps',[]).length}</b></div><div class="kv"><span>Last connected wallet name</span><b>${esc(store.get('wname','None'))}</b></div></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px"><button class="btn sm" id="exj">Copy as JSON</button><button class="btn sm" id="clr">Clear everything</button></div><p class="dim" id="smsg" style="font-size:13px;margin-top:8px"></p></div>
+<div class="card" style="margin-top:16px"><h3>Verified assets</h3><p class="mute" style="font-size:14px;margin-top:6px">Fixed in the page and checked against the chain on every visit. Compare each one with the source yourself.</p>
+<div class="scroll"><table style="margin-top:8px"><thead><tr><th>Asset</th><th>Contract</th></tr></thead><tbody>${[['ETH','Native gas token · 18 decimals'],['WETH',T.WETH.addr+' · Robinhood docs'],['USDG',T.USDG.addr+' · 6 decimals'],['NVDA',T.NVDA.addr+' · 18 decimals'],['Uniswap v3 router',U.router+' · Uniswap docs'],['Uniswap v3 quoter',U.quoter+' · Uniswap docs']].map(r=>`<tr><td>${r[0]}</td><td class="mono" style="font-size:12px;overflow-wrap:anywhere">${r[1]}</td></tr>`).join('')}</tbody></table></div></div></div></div>
+<h3 style="margin-top:48px">Integration status</h3><div class="integ">${integHTML()}</div>`};
+const APP={'app':OV,'app-earnings':()=>`<p class="ey">GPU Earnings</p><h1>Know what your GPU keeps.</h1><p class="lead">Every input visible, every assumption listed, every scenario kept in this browser.</p><div id="calcA" style="margin-top:32px"></div>`,
+'app-nodes':()=>`<p class="ey"># Nodes</p><h1>From completed jobs to recorded earnings.</h1><p class="lead">Read a node's public record on the compute network: its activity when read, recent jobs, the rewards the network reports, and how far back the data goes. Read-only, with no wallet needed.</p><div id="nodeA" style="margin-top:32px"></div>`,
+'app-allocate':ALLOC,'app-portfolio':PORT,'app-settings':SET};
+function mountApp(k){
+  $('#tabs').innerHTML=TABS.map(t=>`<a href="#${t[0]}" class="${t[0]===k?'on':''}" ${t[0]===k?'aria-current="page"':''}><span>${t[1]}</span>${t[2]}</a>`).join('');
+  $('#apg').innerHTML=APP[k]();
+  if($('#calcA'))bindCalc($('#calcA'),true);if($('#nodeA'))bindNode($('#nodeA'),true);if($('#planA'))bindPlan($('#planA'));
+  renderWallet();bindSwap();renderMarket();renderSwaps();
+  if($('#slip'))$$('#slip button').forEach(b=>b.onclick=()=>{store.set('slip',b.dataset.v);$$('#slip button').forEach(x=>x.classList.toggle('on',x===b))});
+  if($('#sk')){$('#sk').oninput=e=>{C.kwh=e.target.value;store.set('calc',C)};$('#su').oninput=e=>{C.ut=e.target.value;store.set('calc',C)};
+    $('#exj').onclick=()=>{const d={calc:C,scenarios:scen,plan:P,nodes:store.get('nodes',[]),slippage:store.get('slip','0.5')};navigator.clipboard.writeText(JSON.stringify(d,null,2)).then(()=>$('#smsg').textContent='Copied as JSON.',()=>$('#smsg').textContent='Copy was blocked by the browser.')};
+    $('#clr').onclick=()=>{try{Object.keys(localStorage).filter(x=>x.startsWith('rn_')).forEach(x=>localStorage.removeItem(x))}catch(e){}C=Object.assign({},DEF);scen=[];P={amt:250,res:40,tgt:''};mountApp('app-settings');$('#smsg').textContent='Everything this browser stored for Ratinole was cleared.'}}
+}
+
+/* ===== DOCS / PRIVACY / TERMS ===== */
+const DOCS=`<p class="ey">Documentation</p><h1>How Ratinole works, and where its numbers come from.</h1><p class="lead">Ratinole helps NVIDIA GPU owners track compute rewards, estimate operating costs, and turn available rewards into the NVDA stock token through swaps they approve themselves. This page says exactly what it reads, what it computes, and what it cannot know.</p>
+<div class="dgrid" style="margin-top:32px"><nav class="toc">${[['what','What Ratinole is'],['estimate','The GPU estimate'],['nodes','Node rewards'],['nvdax','NVDA'],['stack','Stack NVDA'],['market','Market view'],['token','The $RATINOLE token'],['labels','Data labels'],['data-sources','Data sources'],['stored','What is stored'],['integ','Integration status'],['limits','Limits']].map(t=>`<a href="#docs" data-to="${t[0]}">${t[1]}</a>`).join('')}</nav>
+<article class="doc">
+<h2 id="d-what" style="margin-top:0;border:0;padding-top:0">What Ratinole is</h2><p>An analytics and allocation interface. It reads public data about a compute node, estimates what running a GPU costs, and prepares swaps into NVDA for your wallet to approve. The flow it describes is:</p>
+<pre>NVIDIA GPU → external compute jobs → network rewards → operating-cost planning → user-approved NVDA swap</pre>
+<p><b>It is not</b> a GPU network, a broker, a stock issuer, a custodian, or a yield product. It holds no funds and no keys. GPU jobs pay the network's own token; they do not pay NVIDIA shares or NVDA. A swap never happens on its own after a job.</p>
+<h3>Getting from NOS to NVDA</h3><p>Nosana rewards are paid in NOS on Solana, while NVDA lives on Robinhood Chain. Ratinole does not sell NOS or bridge funds between chains. You do that yourself, with an exchange or bridge you choose, and arrive on Robinhood Chain with ETH or USDG in your wallet. The swap into NVDA starts from that balance.</p>
+<h2 id="d-estimate">The GPU estimate</h2><p>The calculator is plain arithmetic on inputs you can see. Nothing is fetched to produce the result.</p>
+<pre>activeHours        = scheduledHours × utilization
+idleHours          = scheduledHours − activeHours
+dailyEnergyKWh     = gpuCount × (activeWatts × activeHours + idleWatts × idleHours) ÷ 1000
+dailyElectricity   = dailyEnergyKWh × electricityPrice
+dailyRewards       = gpuCount × activeHours × hourlyRate
+dailyNetworkFees   = dailyRewards × feeRate      (only when the rate is gross)
+dailyNet           = dailyRewards − dailyNetworkFees − dailyElectricity − dailyOverhead
+monthly            = daily × 30</pre>
+<h3>Where the hourly rate comes from</h3><ul><li><b>Provider rate.</b> An example host reward per GPU-hour, stored in this page. It is not read live; the host-rate integration is not connected. Treat it as a placeholder and use a manual rate if you know your own.</li><li><b>Manual rate.</b> A figure you type. You say whether it is gross (a fee is then deducted) or already net.</li><li><b>No rate.</b> If you typed none, the result is "Not available". A missing rate is never treated as zero.</li></ul>
+<h3>What the estimate assumes</h3><ul><li>Utilization is your assumption. Paid work depends on job availability and is not guaranteed.</li><li>The monthly figure is the daily one × 30. It is a projection, not a forecast of a calendar month.</li><li>Power presets are the board power NVIDIA publishes for the reference card. Your measured draw will differ. The idle figure is an assumption.</li><li>Hardware cost, taxes, cooling and depreciation are excluded unless you add them as daily overhead.</li></ul><p>Scenarios can be saved in your browser, compared three at a time, and copied as CSV.</p>
+<h2 id="d-nodes">Node rewards</h2><p>The supported network is Nosana. A node is identified by its host address. Looking one up is a public read: it needs no wallet and no signature, and it cannot start or stop GPU work.</p><p>Enter a host address (a Solana address) and Ratinole asks Nosana's public API for that host's record, rewards and uptime through a small read-only function on the host. The page shows the fields Nosana returns and computes nothing from them. If Nosana needs a key for a record or has none for the address, the page says so and shows nothing in its place. The NOS price and network figures come from Nosana, with CoinGecko as a fallback.</p>
+<h2 id="d-nvdax">NVDA</h2><p>NVDA is a stock token issued by Robinhood Assets (Jersey) Limited, an ERC-20 on Robinhood Chain with 18 decimals. Its contract is <code>${T.NVDA.addr}</code>. It follows the price of NVIDIA stock. It is not a directly registered NVIDIA share and carries no voting rights.</p>
+<ul><li>Robinhood says Stock Tokens may not be offered, sold or delivered to U.S. persons.</li><li>Sales are also restricted in other places, including Canada, the United Kingdom and Switzerland. The full list is in <a href="https://docs.robinhood.com/rhj">Robinhood's documentation</a>.</li></ul><p>Ratinole cannot verify who you are. Before each swap you confirm that you may hold the token. That is a declaration, not a check. Many tokens imitate the name; only the contract checks decide.</p>
+<h3>How the contract is checked</h3><ul><li>On chain: the address answers as an ERC-20 with symbol NVDA and 18 decimals, and a Uniswap v3 pool between NVDA and USDG exists.</li><li>With the issuer: Robinhood's asset record lists the address for chain ID 4663. If that record cannot be reached from your browser, swaps stay off until you tick a box saying you checked the contract yourself.</li><li>The address in this page was taken from public explorers and listings, not from a registry Ratinole can query on chain. Compare it with Robinhood's documentation and Blockscout yourself.</li></ul>
+<h3>The multiplier</h3><p>The token has a multiplier (ERC-8056, <code>uiMultiplier()</code>) that turns your raw balance into the number your wallet displays: <code>displayed = raw × multiplier</code>. Dividends and splits change the multiplier, not your raw balance. Swaps are priced per raw token and the market price already reflects the multiplier. Ratinole shows both numbers where it matters.</p>
+<h2 id="d-stack">Stack NVDA</h2><p>You can pay with <b>ETH or USDG</b> (Global Dollar, the stablecoin of Robinhood Chain). The swap runs through Uniswap v3 on Robinhood Chain, one transaction per swap.</p><ol><li>You enter an amount. A small ETH balance always stays behind to pay gas.</li><li>Uniswap's quoter contract prices every direct route and every two-step route through USDG. The best output wins.</li><li>You confirm you are eligible to hold NVDA. If Robinhood's record could not be read, you also confirm the contract yourself.</li><li>For USDG, your wallet first approves exactly the amount you chose to the router, nothing more.</li><li>The swap is simulated against the chain. If the simulation fails, nothing is sent.</li><li>Your wallet signs. The transaction carries a minimum amount out, set by your slippage tolerance.</li><li>It counts as done only once the chain confirms it. A transaction that never lands is shown as unknown rather than retried, so it can never run twice.</li></ol><p>If you decline, a balance is too low, or a quote is older than 45 seconds, nothing is sent. The <b>operating reserve</b> is a planning figure: the part of an amount you decide not to swap. No transaction moves it, and Ratinole pays no bills. A saved plan is a note in your browser and gives nobody permission to spend. This software has not been audited.</p>
+<h2 id="d-market">Market view</h2><p>Two prices from two sources, taken at two moments:</p><ul><li><b>NVDA token price:</b> a Uniswap quote for 100 USDG into NVDA, divided by the amount received. It is per raw token, before fees, and is read from the chain.</li><li><b>NVIDIA share reference:</b> the mid of the bid and ask from Robinhood's price API, multiplied by the token's multiplier. If that API cannot be reached from your browser, the figure reads "—".</li><li><b>Halt flag:</b> Robinhood's API reports whether trading in the token is halted. Swaps stay off while it says so.</li></ul><p>Outside regular US hours the share reference can be a last price from an earlier session while the token trades around the clock. A difference between the two prices is never an arbitrage promise.</p>
+<h2 id="d-token">The $RATINOLE token</h2><p>The project's own token on Robinhood Chain. Using Ratinole does not require it; no fee is paid in it and holding it changes nothing. It is not NVDA. Until its contract address is published here, the page shows planned figures marked as plans. Once an address is set, name, symbol, decimals, supply and owner are read from the chain, not typed in.</p>
+<h2 id="d-labels">Data labels</h2><div class="lbls">${[['Live','A recent answer, read from your browser just now, with its time.'],['Unavailable','The source did not answer. Nothing is shown in its place.'],['Not configured','The integration is not connected on this deployment.'],['Manual input','A value you typed.'],['Estimate','Computed here from inputs and assumptions.'],['Example','A sample value, marked as one. Never presented as your data.'],['On-chain data','Read from Robinhood Chain.']].map(l=>`<div><span class="pill">${l[0]}</span><span>${l[1]}</span></div>`).join('')}</div><p>A failing integration is never replaced by demonstration data, except the example host rates in the calculator, which are labelled as examples.</p>
+<h2 id="d-data-sources">Data sources</h2><div class="scroll"><table><thead><tr><th>Source</th><th>Used for</th><th>Access</th><th>Refreshed</th></tr></thead><tbody>${[['Robinhood Chain RPC','Balances, contracts, quotes, simulation, signed transactions, confirmations','Public endpoint, rate-limited','Every minute'],['Uniswap v3 contracts','Quoter and router on Robinhood Chain','On chain','Every minute'],['Robinhood Stock Token API','Issuer asset record, multiplier, NVIDIA bid and ask','Public endpoints; may not allow browser requests','Every minute'],['Nosana public API','NOS price, GPU market rates, host record, rewards and uptime','Public endpoints, read through the Ratinole proxy','Every minute to five minutes']].map(r=>`<tr><td>${r[0]}</td><td class="mute">${r[1]}</td><td class="mute">${r[2]}</td><td class="mute">${r[3]}</td></tr>`).join('')}</tbody></table></div>
+<p>This deployment has no database or account system: your browser calls the Robinhood Chain RPC directly. Robinhood and CoinGecko data is read through small read-only functions on the host (they keep no database), and those providers see the host's address instead of yours.</p>
+<h3>Addresses in this page</h3><ul><li>ETH — the native gas token of Robinhood Chain (chain ID 4663), 18 decimals</li><li>WETH — <code>${T.WETH.addr}</code> (Robinhood documentation)</li><li>USDG — <code>${T.USDG.addr}</code>, 6 decimals</li><li>NVDA — <code>${T.NVDA.addr}</code>, 18 decimals</li><li>Uniswap v3 router <code>${U.router}</code> and quoter <code>${U.quoter}</code> (Uniswap documentation)</li></ul><p class="dim">Check every address against the chain and its issuer yourself before use.</p>
+<h2 id="d-stored">What is stored</h2><p>Everything Ratinole remembers lives in your browser's local storage: calculator inputs and scenarios, your plan and goal, saved node addresses, the swaps confirmed through Ratinole, and the name of the wallet you last connected. There is no account, no database, and no server copy. Nothing stored is a key, a seed phrase, or permission to spend.</p><p>You can export or clear it in <a href="#app-settings">Settings</a>.</p>
+<h2 id="d-integ">Integration status</h2><p>Checked from your browser, with the time of the last answer.</p><div class="integ">${integHTML()}</div>
+<h2 id="d-limits">Limits</h2><ul><li>Estimates are not guarantees. Actual results depend on job availability, utilization, costs and token prices, and can be negative.</li><li>No profit or loss is shown anywhere: without a reliable cost basis it would be a guess, and a transfer into a wallet is not a gain.</li><li>A wallet balance carries no record of where it came from. Ratinole never claims a balance came from GPU rewards.</li><li>Only one compute network is supported. Rewards from any other are outside what Ratinole can read.</li><li>Balances are read from the wallet's native ETH balance and the ERC-20 contracts Ratinole lists. Tokens kept elsewhere, or on other chains, are not counted.</li><li>The software has not been audited. Review every transaction in your wallet before approving it.</li></ul>
+</article></div>`;
+const PRIV=`<p class="ey">Privacy</p><h1>What Ratinole knows about you: very little.</h1><div class="doc" style="margin-top:20px"><p>This describes how the software behaves. Whoever operates a deployment is responsible for its hosting, and may publish a notice of their own.</p>
+<h2>No account, no database</h2><p>Ratinole has no sign-up and stores nothing about you on a server. It does not use advertising or analytics scripts, and it loads no code from other sites apart from web fonts.</p>
+<h2>What stays in your browser</h2><p>Calculator inputs and saved scenarios, your NVDA plan and goal, node addresses you saved, the swaps you confirmed through Ratinole, a swap run in progress, and the name of the wallet you last connected. All of it is in your browser's local storage. You can export or clear it in <a href="#app-settings">Settings</a>.</p>
+<h2>What a wallet connection shares</h2><p>Your public address, so the page can read balances. Never a private key or seed phrase, and no permission to spend.</p>
+<h2>Hosting</h2><p>Like any website, the host that serves a deployment may keep the network address of each request in its logs. A deployment that has a backend may use that address in memory to limit request rates, and the country of a request for one purpose: to refuse NVDA swaps in regions where the product is not offered. This deployment has three small read-only functions on the host (Nosana data, Robinhood data, and the country check above). They keep no database. The country comes from the host's edge network and is not stored by Ratinole. Your browser calls the public Robinhood Chain RPC directly, so that provider can see your network address.</p></div>`;
+const TERMS=`<p class="ey">Terms</p><h1>Terms of use.</h1><div class="doc" style="margin-top:20px"><h2 style="margin-top:20px;border:0;padding-top:0">What Ratinole is</h2><p>An independent analytics and allocation interface. It is not a broker, an exchange, a custodian, an investment adviser or an issuer, and it is not affiliated with NVIDIA, Nosana, Robinhood, Uniswap or the issuer of NVDA.</p>
+<h2>Your responsibility</h2><p>You sign every transaction in your own wallet. Once the network confirms it, it cannot be undone. You are responsible for checking what you sign, for network fees, and for the tax and legal consequences where you live.</p>
+<h2>NVDA</h2><p>NVDA is a Stock Token issued by Robinhood Assets (Jersey) Limited and is subject to that issuer's terms and restrictions. It is a tokenized product with NVIDIA-linked exposure, not a directly registered NVIDIA share, and it carries no voting rights. Robinhood says it may not be offered to U.S. persons, and sales are restricted in other places. You must not use Ratinole to acquire NVDA if you are not permitted to hold it. Read <a href="https://docs.robinhood.com/chain/stock-tokens/">Robinhood's Stock Token documentation</a>.</p>
+<h2>Other services</h2><p>Compute jobs and rewards come from the compute network. Quotes and routes come from the swap provider. Prices come from their own sources. Any of them can be wrong, late or unavailable, and Ratinole says so when it can tell. It does not guarantee them.</p>
+<h2>No advice, no warranty</h2><p>Nothing here is investment, legal or tax advice. Estimates are not guarantees. The software is provided as is, has not been audited, and may contain errors.</p></div>`;
+const DOCV={docs:DOCS,privacy:PRIV,terms:TERMS};
+function mountDoc(k){$('#dpg').innerHTML=DOCV[k];$$('#dpg .toc a').forEach(a=>a.onclick=e=>{e.preventDefault();const t=document.getElementById('d-'+a.dataset.to);if(t)t.scrollIntoView({behavior:'smooth'})})}
+
+/* ===== router ===== */
+const LAND=['top','how','earnings','nvdax','node','trust','token','faq'];
+function route(){PLANS.length=0;const h=location.hash.slice(1);
+  const isApp=h in APP,isDoc=h in DOCV;
+  $('#v-home').classList.toggle('on',!isApp&&!isDoc);$('#v-app').classList.toggle('on',isApp);$('#v-doc').classList.toggle('on',isDoc);
+  if(isApp){mountApp(h);scrollTo(0,0)}else if(isDoc){mountDoc(h);scrollTo(0,0)}
+  else{if(h&&!LAND.includes(h)){history.replaceState(null,'',location.pathname)}bindCalc($('#calcL'),false);bindPlan($('#planL'));$('#mktL').innerHTML=mktCards();renderMarket();if(LAND.includes(h))requestAnimationFrame(()=>{const t=document.getElementById(h);if(t)t.scrollIntoView()});}
+  watch()}
+addEventListener('hashchange',route);route();
+checkGeo();loadRates();checkChain().then(verifyAll);checkNosana().then(()=>renderMarket());loadMarket();renderToken();
+setInterval(()=>{checkChain();checkNosana().then(()=>renderMarket());loadMarket();if(W.addr)readBal()},60000);setInterval(verifyAll,300000);setInterval(loadRates,300000);
+}
+</script>
+</body>
+</html>
