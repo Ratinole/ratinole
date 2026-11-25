@@ -738,10 +738,13 @@ function openModalStatus(){const p=$('#mwst');if(p){p.textContent=ETH()?'Detecte
 function walletLinks(msg){const u=location.href,h=location.host+location.pathname;const L=[['MetaMask','https://metamask.app.link/dapp/'+h],['Trust Wallet','https://link.trustwallet.com/open_url?coin_id=60&url='+encodeURIComponent(u)],['Coinbase Wallet','https://go.cb-w.com/dapp?cb_url='+encodeURIComponent(u)]];
   $('#mmsg').innerHTML=msg+'<br>'+L.map(x=>'<a href="'+x[1]+'" style="color:var(--a);display:inline-block;margin:10px 16px 0 0;font-size:16px">'+x[0]+' ↗</a>').join('')}
 async function rpc(method,params=[]){
-  try{const r=await fetch(LIVE.rpc,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(8000)});
-    if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j.error)throw new Error(j.error.message||'RPC error');return j.result}
-  catch(e){const p=ETH();if(p&&W.addr&&W.chain===LIVE.chainId)return await p.request({method,params});throw e}
-}
+  let last;
+  for(const u of ['/api/rpc',LIVE.rpc]){
+    try{const r=await fetch(u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method,params}),signal:AbortSignal.timeout(9000)});
+      if(!r.ok)throw new Error('HTTP '+r.status);const j=await r.json();if(j.error)throw new Error(j.error.message||'RPC error');return j.result}
+    catch(e){last=e}}
+  const p=ETH();if(p&&W.addr&&W.chain===LIVE.chainId)return await p.request({method,params});
+  throw last}
 const stPill=s=>!s?'<span class="pill">Checking…</span>':s.s==='live'?`<span class="pill ok">Live · ${s.t} UTC</span>`:`<span class="pill wl">Unavailable · ${s.t} UTC</span>`;
 const integHTML=()=>INTEG.map((i,n)=>{const s=ST[i[2]];const pill=s===undefined?'<span class="pill wl">Not configured</span>':stPill(s);const foot=s===undefined?'Not set up on this deployment yet.':s?esc(s.note):'Reading from your browser…';return `<div class="card"><h4>${i[0]}</h4><div style="margin-top:8px">${pill}</div><p>${i[1]}</p><p class="dim" style="color:var(--dim)!important">${foot}</p></div>`}).join('');
 function refreshInteg(){$$('.integ').forEach(e=>e.innerHTML=integHTML());const c=$('.checked');if(c)c.textContent='Static deployment · checked from your browser at '+hhmm()+' UTC. Sources without a connection read "Not configured".'}
